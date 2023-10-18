@@ -1,0 +1,71 @@
+[gd_scene load_steps=16 format=3 uid="uid://bg1dfecnxp0dr"]
+
+[ext_resource type="PackedScene" uid="uid://bk004xnrbax3d" path="res://components/support_action_comp/SupportAction.tscn" id="1_8cgp0"]
+[ext_resource type="Script" path="res://ResupplyAction.gd" id="2_nscl3"]
+[ext_resource type="Texture2D" uid="uid://pcxxhn07tnn8" path="res://img/anime/resupply/pixil-frame-0.png" id="3_w28ge"]
+[ext_resource type="Texture2D" uid="uid://bla0ofalb120l" path="res://img/anime/resupply/pixil-frame-1.png" id="4_wo1hs"]
+[ext_resource type="Texture2D" uid="uid://dxgu8t1h1w7u3" path="res://img/anime/resupply/pixil-frame-2.png" id="5_s0l3l"]
+[ext_resource type="Texture2D" uid="uid://c2cy5j4t7uekv" path="res://img/anime/resupply/pixil-frame-3.png" id="6_eeui1"]
+[ext_resource type="Texture2D" uid="uid://c7fqma8x01k8y" path="res://img/anime/resupply/pixil-frame-4.png" id="7_w45yq"]
+[ext_resource type="Texture2D" uid="uid://b2ho02eek51k3" path="res://img/anime/resupply/pixil-frame-5.png" id="8_rgvy8"]
+[ext_resource type="Texture2D" uid="uid://cjb8n3dujy4ml" path="res://img/anime/resupply/pixil-frame-6.png" id="9_udnid"]
+[ext_resource type="Texture2D" uid="uid://b74a3tlj6ldky" path="res://img/anime/resupply/pixil-frame-7.png" id="10_px4kp"]
+[ext_resource type="Texture2D" uid="uid://bn6ls7vonk4hr" path="res://img/anime/resupply/pixil-frame-8.png" id="11_oplmo"]
+[ext_resource type="Texture2D" uid="uid://bewhlu71hgiqp" path="res://img/anime/resupply/pixil-frame-9.png" id="12_6rrwf"]
+[ext_resource type="Texture2D" uid="uid://dbhq1d0ck2iw1" path="res://img/anime/resupply/pixil-frame-10.png" id="13_pwhk7"]
+[ext_resource type="Texture2D" uid="uid://bst32d1dk5l0p" path="res://img/anime/resupply/pixil-frame-11.png" id="14_a7wt3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2sdg5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_w28ge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wo1hs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_s0l3l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_eeui1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_w45yq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rgvy8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_udnid")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_px4kp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_oplmo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_6rrwf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_pwhk7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_a7wt3")
+}],
+"loop": false,
+"name": &"resupply_animation",
+"speed": 10.0
+}]
+
+[node name="ResupplyAction" instance=ExtResource("1_8cgp0")]
+script = ExtResource("2_nscl3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(-1, 9.53674e-07)
+scale = Vector2(2.0625, 1.96875)
+sprite_frames = SubResource("SpriteFrames_2sdg5")
+animation = &"resupply_animation"
+frame = 11
+frame_progress = 1.0

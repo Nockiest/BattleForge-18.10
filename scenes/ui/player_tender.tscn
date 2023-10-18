@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkrs0cguctsi"]
+
+[ext_resource type="Script" path="res://scenes/ui/player_tender.gd" id="1_j15q1"]
+[ext_resource type="PackedScene" uid="uid://cy0vtlyks2vvt" path="res://scenes/ui/text_ith_image_row.tscn" id="1_shtdr"]
+
+[node name="player_tender" type="Control" groups=["player_tenders"]]
+custom_minimum_size = Vector2(125, 155)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 117.0
+offset_bottom = 142.0
+script = ExtResource("1_j15q1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.623529, 0, 1)
+
+[node name="VScrollBar" type="ScrollContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_force_pass_scroll_events = false
+mouse_default_cursor_shape = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VScrollBar"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Money" parent="ColorRect/VScrollBar/VBoxContainer" instance=ExtResource("1_shtdr")]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="UnitCount" parent="ColorRect/VScrollBar/VBoxContainer" instance=ExtResource("1_shtdr")]
+layout_mode = 2
+mouse_filter = 2

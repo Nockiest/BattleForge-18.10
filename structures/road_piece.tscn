@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://beh1t5p0p7hnh"]
+
+[ext_resource type="PackedScene" uid="uid://b4kicmuajeb4x" path="res://structures/structure.tscn" id="1_n88ce"]
+[ext_resource type="Texture2D" uid="uid://bayyfjkvc6t4m" path="res://img/death_cross.png" id="2_wtyll"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gx4q"]
+size = Vector2(183, 241)
+
+[node name="Area2D" instance=ExtResource("1_n88ce")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(94.5, 122.5)
+shape = SubResource("RectangleShape2D_4gx4q")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="ColorRect" parent="." index="1"]
+color = Color(1, 1, 1, 0)
+
+[node name="Sprite2D" parent="." index="2"]
+position = Vector2(93, 122)
+scale = Vector2(1.15, 1.07018)
+texture = ExtResource("2_wtyll")

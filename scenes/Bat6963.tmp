@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://x55p4342hqhh"]
+
+[ext_resource type="Script" path="res://scenes/Battleground.gd" id="1_conv3"]
+[ext_resource type="PackedScene" uid="uid://cyl4gg4y6i7mv" path="res://scenes/ui/canvas.tscn" id="2_5oida"]
+[ext_resource type="PackedScene" uid="uid://bmn7m62gc1dc2" path="res://scenes/screens/levels/units/ranged_unit.tscn" id="4_fxmuk"]
+[ext_resource type="PackedScene" uid="uid://jsotvstucd7a" path="res://scenes/screens/levels/units/melee_unit.tscn" id="5_uxt6i"]
+[ext_resource type="PackedScene" uid="uid://b8esb3nkgltuq" path="res://scenes/screens/levels/units/support_unit.tscn" id="6_t5im7"]
+
+[node name="BattleGround" type="Node2D"]
+script = ExtResource("1_conv3")
+
+[node name="canvas" parent="." instance=ExtResource("2_5oida")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(660, 360)
+
+[node name="LivingUnits" type="Node2D" parent="."]
+
+[node name="RangedUnit" parent="LivingUnits" instance=ExtResource("4_fxmuk")]
+position = Vector2(153, 204)
+
+[node name="MeleeUnit" parent="LivingUnits" instance=ExtResource("5_uxt6i")]
+position = Vector2(272, 133)
+
+[node name="SupportUnit" parent="LivingUnits" instance=ExtResource("6_t5im7")]
+position = Vector2(563, 159)
+
+[connection signal="next_turn_pressed" from="canvas" to="." method="_on_canvas_next_turn_pressed"]

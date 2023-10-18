@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3614m3v7idnh"]
+
+[ext_resource type="Script" path="res://components/information_viewer/information_viewer.gd" id="1_b5kv8"]
+
+[sub_resource type="Image" id="Image_fgyx7"]
+
+[node name="StatsBar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 50.0
+offset_bottom = 50.0
+script = ExtResource("1_b5kv8")
+variable_images = Array[Image]([SubResource("Image_fgyx7"), null])

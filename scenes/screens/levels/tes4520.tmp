@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm1wvaymywfu1"]
+
+[ext_resource type="Texture2D" uid="uid://dmc37qht47pr" path="res://img/castle.png" id="1_pbfgj"]
+[ext_resource type="Script" path="res://scenes/levels/Sprite2D.gd" id="2_n73au"]
+
+[node name="player" type="Node2D"]
+position = Vector2(183, 159)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(29, 31)
+texture = ExtResource("1_pbfgj")
+script = ExtResource("2_n73au")

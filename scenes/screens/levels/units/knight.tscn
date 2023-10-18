@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2lwamexhnnl6"]
+
+[ext_resource type="PackedScene" uid="uid://jsotvstucd7a" path="res://scenes/screens/levels/units/melee_unit.tscn" id="1_404sw"]
+[ext_resource type="Script" path="res://scenes/screens/levels/units/knight.gd" id="2_guskw"]
+
+[node name="Knight" instance=ExtResource("1_404sw")]
+script = ExtResource("2_guskw")
+base_movement_range = 300
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(24.5, 23.5)
+scale = Vector2(1.02083, 0.979167)
+
+[node name="UnitStatsBar" parent="." index="4"]
+visible = false
+z_index = 1
+offset_left = 1.0
+offset_right = 1.0
+
+[node name="ColorRect" parent="UnitStatsBar" index="0"]
+layout_mode = 0
+offset_left = 0.0
+offset_right = 48.0
+offset_bottom = 74.0
+
+[node name="HealthComponent" parent="." index="5"]
+visible = false
+position = Vector2(-9, -14)
+
+[node name="ActionComponent" parent="." index="7"]
+position = Vector2(0, 0)
+
+[node name="melee_attack_comp" parent="ActionComponent" index="0"]
+position = Vector2(1, 1)
+
+[node name="RemainMovementLabel" parent="." index="9"]
+offset_left = -40.0
+offset_top = 0.0
+offset_bottom = 23.0
+
+[node name="Center" parent="." index="10"]
+position = Vector2(25, 25)
+
+[node name="CollisionArea" parent="." index="11" groups=["unit_collision_areas"]]
+light_mask = 2
+visibility_layer = 2
+metadata/_edit_lock_ = true
+
+[connection signal="area_entered" from="CollisionArea" to="." method="_on_area_2d_area_entered" flags=18]
+[connection signal="mouse_entered" from="CollisionArea" to="." method="_on_collision_area_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="CollisionArea" to="." method="_on_collision_area_mouse_exited" flags=18]

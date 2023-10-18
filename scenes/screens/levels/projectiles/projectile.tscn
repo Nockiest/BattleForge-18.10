@@ -1,0 +1,162 @@
+[gd_scene load_steps=33 format=3 uid="uid://i2m0nvduyp0c"]
+
+[ext_resource type="Script" path="res://scenes/screens/levels/projectiles/projectile.gd" id="1_jmxrc"]
+[ext_resource type="Texture2D" uid="uid://dk6fv1mbsu3t8" path="res://img/anime/explosion/pixil-frame-0.png" id="2_qshlr"]
+[ext_resource type="Texture2D" uid="uid://bacyyf4wcfhm5" path="res://img/anime/error/pixil-frame-0.png" id="2_rsywv"]
+[ext_resource type="Texture2D" uid="uid://5mucy0poqp2x" path="res://img/anime/explosion/pixil-frame-1.png" id="3_s3hs2"]
+[ext_resource type="Texture2D" uid="uid://dtjncd12qlej6" path="res://img/anime/error/pixil-frame-1.png" id="3_tqyvj"]
+[ext_resource type="Texture2D" uid="uid://hlif8tilboik" path="res://img/anime/explosion/pixil-frame-2.png" id="4_cty4j"]
+[ext_resource type="Texture2D" uid="uid://lc3k7rysnocl" path="res://img/anime/error/pixil-frame-2.png" id="4_cvnxv"]
+[ext_resource type="Texture2D" uid="uid://c6lfmbn0p8tu1" path="res://img/anime/explosion/pixil-frame-3.png" id="5_4foxb"]
+[ext_resource type="Texture2D" uid="uid://dh1yg3pe7i7tp" path="res://img/anime/error/pixil-frame-3.png" id="5_g0adi"]
+[ext_resource type="Texture2D" uid="uid://2po3pe3qej6y" path="res://img/anime/explosion/pixil-frame-4.png" id="6_gse64"]
+[ext_resource type="Texture2D" uid="uid://xmgwmv0ixej7" path="res://img/anime/error/pixil-frame-4.png" id="6_s7rwf"]
+[ext_resource type="Texture2D" uid="uid://dhnofg8yngqam" path="res://img/anime/error/pixil-frame-5.png" id="7_5i75u"]
+[ext_resource type="Texture2D" uid="uid://djskm2cbitd4w" path="res://img/anime/explosion/pixil-frame-5.png" id="7_wem8t"]
+[ext_resource type="Texture2D" uid="uid://dn77spuxn7qw8" path="res://img/anime/explosion/pixil-frame-6.png" id="8_2fjd1"]
+[ext_resource type="Texture2D" uid="uid://t6fv58t0lq5d" path="res://img/anime/error/pixil-frame-6.png" id="8_3v6j7"]
+[ext_resource type="Texture2D" uid="uid://bydcrqbsivd81" path="res://img/anime/error/pixil-frame-7.png" id="9_3ql5h"]
+[ext_resource type="Texture2D" uid="uid://dxnd6l5mop4mk" path="res://img/anime/explosion/pixil-frame-7.png" id="9_q23rf"]
+[ext_resource type="Texture2D" uid="uid://c07snrcnjvthp" path="res://img/anime/error/pixil-frame-8.png" id="10_7cpva"]
+[ext_resource type="Texture2D" uid="uid://bioa2ti756gpw" path="res://img/anime/explosion/pixil-frame-8.png" id="10_ib3ao"]
+[ext_resource type="Texture2D" uid="uid://dgaqndlmuaygc" path="res://img/anime/explosion/pixil-frame-9.png" id="11_b232e"]
+[ext_resource type="Texture2D" uid="uid://l7e2g3eamdcv" path="res://img/anime/error/pixil-frame-9.png" id="11_vgwgi"]
+[ext_resource type="Texture2D" uid="uid://c6a21fmiof6v2" path="res://img/anime/error/pixil-frame-10.png" id="12_0a5ht"]
+[ext_resource type="Texture2D" uid="uid://c3jjyy6asw4a7" path="res://img/anime/explosion/pixil-frame-10.png" id="12_s5fik"]
+[ext_resource type="Texture2D" uid="uid://c286prnqlpj48" path="res://img/anime/explosion/pixil-frame-11.png" id="13_yc1ma"]
+[ext_resource type="Texture2D" uid="uid://com7m6al6oa4n" path="res://img/anime/explosion/pixil-frame-12.png" id="14_auoc1"]
+[ext_resource type="Texture2D" uid="uid://b5uclv62w7t8h" path="res://img/anime/explosion/pixil-frame-13.png" id="15_3yc18"]
+[ext_resource type="Texture2D" uid="uid://c18iqq1f75kll" path="res://img/anime/explosion/pixil-frame-14.png" id="16_rbbyf"]
+[ext_resource type="Texture2D" uid="uid://be7nuf1hojlb5" path="res://img/anime/explosion/pixil-frame-15.png" id="17_1oiaa"]
+[ext_resource type="Texture2D" uid="uid://h563xc0735gy" path="res://img/anime/explosion/pixil-frame-16.png" id="18_c3jr2"]
+[ext_resource type="AudioStream" uid="uid://bucultkjbfm0i" path="res://music/projectile/explosion.ogg" id="30_chy4d"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bxjgt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rsywv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tqyvj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cvnxv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g0adi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_s7rwf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5i75u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3v6j7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3ql5h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_7cpva")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_vgwgi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_0a5ht")
+}],
+"loop": false,
+"name": &"error",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_78tqw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qshlr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_s3hs2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cty4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4foxb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gse64")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wem8t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2fjd1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_q23rf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ib3ao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_b232e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_s5fik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_yc1ma")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_auoc1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_3yc18")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_rbbyf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_1oiaa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_c3jr2")
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 15.0
+}]
+
+[node name="projectile" type="Area2D"]
+z_index = 15
+rotation = 1.5708
+collision_layer = 16
+collision_mask = 9
+script = ExtResource("1_jmxrc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="ErrorAnimation" type="AnimatedSprite2D" parent="."]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_bxjgt")
+animation = &"error"
+
+[node name="ExplosionAnimation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_78tqw")
+animation = &"explosion"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 32
+visibility_layer = 25
+
+[node name="Explosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("30_chy4d")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
+[connection signal="animation_finished" from="ErrorAnimation" to="." method="_on_error_animation_finished"]
+[connection signal="animation_finished" from="ExplosionAnimation" to="." method="_on_damage_animation_animation_finished"]

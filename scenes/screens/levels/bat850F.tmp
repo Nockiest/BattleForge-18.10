@@ -1,0 +1,35 @@
+[gd_scene load_steps=9 format=3 uid="uid://chsjsek1enh2m"]
+
+[ext_resource type="PackedScene" uid="uid://ckd0oprsc5w0y" path="res://scenes/levels/level.tscn" id="1_j1sbm"]
+[ext_resource type="Script" path="res://scenes/levels/battleground.gd" id="2_w7eio"]
+[ext_resource type="PackedScene" uid="uid://dyvttywl7blvm" path="res://scenes/levels/structures/road_piece.tscn" id="4_wtnm5"]
+[ext_resource type="PackedScene" uid="uid://h6s6nsnu17u4" path="res://scenes/levels/structures/house.tscn" id="5_wjc5n"]
+[ext_resource type="PackedScene" uid="uid://cxv0o3w51xhc4" path="res://scenes/levels/structures/supply_depo.tscn" id="6_ugbqu"]
+[ext_resource type="PackedScene" uid="uid://dj3s6iffninyo" path="res://scenes/levels/structures/town.tscn" id="7_xs01m"]
+[ext_resource type="PackedScene" uid="uid://dkrdjtyb1p88n" path="res://scenes/levels/units/basic_unit.tscn" id="8_70a8r"]
+[ext_resource type="PackedScene" uid="uid://cybplbmnxxd36" path="res://scenes/levels/units/static_body_2d.tscn" id="8_rsfep"]
+
+[node name="Battleground" instance=ExtResource("1_j1sbm")]
+script = ExtResource("2_w7eio")
+
+[node name="Node2D" parent="." index="1"]
+position = Vector2(664, 368)
+
+[node name="Area2D" parent="." index="2" instance=ExtResource("4_wtnm5")]
+position = Vector2(15, 124)
+
+[node name="Area2D2" parent="." index="3" instance=ExtResource("5_wjc5n")]
+position = Vector2(420, 103)
+
+[node name="Area2D3" parent="." index="4" instance=ExtResource("6_ugbqu")]
+position = Vector2(667, 216)
+
+[node name="Area2D" parent="Area2D3" index="4" instance=ExtResource("7_xs01m")]
+position = Vector2(-241, -59)
+
+[node name="StaticBody2D" parent="." index="5" instance=ExtResource("8_rsfep")]
+
+[node name="basic_unit" parent="." index="8" instance=ExtResource("8_70a8r")]
+
+[connection signal="unit_not_hovered" from="StaticBody2D" to="." method="_on_static_body_2d_unit_not_hovered"]
+[connection signal="unit_hovered" from="basic_unit" to="." method="_on_basic_unit_unit_hovered"]

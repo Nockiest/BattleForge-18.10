@@ -1,0 +1,73 @@
+[gd_scene load_steps=15 format=3 uid="uid://ckwnk28b1t842"]
+
+[ext_resource type="PackedScene" uid="uid://i2m0nvduyp0c" path="res://scenes/screens/levels/projectiles/projectile.tscn" id="1_fditi"]
+[ext_resource type="Script" path="res://scenes/screens/levels/projectiles/bullet.gd" id="1_y84vw"]
+[ext_resource type="Texture2D" uid="uid://c0hnavsl0tf65" path="res://img/anime/bullet-minus/pixil-frame-0.png" id="2_skx2m"]
+[ext_resource type="Texture2D" uid="uid://burvkjnwsf14b" path="res://img/anime/bullet_flying_animation/pixil-frame-0.png" id="4_133is"]
+[ext_resource type="Texture2D" uid="uid://5j3ine6m07yg" path="res://img/anime/bullet_flying_animation/pixil-frame-1.png" id="5_uuaa1"]
+[ext_resource type="Texture2D" uid="uid://t0fi47r04cfy" path="res://img/anime/bullet_flying_animation/pixil-frame-2.png" id="6_bnh5t"]
+[ext_resource type="Texture2D" uid="uid://vuf2qw1a2o5i" path="res://img/anime/bullet_flying_animation/pixil-frame-3.png" id="7_jskxc"]
+[ext_resource type="Texture2D" uid="uid://b6r2a6pbhixcu" path="res://img/anime/bullet_flying_animation/pixil-frame-4.png" id="8_1l28c"]
+[ext_resource type="Texture2D" uid="uid://c23byvixu88lf" path="res://img/anime/bullet_flying_animation/pixil-frame-5.png" id="9_5sk87"]
+[ext_resource type="Texture2D" uid="uid://b4bptka18sdt0" path="res://img/anime/bullet_flying_animation/pixil-frame-6.png" id="10_o4bla"]
+[ext_resource type="Texture2D" uid="uid://2mgps41hkgwp" path="res://img/anime/bullet_flying_animation/pixil-frame-7.png" id="11_yj1xv"]
+[ext_resource type="Texture2D" uid="uid://ooq0ssuo6r6k" path="res://img/anime/bullet_flying_animation/pixil-frame-8.png" id="12_sc6j2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b5yqj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_133is")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_uuaa1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_bnh5t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jskxc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1l28c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_5sk87")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_o4bla")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_yj1xv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_sc6j2")
+}],
+"loop": true,
+"name": &"BulletFlyingAnimation",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l6eco"]
+radius = 7.0
+height = 16.0
+
+[node name="Bullet" instance=ExtResource("1_fditi")]
+light_mask = 32
+visibility_layer = 9
+script = ExtResource("1_y84vw")
+
+[node name="Sprite2D" parent="." index="0"]
+visible = false
+position = Vector2(5, 0.999981)
+texture = ExtResource("2_skx2m")
+
+[node name="BulletFlyingAnimation" type="AnimatedSprite2D" parent="." index="3"]
+position = Vector2(-0.999982, 5)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_b5yqj")
+animation = &"BulletFlyingAnimation"
+autoplay = "BulletFlyingAnimation"
+
+[node name="CollisionShape2D" parent="." index="4"]
+shape = SubResource("CapsuleShape2D_l6eco")

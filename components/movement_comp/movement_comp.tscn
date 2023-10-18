@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://bsghedd31qfoa"]
+
+[ext_resource type="Script" path="res://components/movement_comp/movement_comp.gd" id="1_i5omy"]
+[ext_resource type="Script" path="res://components/movement_comp/state_machine.gd" id="2_evtpk"]
+[ext_resource type="Script" path="res://components/movement_comp/Moving.gd" id="3_7w4gi"]
+[ext_resource type="Script" path="res://components/movement_comp/MovementSoundPlayer.gd" id="4_yjkke"]
+[ext_resource type="PackedScene" uid="uid://flxe67nfovka" path="res://components/random_music_player/random_music_player.tscn" id="5_sl3ls"]
+[ext_resource type="AudioStream" uid="uid://csy7sqypjcjw6" path="res://music/unit/movement/gravel_step.wav" id="6_6tvuo"]
+[ext_resource type="AudioStream" uid="uid://vledkswyggia" path="res://music/unit/movement/grass_step.wav" id="7_0pdmu"]
+[ext_resource type="AudioStream" uid="uid://rmaordox3dgd" path="res://music/unit/movement/mud_step.wav" id="8_8m0ig"]
+
+[node name="movement_comp" type="Node2D"]
+light_mask = 2
+script = ExtResource("1_i5omy")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+z_index = 1000
+collision_mask = 459
+collide_with_areas = true
+
+[node name="State" type="Node" parent="."]
+script = ExtResource("2_evtpk")
+
+[node name="Moving" type="Node" parent="State"]
+script = ExtResource("3_7w4gi")
+
+[node name="Idle" type="Node" parent="State"]
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="."]
+
+[node name="MovementSoundPlayer" type="Node" parent="."]
+script = ExtResource("4_yjkke")
+
+[node name="random_music_player" parent="MovementSoundPlayer" instance=ExtResource("5_sl3ls")]
+sound_list = Array[AudioStream]([ExtResource("6_6tvuo"), ExtResource("7_0pdmu"), ExtResource("8_8m0ig")])
+
+[node name="Line2D" type="Line2D" parent="."]
+z_index = 1000
+default_color = Color(0, 0, 0, 1)
+
+[node name="NewPosition" type="Marker2D" parent="."]

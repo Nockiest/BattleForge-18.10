@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://x55p4342hqhh"]
+
+[ext_resource type="Script" path="res://scenes/Battleground.gd" id="1_conv3"]
+[ext_resource type="PackedScene" uid="uid://cyl4gg4y6i7mv" path="res://scenes/ui/canvas.tscn" id="2_5oida"]
+[ext_resource type="PackedScene" uid="uid://bs2ojp8fmt43t" path="res://scenes/screens/levels/buy_area.tscn" id="6_tkc11"]
+
+[node name="BattleGround" type="Node2D"]
+script = ExtResource("1_conv3")
+
+[node name="canvas" parent="." instance=ExtResource("2_5oida")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(575, 322)
+
+[node name="RedBuyArea" parent="." instance=ExtResource("6_tkc11")]
+position = Vector2(-1, 56)
+team = "red"
+metadata/_edit_lock_ = true
+
+[node name="BlueBuyArea" parent="." instance=ExtResource("6_tkc11")]
+position = Vector2(800, 56)
+
+[node name="Structures" type="Node2D" parent="."]
+
+[node name="LivingUnits" type="Node2D" parent="."]
+
+[node name="Projectiles" type="Node2D" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_lock_ = true
+
+[node name="DebugLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="HoveredUnit" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[connection signal="next_turn_pressed" from="canvas" to="." method="_on_canvas_next_turn_pressed"]
+[connection signal="buy_unit" from="RedBuyArea" to="." method="_on_red_buy_area_buy_unit"]
+[connection signal="buy_unit" from="BlueBuyArea" to="." method="_on_blue_buy_area_buy_unit"]

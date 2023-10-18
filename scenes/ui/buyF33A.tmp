@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgo81acasqhl6"]
+
+[ext_resource type="PackedScene" uid="uid://c47pmxfmok6yk" path="res://scenes/ui/default_button.tscn" id="1_sje8s"]
+[ext_resource type="Texture2D" uid="uid://bd8wxmw3r74rq" path="res://img/barracks.png" id="2_bpspu"]
+[ext_resource type="Script" path="res://scenes/ui/buyButton.gd" id="3_rb343"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6hic"]
+size = Vector2(61, 74)
+
+[node name="BuyButton" instance=ExtResource("1_sje8s")]
+modulate = Color(0.560784, 0.521569, 0.34902, 1)
+custom_minimum_size = Vector2(60, 0)
+offset_right = 61.0
+offset_bottom = 74.0
+text = " "
+icon_alignment = 1
+vertical_icon_alignment = 0
+script = ExtResource("3_rb343")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(30.5, 37)
+shape = SubResource("RectangleShape2D_s6hic")
+
+[node name="MarginContainer" type="MarginContainer" parent="." index="1"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -27.0
+offset_right = 27.0
+offset_bottom = 56.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 3
+
+[node name="Container" type="VBoxContainer" parent="MarginContainer" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Container" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_bpspu")
+stretch_mode = 3
+
+[node name="UnitTypeLabel" type="Label" parent="MarginContainer/Container" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "Unit type"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

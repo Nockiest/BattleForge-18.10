@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://wsc5c2qarhv5"]
+
+[ext_resource type="PackedScene" uid="uid://jsotvstucd7a" path="res://scenes/screens/levels/units/melee_unit.tscn" id="1_cnw6w"]
+[ext_resource type="Script" path="res://scenes/screens/levels/units/shield.gd" id="2_f88wd"]
+[ext_resource type="Texture2D" uid="uid://bu7erw8ki7qkq" path="res://img/shield.png" id="2_tv4ms"]
+
+[node name="Shield" instance=ExtResource("1_cnw6w")]
+script = ExtResource("2_f88wd")
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(24.5, 24)
+scale = Vector2(0.765625, 0.75)
+texture = ExtResource("2_tv4ms")
+
+[node name="UnitStatsBar" parent="." index="4"]
+visible = false
+offset_left = 1.0
+offset_right = 1.0
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" parent="UnitStatsBar" index="0"]
+layout_mode = 0
+offset_left = 0.0
+offset_right = 48.0
+offset_bottom = 74.0
+
+[node name="HealthComponent" parent="." index="5"]
+visible = false
+position = Vector2(-4, -14)
+
+[node name="ActionComponent" parent="." index="7"]
+position = Vector2(0, 0)
+
+[node name="melee_attack_comp" parent="ActionComponent" index="0"]
+position = Vector2(0, 0)
+
+[node name="RemainMovementLabel" parent="." index="9"]
+offset_left = -40.0
+offset_top = 0.0
+offset_bottom = 23.0
+
+[node name="Center" parent="." index="10"]
+position = Vector2(25, 25)
+
+[node name="CollisionArea" parent="." index="11" groups=["unit_collision_areas"]]
+light_mask = 2
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" parent="CollisionArea" index="0"]
+position = Vector2(25, 25.5)
+
+[connection signal="area_entered" from="CollisionArea" to="." method="_on_area_2d_area_entered" flags=18]
+[connection signal="mouse_entered" from="CollisionArea" to="." method="_on_collision_area_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="CollisionArea" to="." method="_on_collision_area_mouse_exited" flags=18]

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://da6m8xjnk2ovm"]
+
+[ext_resource type="PackedScene" uid="uid://bk004xnrbax3d" path="res://components/support_action_comp/SupportAction.tscn" id="1_u0mjj"]
+[ext_resource type="Script" path="res://ObserveAction.gd" id="2_x4xld"]
+
+[node name="ObserveAction" instance=ExtResource("1_u0mjj")]
+script = ExtResource("2_x4xld")

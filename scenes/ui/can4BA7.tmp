@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://cyl4gg4y6i7mv"]
+
+[ext_resource type="Script" path="res://scenes/ui/canvas.gd" id="1_xaxmr"]
+[ext_resource type="PackedScene" uid="uid://b14wos6th44f3" path="res://scenes/ui/buy_bar.tscn" id="2_wxnc2"]
+[ext_resource type="PackedScene" uid="uid://bkrs0cguctsi" path="res://scenes/ui/player_tender.tscn" id="3_tapla"]
+[ext_resource type="PackedScene" uid="uid://c47pmxfmok6yk" path="res://scenes/ui/default_button.tscn" id="4_hlilr"]
+[ext_resource type="Script" path="res://scenes/ui/next_turn_btn.gd" id="5_xwib2"]
+
+[node name="canvas" type="CanvasLayer"]
+script = ExtResource("1_xaxmr")
+
+[node name="BuyBar" parent="." instance=ExtResource("2_wxnc2")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_left = 5.0
+offset_top = -44.0
+offset_right = 5.0
+offset_bottom = -44.0
+grow_vertical = 0
+size_flags_vertical = 8
+
+[node name="player_tender" parent="." instance=ExtResource("3_tapla")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -143.0
+offset_right = 1.0
+offset_bottom = -143.0
+grow_vertical = 0
+size_flags_vertical = 8
+
+[node name="player_tender2" parent="." instance=ExtResource("3_tapla")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -116.0
+offset_top = -143.0
+offset_right = -116.0
+offset_bottom = -143.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="NextTurnBtn" parent="." instance=ExtResource("4_hlilr")]
+text = "Next Turn"
+script = ExtResource("5_xwib2")
+
+[node name="NextTurnBtn2" parent="." instance=ExtResource("4_hlilr")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -8.0
+offset_right = 0.0
+grow_horizontal = 0
+text = "Give Up"
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.5
+offset_right = 56.5
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "Current Player ="
+
+[connection signal="pressed" from="NextTurnBtn" to="." method="_on_next_turn_btn_pressed"]
+[connection signal="pressed" from="NextTurnBtn" to="NextTurnBtn" method="_on_pressed"]

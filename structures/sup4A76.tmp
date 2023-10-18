@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxv0o3w51xhc4"]
+
+[ext_resource type="PackedScene" uid="uid://b4kicmuajeb4x" path="res://structures/structure.tscn" id="1_1ub7h"]
+[ext_resource type="Texture2D" uid="uid://dcoayambqq6ge" path="res://img/block-house.png" id="2_7800j"]
+[ext_resource type="PackedScene" uid="uid://b41i8fpfpxsxu" path="res://components/support_action_comp/area_resupply_action.tscn" id="3_73h2c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0k2fe"]
+size = Vector2(28, 32)
+
+[node name="Supply_depo" groups=["Structures", "SupplyDepos"] instance=ExtResource("1_1ub7h")]
+position = Vector2(-1, 2)
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(2, -1)
+shape = SubResource("RectangleShape2D_0k2fe")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="ColorRect" parent="." index="1"]
+offset_left = -11.0
+offset_top = -17.0
+offset_right = 17.0
+offset_bottom = 15.0
+color = Color(1, 1, 0, 1)
+
+[node name="Sprite2D" parent="." index="2"]
+position = Vector2(1, 1)
+texture = ExtResource("2_7800j")
+
+[node name="Marker2D" type="Marker2D" parent="." index="3"]
+position = Vector2(2, -3)
+
+[node name="SupplyRangeArea" type="Area2D" parent="." index="4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SupplyRangeArea" index="0"]
+
+[node name="AreaResupplyAction" parent="." index="5" instance=ExtResource("3_73h2c")]
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

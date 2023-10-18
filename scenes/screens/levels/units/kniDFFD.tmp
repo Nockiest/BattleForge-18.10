@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2lwamexhnnl6"]
+
+[ext_resource type="PackedScene" uid="uid://jsotvstucd7a" path="res://scenes/screens/levels/units/melee_unit.tscn" id="1_404sw"]
+[ext_resource type="Script" path="res://scenes/screens/levels/units/knight.gd" id="2_guskw"]
+
+[node name="Knight" instance=ExtResource("1_404sw")]
+collision_layer = 3
+collision_mask = 11
+script = ExtResource("2_guskw")
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(24.5, 23.5)
+scale = Vector2(1.02083, 0.979167)
+
+[node name="VBoxContainer" parent="UnitStatsBar" index="1"]
+offset_top = 0.0
+offset_bottom = 74.0
+
+[node name="Attacks" parent="UnitStatsBar/VBoxContainer" index="2"]
+text = ""
+
+[node name="CollisionArea" parent="." index="5" groups=["unit_collision_areas"]]
+light_mask = 2
+visibility_layer = 2
+collision_mask = 1
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" parent="CollisionArea" index="0"]
+position = Vector2(25, 25)
+
+[node name="ActionComponent" parent="." index="8"]
+position = Vector2(0, 0)
+
+[node name="melee_attack_comp" parent="ActionComponent" index="0"]
+position = Vector2(1, 1)
+
+[connection signal="area_entered" from="CollisionArea" to="." method="_on_area_2d_area_entered" flags=18]
+[connection signal="mouse_entered" from="CollisionArea" to="." method="_on_collision_area_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="CollisionArea" to="." method="_on_collision_area_mouse_exited" flags=18]
