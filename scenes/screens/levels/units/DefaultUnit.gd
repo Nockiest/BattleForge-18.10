@@ -80,9 +80,11 @@ func _process(_delta):
 	queue_redraw()
 	update_stats_bar()
 	center = $Center.global_position 
+	if $movement_comp.current_state !=  $movement_comp.state.Moving:
+		action_component.process(_delta)
 	if Color(Globals.cur_player) == color:
 		$movement_comp.process(_delta)
- 
+
 func _on_movement_comp_ran_out_of_movement():
 	call_deferred_thread_group("use_$movement_comp_abort")
 	print("POSITION", position, " ", global_position)

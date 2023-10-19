@@ -119,7 +119,7 @@ func  update_for_next_turn():
 	remain_actions = base_actions
 	unhighlight_units_in_range()
 
-func _process(_delta): 
+func process(_delta): 
 	if "color" in owner:
 		if Color(Globals.cur_player) != owner.color:
 			return

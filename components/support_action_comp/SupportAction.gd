@@ -25,8 +25,8 @@ func stop_supporting():
 	supported_entity = null
 #	unhighlight_units_in_range()
  
-func _process(_delta):
-	super._process(_delta)
+func process(_delta):
+	super.process(_delta)
 	if current_support_state == SupportStates.ProvidingSupport:
 		draw_line_to_supported_entity()
  

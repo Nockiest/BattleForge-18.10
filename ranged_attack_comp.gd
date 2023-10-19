@@ -49,15 +49,6 @@ func shoot_bullet(pos, direction):
 	# Set the position and direction of the bullet
 	var collision_shape = bullet.get_node("CollisionShape2D")  # Replace with your actual collision shape node name
 	print(collision_shape, "COL")
-#	var shape = collision_shape.shape
-#	var shape_size = Vector2(0,0) 
-##	if shape is RectangleShape2D or shape is CapsuleShape2D:
-##		shape_size = shape.get_extents() * 2  # Calculate the size of the shape
-#	if shape is CircleShape2D:
-#		var radius = shape.get_radius()
-#		shape_size = Vector2(radius, radius) * 2
-#	else:
-#		print("Unsupported shape type")
  
  
 	bullet.position = pos #- shape_size / 2   # Adjust the position so that the center of the shape is at pos
@@ -85,7 +76,16 @@ func shoot_bullet(pos, direction):
 	$BlastAnimation.rotation = direction.angle() - PI/2 *3
 	$BlastAnimation.play("blast")  # Replace "blast" with the name of your animation
 	# Rotate the AnimatedSprite to face the same direction as the bullet	
-
+#	var shape = collision_shape.shape
+#	var shape_size = Vector2(0,0) 
+##	if shape is RectangleShape2D or shape is CapsuleShape2D:
+##		shape_size = shape.get_extents() * 2  # Calculate the size of the shape
+#	if shape is CircleShape2D:
+#		var radius = shape.get_radius()
+#		shape_size = Vector2(radius, radius) * 2
+#	else:
+#		print("Unsupported shape type")
+ 
 
 func _on_ammo_component_ammo_changed():
 	ammo_changed.emit(ammo_component.ammo)
