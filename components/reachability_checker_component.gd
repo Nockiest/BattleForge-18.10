@@ -31,7 +31,7 @@ func check_position_reachable(point, projectile_size):
 #		for index in attack_obstructions_layer_indexes:
 	# Check if the ray hits anything
 	raycast.force_raycast_update()
-	var timer = Timer.new()
+#	var timer = Timer.new()
 #	timer.wait_time = 2.0  # Set the time in seconds
 #	timer.one_shot = true
 #	add_child(timer)

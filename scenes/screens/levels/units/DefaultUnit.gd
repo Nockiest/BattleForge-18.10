@@ -11,7 +11,7 @@ const base_movement:int = 1
 @export var action_range = 100 
 ## tohle budu mwnit nodem
 var action_component
-@export var movement_comp:Node 
+#@export var movement_comp:Node 
 @onready var center = $Center.global_position
 @onready var size = $CollisionArea/CollisionShape2D.shape.extents * 2 
 @onready var buy_areas = get_tree().get_nodes_in_group("buy_areas")
@@ -110,6 +110,7 @@ func _on_health_component_hp_changed(hp, prev_hp):
 		queue_free()
 
 func _on_collision_area_mouse_entered():
+	print("ENTERED")
 	if Globals.placed_unit == self:
 		return
 	Globals.hovered_unit = self
@@ -318,3 +319,7 @@ func _on_error_animation_finished():
 #		# Set the collision shape to match the drawn circle. 
 
  
+
+
+func _on_collision_area_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.

@@ -1,111 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://cy5kuxt61njjo"]
+[gd_scene load_steps=4 format=3 uid="uid://cy5kuxt61njjo"]
 
-[ext_resource type="PackedScene" uid="uid://b8esb3nkgltuq" path="res://scenes/screens/levels/support_unit.tscn" id="1_8hcme"]
-[ext_resource type="Texture2D" uid="uid://b72braopnqrkw" path="res://img/supplycart.png" id="2_3ai4u"]
-[ext_resource type="Script" path="res://scenes/screens/levels/units/supply_cart.gd" id="2_yvb64"]
-[ext_resource type="PackedScene" uid="uid://bg1dfecnxp0dr" path="res://components/support_action_comp/resupply_action.tscn" id="3_40yky"]
+[ext_resource type="PackedScene" uid="uid://b8esb3nkgltuq" path="res://scenes/screens/levels/support_unit.tscn" id="1_ibwgx"]
+[ext_resource type="Script" path="res://scenes/screens/levels/units/supply_cart.gd" id="2_8oah7"]
+[ext_resource type="PackedScene" uid="uid://bg1dfecnxp0dr" path="res://components/support_action_comp/resupply_action.tscn" id="3_chlst"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvkvo"]
-size = Vector2(50, 50)
+[node name="SupplyCart" instance=ExtResource("1_ibwgx")]
+script = ExtResource("2_8oah7")
 
-[node name="SupplyCart" instance=ExtResource("1_8hcme")]
-z_index = 2
-script = ExtResource("2_yvb64")
-
-[node name="ColorRect" parent="." index="0"]
-offset_right = 49.0
-offset_bottom = 49.0
-
-[node name="Sprite2D" parent="." index="1"]
-position = Vector2(24.5, 24)
-scale = Vector2(0.765625, 0.75)
-texture = ExtResource("2_3ai4u")
-
-[node name="UnitStatsBar" parent="." index="3"]
-visible = false
-offset_left = 1.0
-offset_top = 49.0
-offset_right = 1.0
-offset_bottom = 49.0
-
-[node name="ColorRect" parent="UnitStatsBar" index="0"]
-z_index = 100
-layout_mode = 0
-offset_left = 0.0
-offset_right = 48.0
-offset_bottom = 74.0
-
-[node name="HBoxContainer" parent="UnitStatsBar/ColorRect/VBoxContainer" index="0"]
-alignment = 1
-
-[node name="Health" parent="UnitStatsBar/ColorRect/VBoxContainer/HBoxContainer" index="1"]
-text = "Health:"
-
-[node name="Movement" parent="UnitStatsBar/ColorRect/VBoxContainer/HBoxContainer2" index="1"]
-text = "Actions:"
-
-[node name="Actions" parent="UnitStatsBar/ColorRect/VBoxContainer/HBoxContainer3" index="1"]
-text = "Attacks:"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UnitStatsBar" index="1"]
-layout_mode = 0
-offset_right = 48.0
-offset_bottom = 74.0
-metadata/_edit_lock_ = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UnitStatsBar/VBoxContainer" index="0"]
-layout_mode = 2
-
-[node name="Health" type="Label" parent="UnitStatsBar/VBoxContainer/HBoxContainer" index="0"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 10
-text = "Health:"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="UnitStatsBar/VBoxContainer" index="1"]
-layout_mode = 2
-
-[node name="Movement" type="Label" parent="UnitStatsBar/VBoxContainer/HBoxContainer2" index="0"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 10
-text = "Actions:"
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="UnitStatsBar/VBoxContainer" index="2"]
-layout_mode = 2
-
-[node name="Actions" type="Label" parent="UnitStatsBar/VBoxContainer/HBoxContainer3" index="0"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 10
-text = "Attacks:"
-
-[node name="HealthComponent" parent="." index="4"]
-visible = false
-position = Vector2(-2, -13)
-
-[node name="ActionComponent" parent="." index="6"]
-position = Vector2(0, 0)
-
-[node name="ResupplyAction" parent="ActionComponent" index="0" groups=["SupportActions"] instance=ExtResource("3_40yky")]
-metadata/_edit_lock_ = true
-
-[node name="OutlinePolygon" parent="." index="7"]
-z_index = 0
-polygon = PackedVector2Array(0, 49, 49, 49, 49, 0, 0, 0)
-
-[node name="RemainMovementLabel" parent="." index="8"]
-offset_left = -40.0
-offset_top = 0.0
-offset_bottom = 23.0
-
-[node name="Center" parent="." index="9"]
-position = Vector2(25, 25)
-
-[node name="CollisionArea" parent="." index="10" groups=["unit_collision_areas"]]
-metadata/_edit_lock_ = true
+[node name="ResupplyAction" parent="ActionComponent" index="0" instance=ExtResource("3_chlst")]
 
 [node name="CollisionShape2D" parent="CollisionArea" index="0"]
-visibility_layer = 1
-shape = SubResource("RectangleShape2D_hvkvo")
+debug_color = Color(0.835294, 0.301961, 0.623529, 0.419608)
 
-[connection signal="area_entered" from="CollisionArea" to="." method="_on_area_2d_area_entered" flags=18]
-[connection signal="mouse_entered" from="CollisionArea" to="." method="_on_collision_area_mouse_entered" flags=18]
-[connection signal="mouse_exited" from="CollisionArea" to="." method="_on_collision_area_mouse_exited" flags=18]
+[connection signal="area_entered" from="CollisionArea" to="." method="_on_collision_area_entered" flags=18]

@@ -13,8 +13,7 @@ cost = 35
 action_range = 250
 
 [node name="Sprite2D" parent="." index="1"]
-position = Vector2(21.75, 28.5)
-scale = Vector2(0.332031, 0.304688)
+scale = Vector2(1.04167, 0.979167)
 texture = ExtResource("3_kdekp")
 
 [node name="UnitStatsBar" parent="." index="3"]

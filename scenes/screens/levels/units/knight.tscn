@@ -3,8 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://jsotvstucd7a" path="res://scenes/screens/levels/units/melee_unit.tscn" id="1_rqmmt"]
 [ext_resource type="Script" path="res://scenes/screens/levels/units/knight.gd" id="2_v8fsb"]
 
-[node name="Knight" node_paths=PackedStringArray("movement_comp") instance=ExtResource("1_rqmmt")]
+[node name="Knight" instance=ExtResource("1_rqmmt")]
 script = ExtResource("2_v8fsb")
 base_movement_range = 300
 cost = 30
-movement_comp = NodePath("movement_comp")
+
+[node name="CollisionShape2D" parent="CollisionArea" index="0"]
+debug_color = Color(0.835294, 0.301961, 0.623529, 0.419608)
+
+[connection signal="area_entered" from="CollisionArea" to="." method="_on_collision_area_entered" flags=18]

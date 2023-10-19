@@ -30,4 +30,3 @@ z_index = 11
 text = " "
 
 [node name="melee_attack_comp" parent="ActionComponent" index="0" instance=ExtResource("4_uxegk")]
-position = Vector2(18, 13)

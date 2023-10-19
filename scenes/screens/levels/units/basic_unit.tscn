@@ -12,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://12xa7dj1stmj" path="res://music/ui_sounds/263133__pan14__tone-beep.wav" id="12_3cmra"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n3ojo"]
-size = Vector2(50, 50)
+size = Vector2(49, 50)
 
 [node name="basic_unit" type="Node2D" groups=["living_units"]]
 z_index = 9
@@ -35,6 +35,7 @@ z_index = 100
 z_as_relative = false
 
 [node name="UnitStatsBar" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = 50.0
@@ -139,7 +140,7 @@ script = ExtResource("4_gcuuy")
 visibility_layer = 25
 position = Vector2(25, 25)
 shape = SubResource("RectangleShape2D_n3ojo")
-debug_color = Color(0.835294, 0.301961, 0.623529, 0.419608)
+debug_color = Color(0.956863, 0.203922, 0, 0.941176)
 
 [node name="SelectSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_3cmra")
@@ -149,5 +150,7 @@ stream = ExtResource("12_3cmra")
 [connection signal="hp_changed" from="HealthComponent" to="." method="_on_health_component_hp_changed"]
 [connection signal="ran_out_of_movement" from="movement_comp" to="." method="_on_movement_comp_ran_out_of_movement"]
 [connection signal="remain_movement_changed" from="movement_comp" to="." method="___on_movement_changed"]
-[connection signal="area_entered" from="CollisionArea" to="." method="_on_collision_area_entered"]
+[connection signal="area_entered" from="CollisionArea" to="." method="_on_collision_area_area_entered"]
 [connection signal="area_exited" from="CollisionArea" to="." method="_on_collision_area_area_exited"]
+[connection signal="mouse_entered" from="CollisionArea" to="." method="_on_collision_area_mouse_entered"]
+[connection signal="mouse_exited" from="CollisionArea" to="." method="_on_collision_area_mouse_exited"]
