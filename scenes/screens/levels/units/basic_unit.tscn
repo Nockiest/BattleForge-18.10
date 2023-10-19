@@ -100,6 +100,22 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Act:"
 
+[node name="HBoxContainer4" type="HBoxContainer" parent="UnitStatsBar/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TextureRect" type="TextureRect" parent="UnitStatsBar/ColorRect/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("4_ixxuq")
+expand_mode = 1
+
+[node name="Movement Modifier" type="Label" parent="UnitStatsBar/ColorRect/VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Hp"
+
 [node name="HealthComponent" parent="." instance=ExtResource("4_oq3j3")]
 position = Vector2(-5, -22)
 
@@ -148,8 +164,6 @@ stream = ExtResource("12_3cmra")
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="animation_finished" from="ErrorAnimation" to="." method="_on_error_animation_finished"]
 [connection signal="hp_changed" from="HealthComponent" to="." method="_on_health_component_hp_changed"]
-[connection signal="ran_out_of_movement" from="movement_comp" to="." method="_on_movement_comp_ran_out_of_movement"]
-[connection signal="remain_movement_changed" from="movement_comp" to="." method="___on_movement_changed"]
 [connection signal="area_entered" from="CollisionArea" to="." method="_on_collision_area_area_entered"]
 [connection signal="area_exited" from="CollisionArea" to="." method="_on_collision_area_area_exited"]
 [connection signal="mouse_entered" from="CollisionArea" to="." method="_on_collision_area_mouse_entered"]

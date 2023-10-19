@@ -47,30 +47,33 @@ offset_bottom = 266.0
 grow_horizontal = 2
 theme_override_constants/separation = 6
 
-[node name="Label" type="Label" parent="Stats Bar/VBoxContainer"]
+[node name="BlueSpent" type="Label" parent="Stats Bar/VBoxContainer"]
 layout_mode = 2
 text = "Blue Money Spent:	"
 
-[node name="Label2" type="Label" parent="Stats Bar/VBoxContainer"]
+[node name="RedSpent" type="Label" parent="Stats Bar/VBoxContainer"]
 layout_mode = 2
 text = "Red Money Spent"
 
-[node name="Label3" type="Label" parent="Stats Bar/VBoxContainer"]
+[node name="BlueKilled" type="Label" parent="Stats Bar/VBoxContainer"]
 layout_mode = 2
 text = "Blue Killed"
 
-[node name="Label4" type="Label" parent="Stats Bar/VBoxContainer"]
+[node name="RedKilled" type="Label" parent="Stats Bar/VBoxContainer"]
 layout_mode = 2
 text = "Red Killed"
 
-[node name="Label5" type="Label" parent="Stats Bar/VBoxContainer"]
+[node name="BlueEarned" type="Label" parent="Stats Bar/VBoxContainer"]
 layout_mode = 2
 text = "Blue Earned"
 
-[node name="Label6" type="Label" parent="Stats Bar/VBoxContainer"]
+[node name="RedEarned" type="Label" parent="Stats Bar/VBoxContainer"]
 layout_mode = 2
 text = "Red Earned
 "
+
+[node name="GameLasted" type="Label" parent="Stats Bar/VBoxContainer"]
+layout_mode = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_3phxn")

@@ -110,7 +110,6 @@ func _on_health_component_hp_changed(hp, prev_hp):
 		queue_free()
 
 func _on_collision_area_mouse_entered():
-	print("ENTERED")
 	if Globals.placed_unit == self:
 		return
 	Globals.hovered_unit = self
@@ -127,7 +126,8 @@ func toggle_show_information():
 func update_stats_bar():
 	%Health.text =  str($HealthComponent.hp)
 	%Movement.text =   str($movement_comp.remain_distance)
-	$RemainMovementLabel.text =  str($movement_comp.current_movement_modifier) + " " + str($movement_comp.on_bridge)    
+	%"Movement Modifier".text = str($movement_comp.current_movement_modifier)
+	#$RemainMovementLabel.text =  str($movement_comp.current_movement_modifier) + " " + str($movement_comp.on_bridge)    
 	if action_component:
 		%Actions.text = str(action_component.remain_actions)
  

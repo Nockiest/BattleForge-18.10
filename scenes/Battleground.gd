@@ -24,7 +24,7 @@ func put_unit_into_teams():
 func _ready():
 	Globals.tenders= get_tree().get_nodes_in_group("player_tenders")
 #	Engine.time_scale = 0.5
-#	LoadingScreen.render_loading_screen()
+	LoadingScreen.render_loading_screen()
 	set_process_input(true)
 	put_unit_into_teams()
 
@@ -87,9 +87,9 @@ func _ready():
 			river_instance.add_river_segment(segment[0], segment[1]   )
 		$Structures.add_child(river_instance)
 	create_roads_to_edges()
-#
+
 	call_deferred_thread_group("process_place_units")
- 
+	LoadingScreen.hige_loading_screen() 
 func process_place_units():
 	call_deferred_thread_group("place_starting_units",$RedBuyArea, "red", Globals.red_player_units ) #place_starting_units($RedBuyArea, "red", Globals.red_player_units  )
 	call_deferred_thread_group("place_starting_units",$BlueBuyArea, "blue", Globals.blue_player_units )
@@ -251,7 +251,10 @@ func give_money_income_to_players():
 			blue_towns += 1
 #	print(red_towns, blue_towns, " BLUE AND RED TOWNS")
 	Globals.blue_player_money += Globals.money_per_turn + blue_towns* Globals.city_turn_income
+	StatsTracker.earned_money[0] = StatsTracker.earned_money[0]  + Globals.money_per_turn + blue_towns* Globals.city_turn_income
 	Globals.red_player_money  +=  Globals.money_per_turn + red_towns* Globals.city_turn_income
+	StatsTracker.earned_money[1]  =  StatsTracker.earned_money[1]  +   Globals.money_per_turn + red_towns* Globals.city_turn_income
+	print( StatsTracker.earned_money,"STATS", Globals.money_per_turn + blue_towns* Globals.city_turn_income , " ", Globals.money_per_turn + red_towns* Globals.city_turn_income)
 	print(Globals.red_player_money,	" ",Globals.blue_player_money, " MONEY" )
  
 #DO NOT DELETE YET

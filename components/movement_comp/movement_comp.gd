@@ -1,7 +1,7 @@
 class_name MovementComponent
 extends Node2D
-signal remain_movement_changed( )
-signal ran_out_of_movement()
+#signal remain_movement_changed( )
+#signal ran_out_of_movement()
 var base_movement_range:int:
 	set(new_range):
 		base_movement_range = new_range
@@ -12,7 +12,7 @@ var base_movement_range:int:
 var remain_distance  = base_movement_range:
 	set(new_distance):
 		remain_distance =new_distance 
-		emit_signal("remain_movement_changed"  )
+#		emit_signal("remain_movement_changed"  )
 		if new_distance < 0 :
 			abort_movement()
 			remain_distance =  base_movement_range
