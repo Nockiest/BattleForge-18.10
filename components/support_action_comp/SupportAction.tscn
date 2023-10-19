@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://bk004xnrbax3d"]
+
+[ext_resource type="Script" path="res://components/support_action_comp/SupportAction.gd" id="1_yjral"]
+[ext_resource type="Script" path="res://components/Polygon2D.gd" id="2_1n1kg"]
+[ext_resource type="PackedScene" uid="uid://617dtqmgwo25" path="res://components/reachability_checker_component.tscn" id="3_thq5b"]
+[ext_resource type="AudioStream" uid="uid://bgrtcu02y0c12" path="res://music/unit/heal/562292__colorscrimsontears__heal-rpg.wav" id="4_mqcq1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4jijj"]
+radius = 100.005
+
+[node name="SupportAction" type="Area2D" groups=["support_actions"]]
+script = ExtResource("1_yjral")
+highlight_color = "pink"
+
+[node name="SupportConnnection" type="Line2D" parent="."]
+z_index = 1000
+default_color = Color(0.564706, 1, 0.6, 1)
+
+[node name="AttackRangeShape" type="CollisionShape2D" parent="."]
+light_mask = 2
+visibility_layer = 32
+shape = SubResource("CircleShape2D_4jijj")
+debug_color = Color(0.843137, 0.294118, 0.619608, 0.756863)
+
+[node name="AttackRangeCircle" type="Node2D" parent="."]
+rotation = 2.28427
+script = ExtResource("2_1n1kg")
+
+[node name="StateMachine" type="Node" parent="."]
+
+[node name="SupportAlreadyProvided" type="Node" parent="StateMachine"]
+
+[node name="NewSupportConnection" type="Node" parent="StateMachine"]
+
+[node name="reachabilityCheckerComp" parent="." instance=ExtResource("3_thq5b")]
+
+[node name="ActionSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_mqcq1")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

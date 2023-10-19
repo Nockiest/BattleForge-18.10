@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccd0orsik47b2"]
+
+[ext_resource type="Script" path="res://structures/river_segment.gd" id="1_ig322"]
+[ext_resource type="Script" path="res://structures/EnlargedColArea.gd" id="2_mc60v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xotdu"]
+
+[node name="river_segment" type="Node2D" groups=["river_segments"]]
+light_mask = 8
+visibility_layer = 9
+script = ExtResource("1_ig322")
+
+[node name="Line2D" type="Line2D" parent="."]
+z_index = 1
+width = 5.0
+default_color = Color(0.160784, 0.388235, 0.486275, 1)
+
+[node name="Area2D" type="Area2D" parent="." groups=["river_segment_collision_shapes"]]
+visible = false
+light_mask = 8
+visibility_layer = 9
+collision_layer = 8
+collision_mask = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_xotdu")
+
+[node name="EnlargedColArea" type="Area2D" parent="." groups=["river_segment_enlarged_col_shape"]]
+collision_layer = 129
+script = ExtResource("2_mc60v")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

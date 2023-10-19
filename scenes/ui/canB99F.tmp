@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyl4gg4y6i7mv"]
+
+[ext_resource type="Script" path="res://scenes/ui/canvas.gd" id="1_xaxmr"]
+[ext_resource type="PackedScene" uid="uid://b14wos6th44f3" path="res://scenes/ui/buy_bar.tscn" id="2_wxnc2"]
+[ext_resource type="PackedScene" uid="uid://bkrs0cguctsi" path="res://scenes/ui/player_tender.tscn" id="3_tapla"]
+[ext_resource type="PackedScene" uid="uid://c47pmxfmok6yk" path="res://scenes/ui/default_button.tscn" id="4_hlilr"]
+
+[node name="canvas" type="CanvasLayer" groups=["ui"]]
+script = ExtResource("1_xaxmr")
+
+[node name="Tenders" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="RedPlayerTender" parent="Tenders" instance=ExtResource("3_tapla")]
+self_modulate = Color(0.898039, 0.545098, 0.486275, 1)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -160.0
+offset_right = 129.0
+offset_bottom = -5.0
+grow_vertical = 0
+size_flags_vertical = 8
+
+[node name="BluePlayerTender" parent="Tenders" instance=ExtResource("3_tapla")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -155.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="BuyBar" parent="." instance=ExtResource("2_wxnc2")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_left = 5.0
+offset_top = -56.0
+offset_right = 5.0
+offset_bottom = -56.0
+grow_vertical = 0
+size_flags_vertical = 8
+
+[node name="NextTurnBtn" parent="." instance=ExtResource("4_hlilr")]
+text = "Next Turn"
+
+[node name="GiveUpBtn" parent="." instance=ExtResource("4_hlilr")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -8.0
+offset_right = 0.0
+grow_horizontal = 0
+text = "Give Up"
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.5
+offset_right = 56.5
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "Current Player ="
+
+[connection signal="button_up" from="NextTurnBtn" to="." method="_on_next_turn_btn_button_up"]
+[connection signal="button_up" from="GiveUpBtn" to="." method="_on_give_up_btn_up"]

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c4x41qrh5ndwg"]
+
+[node name="forrest_shape" type="Polygon2D"]
+light_mask = 8
+visibility_layer = 33
+polygon = PackedVector2Array(104, 20, 140, -59, 96, -123, 26, -175, -22, -151, -112, -125, -117, -78, -129, 0, -98, 57, -35, 106, 41, 97, 106, 57)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 72
+collision_mask = 17
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+light_mask = 8
+visibility_layer = 33
+polygon = PackedVector2Array(-112, -127, -130, 0, -97, 59, -37, 105, 39, 96, 107, 56, 105, 21, 141, -60, 94, -127, 24, -176, -20, -152)

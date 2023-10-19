@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://dc36ygib7wjc8"]
+
+[ext_resource type="PackedScene" uid="uid://bmn7m62gc1dc2" path="res://scenes/screens/levels/units/ranged_unit.tscn" id="1_50iyv"]
+[ext_resource type="Script" path="res://scenes/screens/levels/units/musketeer.gd" id="2_dwr7q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvkvo"]
+size = Vector2(49, 49.5)
+
+[node name="Musketeer" instance=ExtResource("1_50iyv")]
+script = ExtResource("2_dwr7q")
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(24.5, 24)
+scale = Vector2(1.02083, 1)
+
+[node name="UnitStatsBar" parent="." index="3"]
+visible = false
+offset_left = 1.0
+offset_right = 1.0
+
+[node name="ColorRect" parent="UnitStatsBar" index="0"]
+layout_mode = 0
+offset_left = 0.0
+offset_right = 48.0
+offset_bottom = 87.0
+
+[node name="Health" parent="UnitStatsBar/ColorRect/VBoxContainer/HBoxContainer" index="1"]
+text = " "
+
+[node name="HealthComponent" parent="." index="4"]
+visible = false
+position = Vector2(-8, -13)
+
+[node name="ActionComponent" parent="." index="6"]
+position = Vector2(0, 0)
+
+[node name="RemainMovementLabel" parent="." index="8"]
+offset_left = -40.0
+offset_top = 0.0
+offset_bottom = 23.0
+
+[node name="Center" parent="." index="9"]
+position = Vector2(25, 25)
+
+[node name="CollisionArea" parent="." index="10" groups=["unit_collision_areas"]]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" parent="CollisionArea" index="0"]
+visibility_layer = 1
+position = Vector2(25, 24.75)
+shape = SubResource("RectangleShape2D_hvkvo")
+
+[connection signal="area_entered" from="CollisionArea" to="." method="_on_area_2d_area_entered" flags=18]
+[connection signal="mouse_entered" from="CollisionArea" to="." method="_on_collision_area_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="CollisionArea" to="." method="_on_collision_area_mouse_exited" flags=18]

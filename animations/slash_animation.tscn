@@ -1,0 +1,53 @@
+[gd_scene load_steps=11 format=3 uid="uid://clbhbsvrbf11l"]
+
+[ext_resource type="Texture2D" uid="uid://6un841kmqpln" path="res://img/anime/slash/frame-0.png" id="1_yuhha"]
+[ext_resource type="Texture2D" uid="uid://clwwduw7vawwd" path="res://img/anime/slash/frame-1.png" id="2_rjjjd"]
+[ext_resource type="Texture2D" uid="uid://cuhai1i46b33e" path="res://img/anime/slash/frame-2.png" id="3_ldkgo"]
+[ext_resource type="Texture2D" uid="uid://k1ksfcdaid3c" path="res://img/anime/slash/frame-3.png" id="4_vmv8j"]
+[ext_resource type="Texture2D" uid="uid://c6sksedfyhhdo" path="res://img/anime/slash/frame-4.png" id="5_m1ek0"]
+[ext_resource type="Texture2D" uid="uid://cl3mry46td0q6" path="res://img/anime/slash/frame-5.png" id="6_omcxp"]
+[ext_resource type="Texture2D" uid="uid://cqklgap364atn" path="res://img/anime/slash/frame-6.png" id="7_025eu"]
+[ext_resource type="Texture2D" uid="uid://bdolelhe28iwi" path="res://img/anime/slash/frame-7.png" id="8_i6wh3"]
+[ext_resource type="Texture2D" uid="uid://0rhch1en1hmv" path="res://img/anime/slash/frame-8.png" id="9_08306"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3dep5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_yuhha")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rjjjd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ldkgo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vmv8j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_m1ek0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_omcxp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_025eu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_i6wh3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_08306")
+}],
+"loop": false,
+"name": &"slash",
+"speed": 8.0
+}]
+
+[node name="SlashAnimation" type="AnimatedSprite2D"]
+z_index = 3
+sprite_frames = SubResource("SpriteFrames_3dep5")
+animation = &"slash"
+frame = 8
+frame_progress = 1.0

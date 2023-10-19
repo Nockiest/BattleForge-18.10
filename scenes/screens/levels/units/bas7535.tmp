@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkrdjtyb1p88n"]
+
+[ext_resource type="Script" path="res://scenes/screens/levels/units/DefaultUnit.gd" id="1_vdjhd"]
+[ext_resource type="Texture2D" uid="uid://ixa58p2rs7m1" path="res://img/knight.png" id="2_bl1id"]
+[ext_resource type="Script" path="res://scenes/screens/levels/units/basic_unit_area.gd" id="3_85aec"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvkvo"]
+size = Vector2(49, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pagpk"]
+size = Vector2(48, 48)
+
+[sub_resource type="GDScript" id="GDScript_bhu84"]
+script/source = "extends CollisionShape2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="basic_unit" type="StaticBody2D" groups=["living_units"]]
+z_index = 2
+collision_layer = 3
+collision_mask = 11
+input_pickable = true
+script = ExtResource("1_vdjhd")
+
+[node name="AttackRangeShape" type="CollisionShape2D" parent="."]
+
+[node name="MovementShape" type="CollisionShape2D" parent="."]
+visibility_layer = 3
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 10
+offset_right = 49.0
+offset_bottom = 48.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(25, 24)
+texture = ExtResource("2_bl1id")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CollisionArea" type="Area2D" parent="." groups=["unit_collision_areas"]]
+script = ExtResource("3_85aec")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea"]
+position = Vector2(24.5, 24)
+shape = SubResource("RectangleShape2D_hvkvo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(25, 24)
+shape = SubResource("RectangleShape2D_pagpk")
+script = SubResource("GDScript_bhu84")
+
+[connection signal="area_entered" from="CollisionArea" to="." method="_on_area_2d_area_entered"]
+[connection signal="mouse_entered" from="CollisionArea" to="." method="_on_collision_area_mouse_entered"]
+[connection signal="mouse_exited" from="CollisionArea" to="." method="_on_collision_area_mouse_exited"]

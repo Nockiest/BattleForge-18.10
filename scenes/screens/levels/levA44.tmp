@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckd0oprsc5w0y"]
+
+[ext_resource type="Texture2D" uid="uid://bd8wxmw3r74rq" path="res://img/barracks.png" id="1_oqbkc"]
+[ext_resource type="Texture2D" uid="uid://b5apf0m2g8xab" path="res://icon.svg" id="2_v6hp1"]
+[ext_resource type="PackedScene" uid="uid://bjkq8wjc07jto" path="res://scenes/levels/city.tscn" id="3_7l3lh"]
+[ext_resource type="Script" path="res://scenes/scripts/Sprite2D.gd" id="3_jy0ne"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(345, -14.9999)
+texture = ExtResource("1_oqbkc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D2"]
+position = Vector2(227, 94)
+texture = ExtResource("2_v6hp1")
+script = ExtResource("3_jy0ne")
+
+[node name="Node2D" parent="Sprite2D2" instance=ExtResource("3_7l3lh")]
+position = Vector2(-193, 69)

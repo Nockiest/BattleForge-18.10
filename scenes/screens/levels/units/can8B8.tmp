@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbbyxoulkwe8s"]
+
+[ext_resource type="PackedScene" uid="uid://bmn7m62gc1dc2" path="res://scenes/screens/levels/units/ranged_unit.tscn" id="1_uf7n4"]
+[ext_resource type="Texture2D" uid="uid://b0f3joloichhu" path="res://img/Cannon.png" id="2_3ar3d"]
+
+[node name="RangedUnit" instance=ExtResource("1_uf7n4")]
+
+[node name="Sprite2D" parent="." index="3"]
+position = Vector2(24.5, 24)
+scale = Vector2(1.02083, 1)
+texture = ExtResource("2_3ar3d")
+
+[node name="HealthComponent" parent="." index="7"]
+position = Vector2(-4, -9)
