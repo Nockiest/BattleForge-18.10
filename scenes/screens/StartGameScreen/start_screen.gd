@@ -19,6 +19,8 @@ func _on_back_to_start_screen_btn_button_up():
 func _on_exit_btn_button_up():
 	get_tree().quit()
 	
-func _ready() -> void:
-	$AudioStreamPlayer.play()
- 
+#func _ready() -> void:
+#	$AudioStreamPlayer.play()
+#
+func _process(delta: float) -> void:
+	$random_music_player.active = true

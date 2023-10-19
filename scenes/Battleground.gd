@@ -249,11 +249,14 @@ func give_money_income_to_players():
 			red_towns += 1
 		elif structure.team_alligiance == "blue":
 			blue_towns += 1
-#	print(red_towns, blue_towns, " BLUE AND RED TOWNS")
+ 
 	Globals.blue_player_money += Globals.money_per_turn + blue_towns* Globals.city_turn_income
-	StatsTracker.earned_money[0] = StatsTracker.earned_money[0]  + Globals.money_per_turn + blue_towns* Globals.city_turn_income
+ 
 	Globals.red_player_money  +=  Globals.money_per_turn + red_towns* Globals.city_turn_income
-	StatsTracker.earned_money[1]  =  StatsTracker.earned_money[1]  +   Globals.money_per_turn + red_towns* Globals.city_turn_income
+ 
+# Example usage:
+	StatsTracker.increase_stat_by("earned_money", "blue",   Globals.money_per_turn + blue_towns* Globals.city_turn_income )  # Set the first element of 'earned_money' to 50
+	StatsTracker.increase_stat_by("earned_money", "red",  Globals.money_per_turn + red_towns* Globals.city_turn_income)  # Set the first element of 'earned_money' to 50
 	print( StatsTracker.earned_money,"STATS", Globals.money_per_turn + blue_towns* Globals.city_turn_income , " ", Globals.money_per_turn + red_towns* Globals.city_turn_income)
 	print(Globals.red_player_money,	" ",Globals.blue_player_money, " MONEY" )
  

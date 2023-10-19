@@ -15,6 +15,7 @@ func update_color(ammount:int, label: Label,   color:Color) -> void:
 		label.modulate = color
 	else:
 		label.modulate = Color("red")
+
 func _ready():
 	update_label()
 	Globals.connect("cur_player_has_been_changed", on_cur_player_has_been_changed) 
@@ -33,7 +34,7 @@ func _on_give_up_btn_up():
 
 func _on_next_turn_btn_button_up():
 	next_turn_pressed.emit()
-
+	StatsTracker.increase_stat_by("turns_played", null, 1)
 
 func _on_check_button_pressed():
 	for unit in get_tree().get_nodes_in_group("living_units"):

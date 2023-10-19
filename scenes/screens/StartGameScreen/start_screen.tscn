@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://cimwhyema17n6"]
+[gd_scene load_steps=10 format=3 uid="uid://cimwhyema17n6"]
 
 [ext_resource type="Script" path="res://scenes/screens/StartGameScreen/start_screen.gd" id="1_wxax6"]
 [ext_resource type="PackedScene" uid="uid://bl2jno7h2an0k" path="res://scenes/screens/SettingsScreen/settings_slider.tscn" id="2_hthqh"]
 [ext_resource type="AudioStream" uid="uid://dsjemuwgncuil" path="res://music/start_game/ambience.wav" id="3_tihyt"]
+[ext_resource type="PackedScene" uid="uid://flxe67nfovka" path="res://components/random_music_player/random_music_player.tscn" id="4_swsi7"]
+[ext_resource type="AudioStream" uid="uid://bhktqx0omhrn8" path="res://music/bg_music/01 March of War.mp3" id="5_i3f02"]
+[ext_resource type="AudioStream" uid="uid://blvhtffi5qn33" path="res://music/bg_music/La_Victoire_est_Nous_3_version.mp3" id="6_x67xj"]
+[ext_resource type="AudioStream" uid="uid://dwy4f8bbokj15" path="res://music/bg_music/Pappenheimer Marsch Aus Dem 30 Jahrigen Krieg - 88 - Z .mp3" id="7_okisi"]
+[ext_resource type="AudioStream" uid="uid://bufgy7mbo814k" path="res://music/bg_music/Tchaikovsky - 1812 Overture - Excerpt.mp3" id="8_uvyoj"]
+[ext_resource type="AudioStream" uid="uid://b781hcf5b5ggh" path="res://music/bg_music/When Johnny Comes Marching Home.mp3" id="9_3oejk"]
 
 [node name="Start screen" type="Control"]
 layout_mode = 3
@@ -334,6 +340,9 @@ start_value = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_tihyt")
+
+[node name="random_music_player" parent="." instance=ExtResource("4_swsi7")]
+sound_list = Array[AudioStream]([ExtResource("5_i3f02"), ExtResource("6_x67xj"), ExtResource("7_okisi"), ExtResource("8_uvyoj"), ExtResource("9_3oejk")])
 
 [connection signal="pressed" from="MainButtons/StartGameBtn" to="." method="_on_start_game_btn_pressed"]
 [connection signal="pressed" from="MainButtons/SettingsBtn" to="." method="_on_settings_btn_pressed"]

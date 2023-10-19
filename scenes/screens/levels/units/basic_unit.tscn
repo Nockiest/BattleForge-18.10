@@ -118,6 +118,8 @@ text = "Hp"
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_oq3j3")]
 position = Vector2(-5, -22)
+max_hp = 4
+hp = 4
 
 [node name="movement_comp" parent="." instance=ExtResource("6_0pp86")]
 z_index = 3

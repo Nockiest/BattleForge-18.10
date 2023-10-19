@@ -34,10 +34,10 @@ text = " "
 [node name="Actions" parent="UnitStatsBar/ColorRect/VBoxContainer/HBoxContainer3" index="1"]
 text = " "
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="UnitStatsBar/ColorRect/VBoxContainer" index="3"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="UnitStatsBar/ColorRect/VBoxContainer" index="3"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="UnitStatsBar/ColorRect/VBoxContainer/HBoxContainer4" index="0"]
+[node name="TextureRect" type="TextureRect" parent="UnitStatsBar/ColorRect/VBoxContainer/HBoxContainer5" index="0"]
 custom_minimum_size = Vector2(18, 24)
 layout_mode = 2
 texture = ExtResource("4_iesuh")
@@ -45,9 +45,13 @@ expand_mode = 1
 stretch_mode = 3
 flip_h = true
 
-[node name="Ammo2" type="Label" parent="UnitStatsBar/ColorRect/VBoxContainer/HBoxContainer4" index="1"]
+[node name="Ammo2" type="Label" parent="UnitStatsBar/ColorRect/VBoxContainer/HBoxContainer5" index="1"]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="HealthComponent" parent="." index="4"]
+max_hp = 2
+hp = 2
 
 [node name="RangedAttackComp" parent="ActionComponent" index="0" instance=ExtResource("4_5x482")]
 position = Vector2(-1, 1)

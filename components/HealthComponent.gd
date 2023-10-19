@@ -2,8 +2,8 @@ extends Node2D
 
 signal hp_changed(hp, prev_hp)  # New signal
 #signal health_reached_zero(dead_component)
-var max_hp:int = 6
-var hp:int  :
+@export var max_hp:int = 6
+@export var hp:int  :
 	get:
 		return hp
 	set(value):  # Setter function for hp

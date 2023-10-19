@@ -134,10 +134,14 @@ func update_stats_bar():
 ## here is a call for function spwning a death cross
 func _on_tree_exiting():
 	var other_units = get_tree().get_nodes_in_group("living_units")
+	if $HealthComponent.hp == 0:
+		StatsTracker.increase_stat_by("lost_units", Globals.color_names[color], 1)
+	print("NEW STAT ", StatsTracker. lost_units, " ", Globals.cur_player)
 	for unit in other_units:
 		if unit == Globals.last_attacker:
 			print(unit, " will get a boost")
 			unit.get_boost()
+	
 	#var death_image = death_image_scene.instantiate() as Sprite2D
 	#death_image.global_position = $Center.global_position
 	#print("RENDERING DEATH CROSS ANIMATION")

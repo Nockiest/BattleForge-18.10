@@ -49,7 +49,13 @@ var cur_player_index =  0 :
 	set(value):
 		cur_player_index =  value  % len(players) 
 		update_cur_player() 
- 
+
+var color_names = {
+	Color(1, 0, 0): "red",
+	Color(0, 1, 0): "green",
+	Color(0, 0, 1): "blue",
+	# Add more color mappings as needed
+}
 # settings config
 var num_towns = 6
 var num_rivers = 2
