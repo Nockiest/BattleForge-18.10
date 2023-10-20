@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://12xa7dj1stmj"
-path="res://.godot/imported/263133__pan14__tone-beep.wav-0626a5794648f0037626cc4f3f45415d.sample"
+path="res://.godot/imported/movement_selcted_beep.wav-2723328e3ef0c6ed5b197bb42adb3fc9.sample"
 
 [deps]
 
-source_file="res://music/ui_sounds/263133__pan14__tone-beep.wav"
-dest_files=["res://.godot/imported/263133__pan14__tone-beep.wav-0626a5794648f0037626cc4f3f45415d.sample"]
+source_file="res://music/ui_sounds/movement_selcted_beep.wav"
+dest_files=["res://.godot/imported/movement_selcted_beep.wav-2723328e3ef0c6ed5b197bb42adb3fc9.sample"]
 
 [params]
 

@@ -11,6 +11,14 @@ var road_scene:PackedScene = preload("res://structures/road/road.tscn")
 var bridge_scene:PackedScene = preload("res://structures/bridge.tscn")
 @onready var players = get_tree().get_nodes_in_group("players")
  
+enum BattleGroundStates {
+	Idle,
+	Moving,
+	Supporting,
+	Attacking
+}
+
+var current_state = BattleGroundStates.Idle
 func put_unit_into_teams():
 	var units = get_tree().get_nodes_in_group("living_units") 
 	for i in range(len(units)):

@@ -55,10 +55,13 @@ func enter_movement_state():
 	toggle_moving_appearance("on")
 	current_state = state.Moving
 	$SelectSound.play()
+	$MovementSound.play()
 #	$MovementSoundPlayer.should_play_sounds = true
 func exit_movement_state():
 	current_state = state.Idle
 	toggle_moving_appearance("off")
+	$SelectSound.stop()
+	$MovementSound.stop()
 	if Globals.moving_unit == owner:
 		Globals.moving_unit = null
 
@@ -88,7 +91,7 @@ func calculate_total_movement_modifier():
  
 
 func process(_delta):
-	$MovementSoundPlayer.process(current_state)
+#	$MovementSoundPlayer.process(current_state)
 	if current_state == state.Placed: 
 		owner.position = get_global_mouse_position() - owner.size / 2
 		print("OWNER POS ", owner.position)

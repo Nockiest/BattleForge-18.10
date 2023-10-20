@@ -1,13 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://bsghedd31qfoa"]
+[gd_scene load_steps=11 format=3 uid="uid://bsghedd31qfoa"]
 
 [ext_resource type="Script" path="res://components/movement_comp/movement_comp.gd" id="1_i5omy"]
 [ext_resource type="Script" path="res://components/movement_comp/state_machine.gd" id="2_evtpk"]
 [ext_resource type="Script" path="res://components/movement_comp/Moving.gd" id="3_7w4gi"]
+[ext_resource type="AudioStream" uid="uid://12xa7dj1stmj" path="res://music/ui_sounds/movement_selcted_beep.wav" id="4_4rljc"]
 [ext_resource type="Script" path="res://components/movement_comp/MovementSoundPlayer.gd" id="4_yjkke"]
 [ext_resource type="PackedScene" uid="uid://flxe67nfovka" path="res://components/random_music_player/random_music_player.tscn" id="5_sl3ls"]
 [ext_resource type="AudioStream" uid="uid://csy7sqypjcjw6" path="res://music/unit/movement/gravel_step.wav" id="6_6tvuo"]
 [ext_resource type="AudioStream" uid="uid://vledkswyggia" path="res://music/unit/movement/grass_step.wav" id="7_0pdmu"]
 [ext_resource type="AudioStream" uid="uid://rmaordox3dgd" path="res://music/unit/movement/mud_step.wav" id="8_8m0ig"]
+[ext_resource type="AudioStream" uid="uid://c2l0rsn6rxk4t" path="res://music/unit/movement/infantry-march.wav" id="9_h7amt"]
 
 [node name="movement_comp" type="Node2D"]
 light_mask = 2
@@ -27,6 +29,7 @@ script = ExtResource("3_7w4gi")
 [node name="Idle" type="Node" parent="State"]
 
 [node name="SelectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4rljc")
 
 [node name="MovementSoundPlayer" type="Node" parent="."]
 script = ExtResource("4_yjkke")
@@ -39,3 +42,6 @@ z_index = 1000
 default_color = Color(0, 0, 0, 1)
 
 [node name="NewPosition" type="Marker2D" parent="."]
+
+[node name="MovementSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_h7amt")

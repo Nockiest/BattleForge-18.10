@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://k1ksfcdaid3c" path="res://img/anime/slash/frame-3.png" id="5_8052n"]
 [ext_resource type="Texture2D" uid="uid://cv143uo2lmdgk" path="res://img/move.png" id="5_wmhhx"]
 [ext_resource type="PackedScene" uid="uid://bsghedd31qfoa" path="res://components/movement_comp/movement_comp.tscn" id="6_0pp86"]
-[ext_resource type="AudioStream" uid="uid://12xa7dj1stmj" path="res://music/ui_sounds/263133__pan14__tone-beep.wav" id="12_3cmra"]
+[ext_resource type="AudioStream" uid="uid://12xa7dj1stmj" path="res://music/ui_sounds/movement_selcted_beep.wav" id="12_3cmra"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n3ojo"]
 size = Vector2(49, 50)

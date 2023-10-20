@@ -24,6 +24,7 @@ LoadingScreen="*res://globals/loading_screen.tscn"
 Globals="*res://globals/globals.gd"
 Utils="*res://globals/utils.gd"
 StatsTracker="*res://globals/stats_tracker.gd"
+Battleground="*res://scenes/Battleground.gd"
 
 [display]
 
