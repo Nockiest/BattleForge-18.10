@@ -189,7 +189,7 @@ func process_unit_placement():
 			continue
 		if Color(town.team_alligiance)!= owner.color:
 			continue
-		if self in town.units_inside:
+		if owner in town.units_inside:
 			print("UNIT IS INSIDE OF AN OCCUPIED CITY")
 			in_valid_buy_area = true
 	

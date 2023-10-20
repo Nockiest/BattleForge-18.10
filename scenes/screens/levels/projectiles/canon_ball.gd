@@ -24,3 +24,6 @@ func stop_movement():
 	super.stop_movement()
 	rotation_speed = 0
  
+func _ready():
+	super._ready()
+	action_range = action_range*2

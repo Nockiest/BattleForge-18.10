@@ -22,7 +22,7 @@ offset_top = 48.0
 offset_bottom = 48.0
 
 [node name="ColorRect" parent="UnitStatsBar" index="0"]
-offset_bottom = 92.0
+offset_bottom = 112.0
 
 [node name="Health" parent="UnitStatsBar/ColorRect/VBoxContainer/HBoxContainer" index="1"]
 text = " 

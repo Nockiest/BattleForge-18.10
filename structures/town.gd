@@ -10,12 +10,10 @@ var connected_roads:int = 0
 var connected_towns: Array = []
 var outline_node
 func _process(_delta):
-	if Globals.placed_unit and team_alligiance:
+	if Globals.placed_unit and team_alligiance and Globals.placed_unit.is_inside_tree():
 		print(Globals.placed_unit.color ,Color(team_alligiance))
-	if  Globals.placed_unit == null:
+	if  Globals.placed_unit == null or  team_alligiance == null:
 		$ColorRect.modulate = Color("#826700") 
-	elif   team_alligiance == null:
-		$ColorRect.modulate = Color("#826700")
 	elif Globals.placed_unit.color == Color(team_alligiance):
 		print("MODULATE COLOR RECT ", team_alligiance)
 		if team_alligiance == "blue":
@@ -23,10 +21,7 @@ func _process(_delta):
 			$ColorRect.modulate = Color(1, 1, 1) # Light blue
 		else:
 			$ColorRect.modulate = Globals.placed_unit.color
-#	
-#	else:
-#		$ColorRect.modulate = Color("#826700")
-#		$ColorRect.modulate = ## default color
+ 
 	## make sure that collision shape in house scene is stil on index 0 otherwise it wont work
 func place_house():
 	for house in range(num_houses):

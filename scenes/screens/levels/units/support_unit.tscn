@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2ghaqb1b7cyb"]
+[gd_scene load_steps=4 format=3 uid="uid://c2ghaqb1b7cyb"]
 
 [ext_resource type="PackedScene" uid="uid://b8esb3nkgltuq" path="res://scenes/screens/levels/support_unit.tscn" id="1_gdjly"]
+[ext_resource type="Texture2D" uid="uid://blji7c3clubrn" path="res://img/HealthIcon.png" id="3_vqc6a"]
 [ext_resource type="Texture2D" uid="uid://dr7dy4hm31foh" path="res://img/medic.png" id="3_xk5k2"]
 
 [node name="SupportUnit" instance=ExtResource("1_gdjly")]
@@ -8,9 +9,31 @@
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("3_xk5k2")
 
+[node name="UnitStatsBar" parent="." index="3"]
+visible = false
+
+[node name="ColorRect" parent="UnitStatsBar" index="0"]
+offset_bottom = 62.0
+
+[node name="TextureRect" parent="UnitStatsBar/ColorRect/VBoxContainer/HBoxContainer4" index="0"]
+texture = ExtResource("3_vqc6a")
+
 [node name="HealthComponent" parent="." index="4"]
 max_hp = 2
 hp = 2
+
+[node name="RemainMovementLabel" type="Label" parent="." index="8"]
+z_index = 20
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -66.0
+offset_top = -10.0
+offset_bottom = 30.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 12
+text = "Remain 
+Movement:"
 
 [node name="CollisionShape2D" parent="CollisionArea" index="0"]
 debug_color = Color(0.835294, 0.301961, 0.623529, 0.419608)
