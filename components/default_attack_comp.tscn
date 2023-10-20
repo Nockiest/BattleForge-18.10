@@ -28,6 +28,7 @@ visible = false
 script = ExtResource("2_np0wa")
 
 [node name="reachabilityCheckerComp" parent="." instance=ExtResource("3_s3vkt")]
+visible = false
 
 [node name="ErrorSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_jk13v")

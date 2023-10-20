@@ -2,10 +2,6 @@ extends BattleUnit
 class_name SupportUnit
  
  
-## I will recode this using a signal
-#func move():
-##	super.move()
-#	action_component.deselect_supported_entity()  #supported_entity = null
  
 func _on_support_action_invalid_support():
 	print("invaliid_action") 

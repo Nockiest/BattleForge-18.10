@@ -23,12 +23,10 @@ func enter(_msg := {}) -> void:
 	process_place_units()
 	call_deferred_thread_group("add_bridges")
 	create_roads_to_edges()
-	call_deferred_thread_group("process_place_units")
 	LoadingScreen.hige_loading_screen() 
 	state_machine.transition_to("Idle" ) 
 
-#func exit():
-#	state_machine.transition_to("Idle" ) 
+ 
 func place_towns():
 	var town_place_tries = 0
 	var max_placement_tries = 100
@@ -92,12 +90,7 @@ func place_towns():
 func process_place_units():
 	call_deferred_thread_group("place_starting_units",root.get_node("RedBuyArea"), "red", Globals.red_player_units )  
 	call_deferred_thread_group("place_starting_units",root.get_node("BlueBuyArea"), "blue", Globals.blue_player_units )
-#var added = false
-#func _process(_delta):
-#	if !added:
-#		add_bridges()
-#		added=true
-
+ 
  
 func place_starting_units(placment_area: Area2D, color, units_list  ):
 	var total_unit_number = Utils.sum_dict_values(units_list)

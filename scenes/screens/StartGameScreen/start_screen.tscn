@@ -164,7 +164,7 @@ layout_mode = 2
 attached_settings_variable = "blue_player_units"
 augmented_dictionary_variable = "medic"
 label_text = "Medics"
-slider_range = [0, 0]
+slider_range = [0, 10]
 start_value = 1
 
 [node name="Observers" parent="SettingsScreen/Blue Units" instance=ExtResource("2_hthqh")]

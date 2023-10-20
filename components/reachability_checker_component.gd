@@ -5,6 +5,7 @@ extends Node2D
 func check_position_reachable(point, projectile_size):
 	print("CHECKING POSITION REACHABLE")
 	var raycast = RayCast2D.new()
+	raycast.hide()
 	var collision_shape = CollisionShape2D.new()
 	raycast.add_child(collision_shape)
 

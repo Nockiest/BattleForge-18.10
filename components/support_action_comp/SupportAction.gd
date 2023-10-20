@@ -16,6 +16,9 @@ var current_support_state = SupportStates.Idle
 func start_supporting(new_supported_entity):
 	current_support_state = SupportStates.ProvidingSupport
 	supported_entity = new_supported_entity
+	#if   supported_entity.has(  "action_component")  :
+	if  "action_component" in supported_entity:
+		supported_entity.action_component.exit_action_state()
 	print("CUR STATE ",current_support_state, )
 ## this is independent of the parent exit action function
 func stop_supporting():
@@ -27,8 +30,8 @@ func stop_supporting():
  
 func process(_delta):
 	super.process(_delta)
-	if current_support_state == SupportStates.ProvidingSupport:
-		draw_line_to_supported_entity()
+#	if current_support_state == SupportStates.ProvidingSupport:
+	draw_line_to_supported_entity()
  
 func _ready():
 	super._ready()

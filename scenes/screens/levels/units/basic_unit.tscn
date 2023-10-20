@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://k1ksfcdaid3c" path="res://img/anime/slash/frame-3.png" id="5_8052n"]
 [ext_resource type="Texture2D" uid="uid://cv143uo2lmdgk" path="res://img/move.png" id="5_wmhhx"]
 [ext_resource type="PackedScene" uid="uid://bsghedd31qfoa" path="res://components/movement_comp/movement_comp.tscn" id="6_0pp86"]
-[ext_resource type="AudioStream" uid="uid://12xa7dj1stmj" path="res://music/ui_sounds/movement_selcted_beep.wav" id="12_3cmra"]
+[ext_resource type="AudioStream" uid="uid://12xa7dj1stmj" path="res://music/ui_sounds/movement_selcted_beep.wav" id="10_ejrp4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n3ojo"]
 size = Vector2(49, 50)
@@ -161,7 +161,7 @@ shape = SubResource("RectangleShape2D_n3ojo")
 debug_color = Color(0.956863, 0.203922, 0, 0.941176)
 
 [node name="SelectSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("12_3cmra")
+stream = ExtResource("10_ejrp4")
 
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="animation_finished" from="ErrorAnimation" to="." method="_on_error_animation_finished"]
