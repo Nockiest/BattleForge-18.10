@@ -6,6 +6,7 @@ signal  player_money_changed( )
 var red_player_color: Color = Color("ff0000")
 var blue_player_color: Color = Color("0000ff")
 var players = ["blue", "red"]
+var teams = ["red", "blue"]
 var cur_player = "blue"
 var hovered_unit
 var placed_unit

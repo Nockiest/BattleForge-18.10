@@ -22,5 +22,5 @@ func _on_exit_btn_button_up():
 #func _ready() -> void:
 #	$AudioStreamPlayer.play()
 #
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	$random_music_player.active = true
