@@ -12,6 +12,10 @@ position = Vector2(24.5, 25.5)
 scale = Vector2(0.796875, 0.765625)
 texture = ExtResource("3_7x4aa")
 
+[node name="HealthComponent" parent="." index="5"]
+max_hp = 2
+hp = 2
+
 [node name="CollisionShape2D" parent="CollisionArea" index="0"]
 debug_color = Color(0.835294, 0.301961, 0.623529, 0.419608)
 

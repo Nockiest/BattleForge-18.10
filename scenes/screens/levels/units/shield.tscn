@@ -18,6 +18,10 @@ position = Vector2(22, 28)
 scale = Vector2(0.854168, 0.802082)
 texture = ExtResource("2_5xs6j")
 
+[node name="HealthComponent" parent="." index="5"]
+max_hp = 6
+hp = 6
+
 [node name="ActionComponent" parent="." index="7"]
 metadata/_edit_lock_ = true
 

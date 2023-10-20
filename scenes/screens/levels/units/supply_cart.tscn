@@ -7,6 +7,10 @@
 [node name="SupplyCart" instance=ExtResource("1_ibwgx")]
 script = ExtResource("2_8oah7")
 
+[node name="HealthComponent" parent="." index="4"]
+max_hp = 2
+hp = 2
+
 [node name="ResupplyAction" parent="ActionComponent" index="0" instance=ExtResource("3_chlst")]
 
 [node name="CollisionShape2D" parent="CollisionArea" index="0"]

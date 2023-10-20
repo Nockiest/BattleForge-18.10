@@ -8,6 +8,10 @@
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("3_xk5k2")
 
+[node name="HealthComponent" parent="." index="4"]
+max_hp = 2
+hp = 2
+
 [node name="CollisionShape2D" parent="CollisionArea" index="0"]
 debug_color = Color(0.835294, 0.301961, 0.623529, 0.419608)
 

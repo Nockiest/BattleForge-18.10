@@ -18,7 +18,7 @@ var action_component
 var attack_resistances =  {"base_resistance":  0.1  } 
 var color: Color  
 var unit_name: String = "default"
-var start_hp: int = 2
+#var start_hp: int = 2
 var outline_node
 var is_newly_bought:bool = true:
 	get:
@@ -32,7 +32,7 @@ var is_newly_bought:bool = true:
  
 func _ready(): 
 	# The code here has to come after the code in th echildren compoennts
-	$HealthComponent.hp = start_hp
+#	$HealthComponent.hp = start_hp
 	$movement_comp.base_movement_range = base_movement_range
 	$Center.position = to_local(Utils.get_collision_shape_center($CollisionArea))
 	$ErrorAnimation.position = $Center.position  
