@@ -29,7 +29,6 @@ func provide_buffs():
 		return
 	if $"../..".owner.color  != Color(Globals.cur_player):
 		return
- 
 	var entity_to_buff = supported_entity if SupportActionNode.buffed_variable in supported_entity else Utils.find_child_with_variable(supported_entity, SupportActionNode.buffed_variable)
 	print(entity_to_buff, "ENTITY TO BUFF")
 	if entity_to_buff and entity_to_buff.get(SupportActionNode.buffed_variable) != null:

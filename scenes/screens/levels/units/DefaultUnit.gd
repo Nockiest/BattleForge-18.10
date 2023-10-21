@@ -127,6 +127,8 @@ func update_stats_bar():
 ## here is a call for function spwning a death cross
 func _on_tree_exiting():
 	var other_units = get_tree().get_nodes_in_group("living_units")
+	if Globals.action_taking_unit == self:
+		Globals.action_taking_unit = null
 	if $HealthComponent.hp == 0:
 		StatsTracker.increase_stat_by("lost_units", Globals.color_names[color], 1)
 	print("NEW STAT ", StatsTracker. lost_units, " ", Globals.cur_player)
@@ -143,6 +145,9 @@ func _on_tree_exiting():
 #func add_death_cross_to_root(death_image):
 #	get_tree().get_root().add_child(death_image )
  
+
+
+## ranged unit has its own version of this function
 func _on_collision_area_entered(area):
 	if $movement_comp.current_state !=   $movement_comp.state.Moving:
 		return

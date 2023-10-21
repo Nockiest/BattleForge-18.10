@@ -25,7 +25,6 @@ func update_elements():
 	for depo in Supply_depos:
 		var resupply_action = depo.get_node("AreaResupplyAction")
 		resupply_action.provide_buffs()
-	give_money_income_to_players()
 	for tender in Globals.tenders:
 		tender.update_tender()
 	for projectile in projectiles:

@@ -202,7 +202,7 @@ func instantiate_roads(start, end):
 	var length = start.distance_to(end)
 	var rect = RectangleShape2D.new()
 	var collision_shape = collision_area.get_node("CollisionShape2D")
-	rect.extents = Vector2(length / 2, 7)
+	rect.extents = Vector2(length / 2, 8)
 	collision_shape.shape = rect
 	road_instance.get_node("Line2D").add_point(  end )
 	road_instance.get_node("Line2D").add_point(  start )

@@ -70,10 +70,9 @@ func _on_collision_area_area_exited(area): ## zde je možné, že když rychle v
 			still_in_town = true
 		elif overlapping.get_parent() is RiverSegment:
 			still_on_river = true
-	print("AREA EXITED",	$movement_comp.movement_modifiers)
 	if not still_on_road:
 		$movement_comp.movement_modifiers["on_road"] = 0
-		if area.get_parent().get_parent() is Forrest and is_in_forrest():
+		if area.get_parent()  is Road and is_in_forrest():
 			$movement_comp.abort_movement()
 	if not still_on_forrest:
 		$movement_comp.movement_modifiers["in_forrest"] = 0
