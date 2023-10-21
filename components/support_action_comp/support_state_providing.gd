@@ -1,3 +1,4 @@
+class_name SupportStateProviding
 extends SupportState
 
 var supported_entity

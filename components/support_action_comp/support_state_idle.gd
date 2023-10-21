@@ -1,5 +1,6 @@
+class_name SupportStateIdle
 extends SupportState
-
+ 
 
 func update(delta:float):
 	if Input.is_action_just_pressed("right_click") and  $"../..".owner == Globals.hovered_unit :

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b8esb3nkgltuq" path="res://scenes/screens/levels/support_unit.tscn" id="1_1lj22"]
 [ext_resource type="Script" path="res://scenes/screens/levels/units/observer.gd" id="2_eo33w"]
 [ext_resource type="Texture2D" uid="uid://ceeetyqcgouuh" path="res://img/observer.png" id="3_twnx0"]
-[ext_resource type="PackedScene" uid="uid://da6m8xjnk2ovm" path="res://components/support_action_comp/observe_action.tscn" id="4_8jhf7"]
+[ext_resource type="PackedScene" uid="uid://da6m8xjnk2ovm" path="res://components/support_action_comp/observe_action/observe_action.tscn" id="4_8jhf7"]
 
 [node name="Observer" instance=ExtResource("1_1lj22")]
 script = ExtResource("2_eo33w")

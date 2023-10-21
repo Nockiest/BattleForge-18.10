@@ -1,3 +1,4 @@
+class_name SupportStateChoosing
 extends SupportState
 
  
@@ -13,7 +14,7 @@ func exit():
 func update(delta):
 	if Input.is_action_just_pressed("right_click"):
 		choose_supported()
-func check_can_support():
+func check_can_support() -> bool:
 	if  Globals.hovered_unit == null  :
 		print_debug( Globals.hovered_unit ," No Hovere unit")
 		return false
