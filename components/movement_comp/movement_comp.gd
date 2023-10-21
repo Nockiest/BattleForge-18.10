@@ -23,6 +23,7 @@ var movement_modifiers:Dictionary = {
 	"base_modifier": 1,
 	"on_road": 0,
 	"in_forrest": 0,
+	"in_town": 0, 
 } 
 var current_movement_modifier =  calculate_total_movement_modifier()
 var on_bridge:= false 
@@ -56,7 +57,7 @@ func enter_movement_state():
 	current_state = state.Moving
 	$SelectSound.play()
 	$MovementSound.play()
-#	$MovementSoundPlayer.should_play_sounds = true
+ 
 func exit_movement_state():
 	current_state = state.Idle
 	toggle_moving_appearance("off")
