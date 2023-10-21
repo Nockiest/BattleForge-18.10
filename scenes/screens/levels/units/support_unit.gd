@@ -2,10 +2,6 @@ extends BattleUnit
 class_name SupportUnit
  
  
-#
-#func _on_support_action_invalid_support():
-#	print("invaliid_action") 
-	
 func _ready():
 	super._ready()
 	unit_name = "support_unit"

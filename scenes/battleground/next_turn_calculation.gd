@@ -15,10 +15,11 @@ func update_elements():
 	var units = get_tree().get_nodes_in_group("living_units")
 	var support_actions = get_tree().get_nodes_in_group("support_actions")
 	var towns = get_tree().get_nodes_in_group("towns") 
+	var projectiles = get_tree().get_nodes_in_group("projectiles") 
 	for unit in units:
 		unit.update_for_next_turn()
-	for support_action in support_actions:
-		support_action.provide_buffs()
+#	for support_action in support_actions:
+#		support_action.provide_buffs()
 	for town in towns:
 		town.make_next_turn_calculations()
 	for depo in Supply_depos:
@@ -27,6 +28,9 @@ func update_elements():
 	give_money_income_to_players()
 	for tender in Globals.tenders:
 		tender.update_tender()
+	for projectile in projectiles:
+		projectile.speed *= 4
+ 
 
 
 func give_money_income_to_players(): 
@@ -43,8 +47,6 @@ func give_money_income_to_players():
  
 	Globals.red_player_money  +=  Globals.money_per_turn + red_towns* Globals.city_turn_income
  
-# Example usage:
 	StatsTracker.increase_stat_by("earned_money", "blue",   Globals.money_per_turn + blue_towns* Globals.city_turn_income )  # Set the first element of 'earned_money' to 50
 	StatsTracker.increase_stat_by("earned_money", "red",  Globals.money_per_turn + red_towns* Globals.city_turn_income)  # Set the first element of 'earned_money' to 50
-	print( StatsTracker.earned_money,"STATS", Globals.money_per_turn + blue_towns* Globals.city_turn_income , " ", Globals.money_per_turn + red_towns* Globals.city_turn_income)
-	print(Globals.red_player_money,	" ",Globals.blue_player_money, " MONEY" )
+ 

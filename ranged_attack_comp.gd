@@ -7,20 +7,18 @@ signal ammo_changed(ammo)
  
 
 func _ready():
-	base_action_range = 300
+#	base_action_range = 300
 	super._ready()
 	$BlastAnimation.hide()
  
 func update_for_next_turn():
 	super.update_for_next_turn()
-#	ammo_component.ammo += 1
 	
  
-func update_from_observer_boost():
-	print("UPDATING FROM OBSERVER BOOST")
-	action_range = Utils.sum_dict_values(aciton_range_modifiers)
- 
- 
+#func update_from_observer_boost():
+#	print("UPDATING FROM OBSERVER BOOST")
+#	action_range = Utils.sum_dict_values(aciton_range_modifiers)
+#
 func _on_ammo_component_ammo_changed():
 	ammo_changed.emit(ammo_component.ammo)
 

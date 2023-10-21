@@ -14,9 +14,7 @@ var spent_money:Dictionary  = {
 }
 var turns_played:int =  0
 	
-func increase_stat_by(stat, cur_player, value):
-	print(stat, cur_player, value)
-	
+func increase_stat_by(stat, cur_player, value):	
 	if stat is Array:
 		stat[cur_player] = value
 	else:

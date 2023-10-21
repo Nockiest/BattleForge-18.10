@@ -92,7 +92,6 @@ func calculate_total_movement_modifier():
  
 
 func process(_delta):
-#	$MovementSoundPlayer.process(current_state)
 	if current_state == state.Placed: 
 		owner.position = get_global_mouse_position() - owner.size / 2
 		print("OWNER POS ", owner.position)

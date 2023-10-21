@@ -46,8 +46,6 @@ func _process(delta: float) -> void:
  
 func update_for_next_turn():
 	print("SUPPORT COMPONENT HAS UPDATING FOR NEXT TURN DISABLED FOR NOW")
- 
-func provide_buffs():
 	$StateMachine.provide_buffs()
 
 

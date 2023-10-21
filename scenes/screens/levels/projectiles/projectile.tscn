@@ -131,7 +131,7 @@ animations = [{
 "speed": 15.0
 }]
 
-[node name="projectile" type="Area2D"]
+[node name="projectile" type="Area2D" groups=["projectiles"]]
 z_index = 15
 rotation = 1.5708
 collision_layer = 16
