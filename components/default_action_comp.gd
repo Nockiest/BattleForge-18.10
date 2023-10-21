@@ -71,6 +71,7 @@ func update_from_observer_boost():
 	print("NEW ACTION RANGE", action_range)
 
 
+
 func try_attack( ):
 	print("processing", Globals.hovered_unit,Globals.action_taking_unit  )
 	if !check_can_attack():

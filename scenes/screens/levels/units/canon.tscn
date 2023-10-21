@@ -11,9 +11,6 @@ script = ExtResource("2_er8hf")
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("2_kkjrl")
 
-[node name="UnitStatsBar" parent="." index="3"]
-visible = false
-
 [node name="TextureRect" parent="UnitStatsBar/ColorRect/VBoxContainer/HBoxContainer4" index="0"]
 texture = ExtResource("4_6ykqb")
 

@@ -9,9 +9,6 @@
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("3_xk5k2")
 
-[node name="UnitStatsBar" parent="." index="3"]
-visible = false
-
 [node name="ColorRect" parent="UnitStatsBar" index="0"]
 offset_bottom = 62.0
 

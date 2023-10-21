@@ -11,3 +11,4 @@ func _proces():
 func _draw():
 	draw_circle(Vector2.ZERO, get_parent().action_range, Color(0.5,0.5,0.5,0.5))
 	draw_arc(Vector2.ZERO, get_parent().action_range, 0,  PI*2, 200, Color("black"), 3)
+ 
