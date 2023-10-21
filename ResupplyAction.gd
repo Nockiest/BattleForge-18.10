@@ -9,7 +9,7 @@ func _on_area_entered(area):
 	if not(area.get_parent() is RangedUnit):
 		return
 	super._on_area_entered(area)
-
+ 
 ##	constant_buff = false
 ##	color = Color(0.5,0.5,0.5)
 #	$AnimatedSprite2D.hide()  # Hide the AnimatedSprite node on ready

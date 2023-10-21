@@ -24,16 +24,16 @@ func update(delta):
 #	elif Input.is_action_just_pressed("left_click"):
 #		state_machine.transition_to("Idle")
 ### currently when i want to provide a buff on the enemy turn, it wouldnt work
-func provide_buffs():
+func provide_buffs() -> bool :
 	if $"../..".area_support:
-		return
+		return false
 	if $"../..".owner.color  != Color(Globals.cur_player):
-		return
+		return false
 	var entity_to_buff = supported_entity if SupportActionNode.buffed_variable in supported_entity else Utils.find_child_with_variable(supported_entity, SupportActionNode.buffed_variable)
 	print(entity_to_buff, "ENTITY TO BUFF")
 	if entity_to_buff and entity_to_buff.get(SupportActionNode.buffed_variable) != null:
 		entity_to_buff.set(SupportActionNode.buffed_variable, entity_to_buff.get(SupportActionNode.buffed_variable) + SupportActionNode.increase_ammount)
-#
+	return true
 #
  
 func update_for_next_turn():

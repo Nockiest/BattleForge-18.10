@@ -131,7 +131,6 @@ func _on_tree_exiting():
 		Globals.action_taking_unit = null
 	if $HealthComponent.hp == 0:
 		StatsTracker.increase_stat_by("lost_units", Globals.color_names[color], 1)
-	print("NEW STAT ", StatsTracker. lost_units, " ", Globals.cur_player)
 	for unit in other_units:
 		if unit == Globals.last_attacker:
 			print(unit, " will get a boost")

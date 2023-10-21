@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://boq8qhpa8js36"]
+[gd_scene load_steps=17 format=3 uid="uid://boq8qhpa8js36"]
 
 [ext_resource type="PackedScene" uid="uid://bk004xnrbax3d" path="res://components/support_action_comp/SupportAction.tscn" id="1_8cgp0"]
 [ext_resource type="Script" path="res://ResupplyAction.gd" id="2_nscl3"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bewhlu71hgiqp" path="res://img/anime/resupply/pixil-frame-9.png" id="12_6rrwf"]
 [ext_resource type="Texture2D" uid="uid://dbhq1d0ck2iw1" path="res://img/anime/resupply/pixil-frame-10.png" id="13_pwhk7"]
 [ext_resource type="Texture2D" uid="uid://bst32d1dk5l0p" path="res://img/anime/resupply/pixil-frame-11.png" id="14_a7wt3"]
+[ext_resource type="Script" path="res://components/support_action_comp/resupply_action/resupply_state_providing.gd" id="15_inass"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2sdg5"]
 animations = [{
@@ -69,3 +70,9 @@ sprite_frames = SubResource("SpriteFrames_2sdg5")
 animation = &"resupply_animation"
 frame = 11
 frame_progress = 1.0
+
+[node name="ProvidingSupport" parent="StateMachine" index="2"]
+script = ExtResource("15_inass")
+
+[node name="reachabilityCheckerComp" parent="." index="6"]
+visible = false

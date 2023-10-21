@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://gfu781ehv24c"]
+[gd_scene load_steps=25 format=3 uid="uid://b8l26kil3dvlm"]
 
 [ext_resource type="Script" path="res://components/ammo_component.gd" id="1_sar5o"]
 [ext_resource type="Texture2D" uid="uid://c0hnavsl0tf65" path="res://img/anime/bullet-minus/pixil-frame-0.png" id="2_c0tid"]

@@ -2,14 +2,11 @@ extends BattleUnit
 class_name RangedUnit
  
 var start_ammo = 6
-#var bullet_scene:PackedScene = preload("res://scenes/screens/levels/projectiles/bullet.tscn")
+ 
 func _ready():
 	action_component = $ActionComponent/RangedAttackComp 
 	action_component.ammo_component.max_ammo = start_ammo 
-	action_component.ammo_component.ammo = start_ammo 
-#	action_component.action_range = ranged_unit_range
-#	action_component.position = to_local(center)
-#	action_component.owner =self
+ 
 	super._ready()
 	unit_name = "ranged_unit"
 func update_stats_bar():
