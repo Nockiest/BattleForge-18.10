@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dkrdjtyb1p88n" path="res://scenes/screens/levels/units/basic_unit.tscn" id="1_gwte3"]
 [ext_resource type="Script" path="res://scenes/screens/levels/units/ranged_unit.gd" id="2_3n43o"]
 [ext_resource type="Texture2D" uid="uid://5u2w0d8l6w5h" path="res://img/musketeer.png" id="3_kdekp"]
-[ext_resource type="PackedScene" uid="uid://dlin3h71y20cx" path="res://ranged_attack_comp.tscn" id="4_5x482"]
+[ext_resource type="PackedScene" uid="uid://b1r72bjjygjou" path="res://ranged_attack_comp.tscn" id="4_5x482"]
 [ext_resource type="Texture2D" uid="uid://burvkjnwsf14b" path="res://img/anime/bullet_flying_animation/pixil-frame-0.png" id="4_iesuh"]
 
 [node name="RangedUnit" instance=ExtResource("1_gwte3")]

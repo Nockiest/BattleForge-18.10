@@ -3,16 +3,16 @@ class_name DefaultAttackComponent
 signal remain_actions_updated(new_attacks)
 signal entering_action_state()
 signal exiting_action_state()
-var base_actions:int = 1
+var base_actions:= 1
 var remain_actions: int = base_actions:
 	set(new_attacks):
 		remain_actions = new_attacks
 		emit_signal("remain_actions_updated", remain_actions)
-var units_in_action_range:Array= []
+var units_in_action_range:= []
 @export var process_action_sound:AudioStream
-var reachable_units:Array = []
-var projectile_size:int = 0
-var base_action_range:int = 100:
+var reachable_units := []
+var projectile_size:= 0
+var base_action_range:= 100:
 	set(value):
 		base_action_range = value
 		action_range =floor( base_action_range * Utils.sum_dict_values(aciton_range_modifiers))
@@ -33,23 +33,25 @@ var aciton_range_modifiers = {
  
 @export var highlight_color = "white"
  
- 
+func update_action_range_modifier(modifier,value):
+	aciton_range_modifiers[modifier] = value
+	print("NEW MODIFIERS ", aciton_range_modifiers)
+	action_range = floor( base_action_range * Utils.sum_dict_values(aciton_range_modifiers))
 func  update_for_next_turn():
 	remain_actions = base_actions
-	
-#	unhighlight_units_in_range()
+ 
 
 func _process(delta: float) -> void:
 	if get_node("RangeOutline") == null:
 		return
-	
+#	if owner is Musketeer:
+#		print($StateMachine.state," ", Globals.hovered_unit, Globals.hovered_unit == owner)
 	if Globals.hovered_unit == owner:
-		$RangeOutline.visible = true
+		$RangeOutline.show()
 	else:
-		$RangeOutline.visible = false
+		$RangeOutline.hide()
  
 func _on_area_entered(area):
- 
 	if area.get_parent() == owner:
 #		print_debug("FAIL")
 		return 2

@@ -6,6 +6,6 @@ func enter(msg = {}):
 
  
 func update(delta: float) -> void: 
-	if Input.is_action_just_pressed("right_click"):
+	if Input.is_action_just_pressed("right_click") and Globals.moving_unit== null:
 		state_machine.transition_to("Active")
 		
