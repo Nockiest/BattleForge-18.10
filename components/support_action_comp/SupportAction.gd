@@ -30,6 +30,7 @@ var aciton_range_modifiers = {
 	"base_modifier": 1,
 	"observer": 0
 	}
+	
 func _ready():
 	pass
 	
@@ -48,6 +49,8 @@ func update_for_next_turn():
  
 func provide_buffs():
 	$StateMachine.provide_buffs()
+
+
 func _on_area_entered(area):
 	if area.name != "CollisionArea": 
 		return  
@@ -57,7 +60,6 @@ func _on_area_entered(area):
 	if area.owner.color != owner.color:
 		return
 	if area.get_parent() == owner:
-#		print_debug("FAIL")
 		return 2
 	if not "color" in owner:
 		return 6

@@ -19,7 +19,10 @@ func exit():
 	supported_entity = null
 func update(delta):
 	draw_line_to_supported_entity()
-  
+	if Input.is_action_just_pressed("right_click"):
+		state_machine.transition_to("Idle")
+#	elif Input.is_action_just_pressed("left_click"):
+#		state_machine.transition_to("Idle")
 ### currently when i want to provide a buff on the enemy turn, it wouldnt work
 func provide_buffs():
 	if $"../..".area_support:

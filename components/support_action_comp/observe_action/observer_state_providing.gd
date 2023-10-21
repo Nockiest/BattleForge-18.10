@@ -16,9 +16,11 @@ func provide_buffs():
 
 func exit():
 	if supported_entity != null:
+		print("supported_entity", supported_entity, supported_entity is Observer)
 		var support_entity_action_comp = supported_entity.action_component.get("aciton_range_modifiers")
 		support_entity_action_comp["observer"] = 0
 		supported_entity.action_component.update_from_observer_boost()
+		supported_entity = null
 	super.exit()
 
  

@@ -12,6 +12,9 @@ func _ready() -> void:
 	state.enter()
 
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("right_click"):
+		print(state," IS CURRENT STATE", owner)
+	
 	if "color" in owner:
 			if Color(Globals.cur_player) != owner.color:
 				return

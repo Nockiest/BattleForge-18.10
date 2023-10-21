@@ -6,15 +6,19 @@ func enter(msg:={}):
 	$"../../AttackRangeCircle".show()
 	Globals.action_taking_unit =   SupportActionNode.owner
 	highlight_units_in_range()
+
+
 func exit():
 	if Globals.action_taking_unit == SupportActionNode.owner:
 		Globals.action_taking_unit  = null
 		unhighlight_units_in_range()
-#	unhighlight_units_in_range()
-#
+	$"../../AttackRangeCircle".hide()
+ 
+
 func update(delta):
 	if Input.is_action_just_pressed("right_click"):
 		choose_supported()
+
 func check_can_support() -> bool:
 	if  Globals.hovered_unit == null  :
 		print_debug( Globals.hovered_unit ," No Hovere unit")
@@ -33,23 +37,16 @@ func check_can_support() -> bool:
 	return true
 
 
-func choose_supported() ->void:
-#	print("CHOOSING SUPPORTED", check_can_support())
+func choose_supported() -> void:
 	if not check_can_support():
 		state_machine.transition_to("Idle")
-#		return
-	print("STARTING TO SUPPORT")
-	state_machine.transition_to("ProvidingSupport", {"suppported_entity" = Globals.hovered_unit}) 
+	else:
+		print("STARTING TO SUPPORT")
+		state_machine.transition_to("ProvidingSupport", {"suppported_entity" = Globals.hovered_unit}) 
 #
 func highlight_units_in_range() -> void: 
-#	print("HIGHLIGHTING UNITS", AttackComponent.units_in_action_range, )
-#	print("REACHABLE UNITS ",  AttackComponent.reachable_units)
 	for unit in SupportActionNode.units_in_action_range:
 		unit.get_node("ColorRect").modulate = Color(SupportActionNode.highlight_color)
-#		if unit in SupportActionNode.reachable_units:
-#			unit.get_node("ColorRect").modulate = Color(AttackComponent.highlight_color)
-#		else:
-#			unit.get_node("ColorRect").modulate = Color(0.1,0.1,0.1,0.5)
 
 
 func unhighlight_units_in_range() -> void:
