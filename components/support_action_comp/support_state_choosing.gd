@@ -5,10 +5,11 @@ extends SupportState
 func enter(msg:={}):
 	$"../../AttackRangeCircle".show()
 	Globals.action_taking_unit =   SupportActionNode.owner
+	highlight_units_in_range()
 func exit():
 	if Globals.action_taking_unit == SupportActionNode.owner:
-		Globals.action_taking_unit 
- 
+		Globals.action_taking_unit  = null
+		unhighlight_units_in_range()
 #	unhighlight_units_in_range()
 #
 func update(delta):
@@ -32,13 +33,27 @@ func check_can_support() -> bool:
 	return true
 
 
-func choose_supported():
+func choose_supported() ->void:
 #	print("CHOOSING SUPPORTED", check_can_support())
 	if not check_can_support():
 		state_machine.transition_to("Idle")
 #		return
 	print("STARTING TO SUPPORT")
 	state_machine.transition_to("ProvidingSupport", {"suppported_entity" = Globals.hovered_unit}) 
-	return "SUCCESS"
 #
-#
+func highlight_units_in_range() -> void: 
+#	print("HIGHLIGHTING UNITS", AttackComponent.units_in_action_range, )
+#	print("REACHABLE UNITS ",  AttackComponent.reachable_units)
+	for unit in SupportActionNode.units_in_action_range:
+		unit.get_node("ColorRect").modulate = Color(SupportActionNode.highlight_color)
+#		if unit in SupportActionNode.reachable_units:
+#			unit.get_node("ColorRect").modulate = Color(AttackComponent.highlight_color)
+#		else:
+#			unit.get_node("ColorRect").modulate = Color(0.1,0.1,0.1,0.5)
+
+
+func unhighlight_units_in_range() -> void:
+	for unit in SupportActionNode.units_in_action_range:
+		unit.get_node("ColorRect").modulate = unit.color
+
+ 

@@ -8,3 +8,4 @@ func check_can_support() -> bool:
 		return false
 	return super.check_can_support()
 #
+

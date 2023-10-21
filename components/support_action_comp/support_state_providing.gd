@@ -10,10 +10,12 @@ func enter(msg := {}):
 		state_machine.transition_to("Idle")
 		return
 	supported_entity = msg["suppported_entity"]
+	SupportActionNode.get_node("AttackRangeCircle").hide()
   
 ## this is independent of the parent exit action function
 func exit():
 	print("STOPPED SUPPORTING")
+	SupportActionNode.get_node("SupportConnnection").clear_points()
 	supported_entity = null
 func update(delta):
 	draw_line_to_supported_entity()

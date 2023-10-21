@@ -1,10 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://blmv0tqwcbn4s"]
+[gd_scene load_steps=13 format=3 uid="uid://5mi3kabinyrb"]
 
 [ext_resource type="Script" path="res://components/default_action_comp.gd" id="1_dckwc"]
 [ext_resource type="AudioStream" uid="uid://cgboxbwy657e1" path="res://music/ui_sounds/bleep.wav" id="2_ahpl3"]
 [ext_resource type="Script" path="res://components/Polygon2D.gd" id="2_np0wa"]
 [ext_resource type="PackedScene" uid="uid://c82skjj0rnb0j" path="res://animations/error_animation.tscn" id="3_mxybh"]
-[ext_resource type="PackedScene" uid="uid://617dtqmgwo25" path="res://components/reachability_checker_component.tscn" id="3_s3vkt"]
+[ext_resource type="PackedScene" path="res://components/reachability_checker_component.tscn" id="3_s3vkt"]
 [ext_resource type="Script" path="res://components/default_action/range_outline.gd" id="4_6xsyh"]
 [ext_resource type="AudioStream" uid="uid://cbphjjiv7krne" path="res://music/error/error.wav" id="5_jk13v"]
 [ext_resource type="AudioStream" uid="uid://b4do24n0ejw2a" path="res://music/unit/melee/short_sword_clang.wav" id="6_jtj0b"]

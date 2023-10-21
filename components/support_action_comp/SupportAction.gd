@@ -10,6 +10,7 @@ var remain_actions = base_actions
 @export var support_line_color:Color
 var units_in_action_range:Array= []
 @export var process_action_sound:Node
+@export var highlight_color:Color
 var reachable_units:Array = []
 var base_action_range:int = 100:
 	set(value):
@@ -47,20 +48,25 @@ func update_for_next_turn():
  
 func provide_buffs():
 	$StateMachine.provide_buffs()
-#func _on_area_entered(area):
-#	if area.name != "CollisionArea": 
-#		return  
-#	if not("color" in owner) :#not( owner.has("color") ):
-#		print("SUPPORT ACTION OWNER DOEST HAVE COLOR")
-#		return
-#	if area.owner.color != owner.color:
-#		return
-#	if str(super._on_area_entered(area)) == "SAME COLOR":
-#		print("observer area entered",area.get_parent(),area.owner.color ,owner.color,  get_parent( ))
-#		if area.owner.color != owner.color:
-#			return
-#		units_in_action_range.append(area.get_parent())
-#
- 
+func _on_area_entered(area):
+	if area.name != "CollisionArea": 
+		return  
+	if not("color" in owner) : 
+		print("SUPPORT ACTION OWNER DOEST HAVE COLOR")
+		return
+	if area.owner.color != owner.color:
+		return
+	if area.get_parent() == owner:
+#		print_debug("FAIL")
+		return 2
+	if not "color" in owner:
+		return 6
+	units_in_action_range.append(area.get_parent())
+	return 7
 
+ 
+func _on_area_exited(area):
+	if area.name == "CollisionArea" and units_in_action_range.has(area.get_parent()):
+		units_in_action_range.erase(area.get_parent()) 
+ 
  

@@ -16,7 +16,8 @@ func update_for_next_turn():
 #	ammo_component.ammo += 1
 	
  
- 
+func update_from_observer_boost():
+	print("UPDATING FROM OBSERVER BOOST")
  
 
  

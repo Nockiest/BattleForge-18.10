@@ -19,5 +19,5 @@ func _process(delta: float) -> void:
 		state.update(delta)
 		
 func provide_buffs():
-	if state == $ProvidingSupport:
+	if state == $ProvidingSupport and  $ProvidingSupport .supported_entity != null:
 		state.provide_buffs()

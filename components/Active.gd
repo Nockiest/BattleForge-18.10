@@ -39,12 +39,11 @@ func find_attackable_units():
 		
 func exit():
 	if Globals.action_taking_unit == AttackComponent.owner:
-		unhighlight_units_in_range()
 		Globals.action_taking_unit = null
 		Globals.attacking_component = null
 		AttackComponent.reachable_units = []
 		AttackComponent.get_node("AttackRangeCircle").hide()
-
+	unhighlight_units_in_range()
 func try_attack( ):
 	if !check_can_attack():
 		AttackComponent.get_node("ErrorSound").play()
