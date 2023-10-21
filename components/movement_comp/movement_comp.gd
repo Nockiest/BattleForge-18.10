@@ -25,8 +25,8 @@ var movement_modifiers:Dictionary = {
 	"in_forrest": 0,
 } 
 var current_movement_modifier =  calculate_total_movement_modifier()
-var on_bridge:bool = false 
-var on_river:bool= false
+var on_bridge:= false 
+var on_river:= false
 var mouse_pos_offset: Vector2 #= Vector2(0,0)
 enum state {
 	Idle,

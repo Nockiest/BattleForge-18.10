@@ -7,7 +7,18 @@
 
 [node name="AreaResupplyAction" groups=["SupportActions"] instance=ExtResource("1_pn5yo")]
 script = ExtResource("2_ag4g7")
+process_action_sound = null
 highlight_color = "white"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 shape = SubResource("CircleShape2D_354cc")
+
+[node name="AttackRangeCircle" parent="." index="4"]
+visible = true
+
+[node name="StateMachine" parent="." index="5"]
+script = null
+
+[node name="SupportAlreadyProvided" type="Node" parent="StateMachine" index="0"]
+
+[node name="NewSupportConnection" type="Node" parent="StateMachine" index="1"]

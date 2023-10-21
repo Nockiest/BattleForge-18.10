@@ -39,17 +39,13 @@ func find_attackable_units():
 		
 func exit():
 	if Globals.action_taking_unit == AttackComponent.owner:
-		print("EXITING ACTION STATE ", AttackComponent, AttackComponent.owner)
-	#	exiting_action_state.emit()
 		unhighlight_units_in_range()
-	#	current_state = States.Idle
 		Globals.action_taking_unit = null
 		Globals.attacking_component = null
 		AttackComponent.reachable_units = []
 		AttackComponent.get_node("AttackRangeCircle").hide()
 
 func try_attack( ):
-	print("processing", Globals.hovered_unit,Globals.action_taking_unit  )
 	if !check_can_attack():
 		AttackComponent.get_node("ErrorSound").play()
 		print("FAILED ",self, self.get_parent(),  check_can_attack() )
@@ -58,8 +54,7 @@ func try_attack( ):
 		return  "FAILED" 
 	attack()
 	return "SUCESS"
-
-## ranged attack has an overide for this function  
+  
 func attack():
 	Globals.last_attacker = AttackComponent.owner
 	AttackComponent.get_node("ActionSound").play()
@@ -67,7 +62,7 @@ func attack():
 	AttackComponent.remain_actions -=1
 
 func check_can_attack() -> bool:
-	print("check_can_attack ",  Globals.action_taking_unit, AttackComponent.owner, Globals.action_taking_unit == AttackComponent.owner )
+#	print("check_can_attack ",  Globals.action_taking_unit, AttackComponent.owner, Globals.action_taking_unit == AttackComponent.owner )
 	if  Globals.action_taking_unit != AttackComponent.owner:
 		print_debug(1, Globals.action_taking_unit)
 		return false
@@ -95,8 +90,8 @@ func update(_delta:float):
  
 
 func highlight_units_in_range() -> void: 
-	print("HIGHLIGHTING UNITS", AttackComponent.units_in_action_range, )
-	print("REACHABLE UNITS ",  AttackComponent.reachable_units)
+#	print("HIGHLIGHTING UNITS", AttackComponent.units_in_action_range, )
+#	print("REACHABLE UNITS ",  AttackComponent.reachable_units)
 	for unit in AttackComponent.units_in_action_range:
 		if unit in AttackComponent.reachable_units:
 			unit.get_node("ColorRect").modulate = Color(AttackComponent.highlight_color)

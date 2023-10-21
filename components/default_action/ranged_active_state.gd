@@ -2,7 +2,7 @@ class_name RangedActiveActionState
 extends BaseActiveActionState
 
 func check_can_enter_state():
-	print("UNIT AMMO ", AttackComponent.ammo_component.ammo )
+#	print("UNIT AMMO ", AttackComponent.ammo_component.ammo )
 	if AttackComponent.ammo_component.ammo <= 0:
 		return false
 	return super.check_can_enter_state()

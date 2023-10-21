@@ -1,104 +1,50 @@
 class_name  SupportAction
-extends DefaultAttackComponent
+extends Area2D
  
 var supported_entity
 var buffed_variable = "action_range"
 var increase_ammount = 200
-#var color = Color(1, 0.75, 0.8) 
-var area_support = false
-
-#enum SupportStates {
-#	Idle,
-#	ProvidingSupport
-#}
-#var current_support_state = SupportStates.Idle
-#
-#func start_supporting(new_supported_entity):
-#	current_support_state = SupportStates.ProvidingSupport
-#	supported_entity = new_supported_entity
-#	#if   supported_entity.has(  "action_component")  :
-#	if  "action_component" in supported_entity:
-#		supported_entity.action_component.exit_action_state()
-#	print("CUR STATE ",current_support_state, )
-### this is independent of the parent exit action function
-#func stop_supporting():
-#	print("STOPPED SUPPORTING")
-##	exit_action_state()
-#	current_support_state = SupportStates.Idle
-#	supported_entity = null
-##	unhighlight_units_in_range()
-#
-#func process(_delta):
-##	super.process(_delta)
-##	if current_support_state == SupportStates.ProvidingSupport:
-#	draw_line_to_supported_entity()
-#
-#func _ready():
-#	super._ready()
-#
-#func check_can_support():
-#	if Globals.hovered_unit == owner or Globals.hovered_unit == null or Globals.hovered_unit == supported_entity:
-#		return false
-#	if Globals.hovered_unit.color != owner.color:
-#		print(owner," 2")
-#		return false
-#	if Globals.action_taking_unit  != owner:
-#		print(owner," 3")
-#		return false
-#	if  Utils.get_collision_shape_center( owner.get_node("CollisionArea") ).distance_to(Utils.get_collision_shape_center(owner.get_node("CollisionArea") )) > action_range:
-#		print(owner," 5")
-#		return false
-#	return true
-#
-#func choose_supported():
-##	print("CHOOSING SUPPORTED", check_can_support())
-#	if not check_can_support():
-#		stop_supporting() 
-#		exit_action_state()
-#		return
-#	print("STARTING TO SUPPORT")
-#	start_supporting(Globals.hovered_unit)
-##	supported_entity = Globals.hovered_unit
-#	exit_action_state()
-#	return "SUCCESS"
-#
-#
-### currently when i want to provide a buff on the enemy turn, it wouldnt work
-#func provide_buffs():
-#	if area_support:
-#		return
-#	if owner.color  != Color(Globals.cur_player):
-#		return
-#	if supported_entity:
-#		var entity_to_buff = supported_entity if buffed_variable in supported_entity else Utils.find_child_with_variable(supported_entity, buffed_variable)
-#		print(entity_to_buff, "ENTITY TO BUFF")
-#		if entity_to_buff and entity_to_buff.get(buffed_variable) != null:
-#			entity_to_buff.set(buffed_variable, entity_to_buff.get(buffed_variable) + increase_ammount)
-#
-#
-#func update_for_next_turn():
-#	provide_buffs()
-#
-#
-#func draw_line_to_supported_entity():
-#	$SupportConnnection.clear_points()  # Clear any existing points
-#	if supported_entity != null:
-#		# Convert global positions to Line2D's local space
-#		var local_start =to_local(owner.get_node("Center").global_position ) # $SupportConnnection.to_local(owner.center)
-#		var local_end = to_local( supported_entity.get_node("Center").global_position    ) #$SupportConnnection.to_local( supported_entity.center  )  
-#		$SupportConnnection.add_point(local_start)  # Add the parent's position as a point
-#		$SupportConnnection.add_point(local_end )  # Add the supported entity's position as a point
-#		# Calculate the distance between the start and end points
-#		if not  get_overlapping_areas().has(supported_entity.get_node("CollisionArea")):
-#			stop_supporting()
-#
-#
-#		var distance = local_start.distance_to(local_end)
-#		if distance > action_range:
-#			stop_supporting()
-#			return
-#
-#
+@export var base_actions = 1
+var remain_actions = base_actions
+@export var area_support = false
+ 
+var units_in_action_range:Array= []
+@export var process_action_sound:Node
+var reachable_units:Array = []
+var base_action_range:int = 100:
+	set(value):
+		base_action_range = value
+		action_range =floor( base_action_range * Utils.sum_dict_values(aciton_range_modifiers))
+var action_range:int = base_action_range:
+	get:
+		return action_range
+	set(value):
+		action_range = value
+		units_in_action_range = []
+		$AttackRangeShape.shape = CircleShape2D.new()
+		$AttackRangeShape.shape.radius = action_range
+		$AttackRangeCircle.queue_redraw() 
+ 
+var aciton_range_modifiers = {
+	"base_modifier": 1,
+	"observer": 0
+	}
+func _ready():
+	pass
+	
+func _process(delta: float) -> void:
+	if get_node("RangeOutline") == null:
+		return
+	
+	if Globals.hovered_unit == owner:
+		$RangeOutline.visible = true
+	else:
+		$RangeOutline.visible = false
+ 
+ 
+ 
+ 
+ 
 #func _on_area_entered(area):
 #	if area.name != "CollisionArea": 
 #		return  
