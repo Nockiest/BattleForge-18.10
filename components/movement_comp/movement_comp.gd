@@ -4,8 +4,8 @@ extends Node2D
 #signal ran_out_of_movement()
 var base_movement_range:int:
 	set(new_range):
-		base_movement_range = new_range
-		remain_distance = base_movement_range 
+		base_movement_range = new_range *3
+		remain_distance = base_movement_range  
 @onready var global_start_turn_position :Vector2 #=  global_position 
 @onready var buy_areas = get_tree().get_nodes_in_group("buy_areas")
 #@export var movement_sounds:Array[AudioStream] = []

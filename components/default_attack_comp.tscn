@@ -1,12 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://blmv0tqwcbn4s"]
+[gd_scene load_steps=13 format=3 uid="uid://blmv0tqwcbn4s"]
 
 [ext_resource type="Script" path="res://components/default_action_comp.gd" id="1_dckwc"]
 [ext_resource type="AudioStream" uid="uid://cgboxbwy657e1" path="res://music/ui_sounds/bleep.wav" id="2_ahpl3"]
 [ext_resource type="Script" path="res://components/Polygon2D.gd" id="2_np0wa"]
+[ext_resource type="PackedScene" uid="uid://c82skjj0rnb0j" path="res://animations/error_animation.tscn" id="3_mxybh"]
 [ext_resource type="PackedScene" uid="uid://617dtqmgwo25" path="res://components/reachability_checker_component.tscn" id="3_s3vkt"]
 [ext_resource type="Script" path="res://components/default_action/range_outline.gd" id="4_6xsyh"]
 [ext_resource type="AudioStream" uid="uid://cbphjjiv7krne" path="res://music/error/error.wav" id="5_jk13v"]
 [ext_resource type="AudioStream" uid="uid://b4do24n0ejw2a" path="res://music/unit/melee/short_sword_clang.wav" id="6_jtj0b"]
+[ext_resource type="Script" path="res://components/StateMachine.gd" id="8_c1yb5"]
+[ext_resource type="Script" path="res://components/Idle.gd" id="9_m3pm5"]
+[ext_resource type="Script" path="res://components/Active.gd" id="9_nwecx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dya2i"]
 
@@ -15,6 +19,11 @@ light_mask = 2
 collision_layer = 32
 script = ExtResource("1_dckwc")
 process_action_sound = ExtResource("2_ahpl3")
+
+[node name="ErrorAnimation" parent="." instance=ExtResource("3_mxybh")]
+visible = false
+z_index = 100
+z_as_relative = false
 
 [node name="AttackRangeCircle" type="Node2D" parent="."]
 visible = false
@@ -41,6 +50,16 @@ max_polyphony = 3
 
 [node name="ActionSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_jtj0b")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("8_c1yb5")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("9_m3pm5")
+
+[node name="Active" type="Node" parent="StateMachine"]
+script = ExtResource("9_nwecx")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

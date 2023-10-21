@@ -11,7 +11,10 @@ var cur_player = "blue"
 var hovered_unit
 var placed_unit
 var hovered_structure
-var action_taking_unit
+var action_taking_unit:
+	set(value):
+		print("NEW ACTION UNIT", value)
+		action_taking_unit = value
 var attacking_component
 var moving_unit:
 	set(value):

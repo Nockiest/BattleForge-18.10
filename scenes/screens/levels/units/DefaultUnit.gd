@@ -69,19 +69,20 @@ func add_to_team(team):
 	var color_rect = get_node("ColorRect")
 	color_rect.modulate = color
 
-
-func process_action():
-	if  action_component.try_attack() ==  "FAILED":
-		$ErrorAnimation.show()
-		$ErrorAnimation.play("error")
+## tohle je potřeba přidat do action componentu
+#func process_action():
+#	action_component.try_attack()
+#	if  action_component.try_attack() ==  "FAILED":
+#		$ErrorAnimation.show()
+#		$ErrorAnimation.play("error")
 
  
 func _process(_delta):
 	queue_redraw()
 	update_stats_bar()
 	center = $Center.global_position 
-	if $movement_comp.current_state !=  $movement_comp.state.Moving:
-		action_component.process(_delta)
+#	if $movement_comp.current_state !=  $movement_comp.state.Moving:
+#		action_component.process(_delta)
 	if Color(Globals.cur_player) == color:
 		$movement_comp.process(_delta)
 

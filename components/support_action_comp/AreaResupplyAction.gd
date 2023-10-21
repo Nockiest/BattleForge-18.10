@@ -9,7 +9,7 @@ func _ready():
 	if collision_shape and collision_shape.shape is CircleShape2D:
 		collision_shape.shape.set_radius(resupply_range)
 	$AnimatedSprite2D.hide()
-	super._ready()
+#	sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssuper._ready()
 func provide_buffs():
 	var units = get_tree().get_nodes_in_group("living_units")
 	for unit in units:

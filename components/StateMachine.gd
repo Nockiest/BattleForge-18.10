@@ -1,11 +1,18 @@
-extends "res://components/state_machine.gd"
+class_name ActionCompStateMachine
+extends StateMachine
 
 
-# Called when the node enters the scene tree for the first time.
+ 
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	await owner._ready()
+	# The state machine assigns itself to the State objects' state_machine property.
+	for child in get_children():
+		child.state_machine = self
+		child.AttackComponent = get_parent()
+	state.enter()
 func _process(delta: float) -> void:
-	pass
+	if "color" in owner:
+			if Color(Globals.cur_player) != owner.color:
+				return
+	else:
+		state.update(delta)

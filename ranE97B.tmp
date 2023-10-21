@@ -70,10 +70,10 @@ animation = &"blast"
 
 [node name="ammo_component" parent="." index="4" instance=ExtResource("14_7l630")]
 
-[node name="reachabilityCheckerComp" parent="." index="7"]
+[node name="reachabilityCheckerComp" parent="." index="6"]
 entity_mask_indexes = [7]
 
-[node name="ActionSound" parent="." index="9"]
+[node name="ActionSound" parent="." index="8"]
 stream = ExtResource("16_2nf3e")
 
 [node name="Active" parent="StateMachine" index="1"]

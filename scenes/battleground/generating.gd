@@ -21,12 +21,23 @@ func enter(_msg := {}) -> void:
 	place_towns()
 	create_roads_to_edges()
 	process_place_units()
+	place_forests()
+	place_rivers()
 	call_deferred_thread_group("add_bridges")
 	create_roads_to_edges()
 	LoadingScreen.hige_loading_screen() 
 	state_machine.transition_to("Idle" ) 
 
- 
+func place_forests():
+	for i in range(Globals.num_forests):
+		var forrest_instance = forrest_scene.instantiate() as Node2D
+		root.get_node("Structures").add_child(forrest_instance)
+## CURRENTLY UNUSED
+func place_supply_depos():
+	for i in range(2):
+		var supply_depo_instance = supply_depo_scene.instantiate() as Area2D
+		supply_depo_instance.global_position =  Vector2(randf_range(200, get_viewport().size.x-200 ), randf_range(100, get_viewport().size.y-100))
+		root.get_node("Structures").add_child(supply_depo_instance)
 func place_towns():
 	var town_place_tries = 0
 	var max_placement_tries = 100
@@ -49,14 +60,7 @@ func place_towns():
 		town.connect_to_other_towns()
 		for other_town in town.connected_towns:
 			instantiate_roads(Utils.get_collision_shape_center(town  ), Utils.get_collision_shape_center(other_town ))
-	for i in range(2):
-		var supply_depo_instance = supply_depo_scene.instantiate() as Area2D
-		supply_depo_instance.global_position =  Vector2(randf_range(200, get_viewport().size.x-200 ), randf_range(100, get_viewport().size.y-100))
-		root.get_node("Structures").add_child(supply_depo_instance)
-
-	for i in range(Globals.num_forests):
-		var forrest_instance = forrest_scene.instantiate() as Node2D
-		root.get_node("Structures").add_child(forrest_instance)
+func place_rivers():
 	var all_segments = []
 	for i in range(Globals.num_rivers):
 		var top_point =  Vector2(randi_range(100, get_viewport().size.x  -100), 0)
