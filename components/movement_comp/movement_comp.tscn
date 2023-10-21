@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://components/movement_comp/movement_comp.gd" id="1_i5omy"]
 [ext_resource type="Script" path="res://components/movement_comp/state_machine.gd" id="2_evtpk"]
-[ext_resource type="Script" path="res://components/movement_comp/Moving.gd" id="3_7w4gi"]
+[ext_resource type="Script" path="res://components/movement_comp/moving_state.gd" id="3_7w4gi"]
 [ext_resource type="AudioStream" uid="uid://12xa7dj1stmj" path="res://music/ui_sounds/movement_selcted_beep.wav" id="4_q8hub"]
 [ext_resource type="AudioStream" uid="uid://c2l0rsn6rxk4t" path="res://music/unit/movement/infantry-march.wav" id="9_h7amt"]
 

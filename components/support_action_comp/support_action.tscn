@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://bk004xnrbax3d"]
 
-[ext_resource type="Script" path="res://components/support_action_comp/SupportAction.gd" id="1_yjral"]
+[ext_resource type="Script" path="res://components/support_action_comp/support_action.gd" id="1_yjral"]
 [ext_resource type="Script" path="res://components/Polygon2D.gd" id="2_1n1kg"]
 [ext_resource type="Script" path="res://components/default_action/range_outline.gd" id="3_b32df"]
 [ext_resource type="Script" path="res://components/support_action_comp/support_action_state_machine.gd" id="3_nrnr0"]
-[ext_resource type="PackedScene" path="res://components/reachability_checker_component.tscn" id="3_thq5b"]
+[ext_resource type="PackedScene" uid="uid://c0get3h250vup" path="res://components/reachability_checker_component.tscn" id="3_thq5b"]
 [ext_resource type="AudioStream" uid="uid://bgrtcu02y0c12" path="res://music/unit/heal/562292__colorscrimsontears__heal-rpg.wav" id="4_mqcq1"]
 [ext_resource type="Script" path="res://components/support_action_comp/support_state_idle.gd" id="4_tpgx2"]
 [ext_resource type="Script" path="res://components/support_action_comp/support_state_choosing.gd" id="6_8tkv7"]

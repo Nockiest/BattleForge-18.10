@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/Battleground.gd" id="1_conv3"]
 [ext_resource type="PackedScene" uid="uid://cyl4gg4y6i7mv" path="res://scenes/ui/canvas.tscn" id="2_5oida"]
 [ext_resource type="Script" path="res://scenes/battleground/battleground_state_machine.gd" id="4_ovm6g"]
-[ext_resource type="Script" path="res://scenes/battleground/Idle.gd" id="5_y820d"]
+[ext_resource type="Script" path="res://scenes/battleground/idle.gd" id="5_y820d"]
 [ext_resource type="Script" path="res://scenes/battleground/generating.gd" id="6_fewda"]
 [ext_resource type="PackedScene" uid="uid://bs2ojp8fmt43t" path="res://scenes/screens/levels/buy_area.tscn" id="6_tkc11"]
 [ext_resource type="Script" path="res://scenes/battleground/next_turn_calculation.gd" id="7_4pmac"]
