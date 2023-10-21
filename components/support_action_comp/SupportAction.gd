@@ -7,7 +7,7 @@ var increase_ammount = 200
 @export var base_actions = 1
 var remain_actions = base_actions
 @export var area_support = false
- 
+@export var support_line_color:Color
 var units_in_action_range:Array= []
 @export var process_action_sound:Node
 var reachable_units:Array = []
@@ -42,9 +42,11 @@ func _process(delta: float) -> void:
 		$RangeOutline.visible = false
  
  
+func update_for_next_turn():
+	print("SUPPORT COMPONENT HAS UPDATING FOR NEXT TURN DISABLED FOR NOW")
  
- 
- 
+func provide_buffs():
+	$StateMachine.provide_buffs()
 #func _on_area_entered(area):
 #	if area.name != "CollisionArea": 
 #		return  

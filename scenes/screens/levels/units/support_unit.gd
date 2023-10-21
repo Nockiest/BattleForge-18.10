@@ -2,21 +2,21 @@ extends BattleUnit
 class_name SupportUnit
  
  
- 
-func _on_support_action_invalid_support():
-	print("invaliid_action") 
+#
+#func _on_support_action_invalid_support():
+#	print("invaliid_action") 
 	
 func _ready():
 	super._ready()
 	unit_name = "support_unit"
 ## This Should Be in the support action
-func process_action():
-#	action_component.toggle_action_screen()
-	if Globals.action_taking_unit == self:
-	#		action_component.highlight_units_in_range()
-		print("CHOOSING SUPPORTED")
-		action_component.choose_supported()
-		
+#func process_action():
+##	action_component.toggle_action_screen()
+#	if Globals.action_taking_unit == self:
+#	#		action_component.highlight_units_in_range()
+#		print("CHOOSING SUPPORTED")
+#		action_component.choose_supported()
+#
 		
 #	print("DOING SUPPORTING ACTION")
 #	do_supporting_action()

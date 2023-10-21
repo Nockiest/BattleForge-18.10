@@ -10,3 +10,14 @@ func _ready() -> void:
 		child.state_machine = self
 		child.SupportActionNode = get_parent()
 	state.enter()
+
+func _process(delta: float) -> void:
+	if "color" in owner:
+			if Color(Globals.cur_player) != owner.color:
+				return
+	else:
+		state.update(delta)
+		
+func provide_buffs():
+	if state == $ProvidingSupport:
+		state.provide_buffs()

@@ -125,8 +125,8 @@ func toggle_show_information():
 	$HealthComponent.visible = !$HealthComponent.visible
 
 func update_stats_bar():
-	%Health.text =  str($HealthComponent.hp)
-	%Movement.text =   str($movement_comp.remain_distance)
+	%Health.text = str($HealthComponent.hp)
+	%Movement.text =  str($movement_comp.remain_distance)
 	%"Movement Modifier".text = str($movement_comp.current_movement_modifier)
 	#$RemainMovementLabel.text =  str($movement_comp.current_movement_modifier) + " " + str($movement_comp.on_bridge)    
 	if action_component:
