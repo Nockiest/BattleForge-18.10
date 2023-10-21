@@ -131,9 +131,10 @@ func check_can_turn_movement_on():
 func move( ):
 	if Globals.moving_unit != owner:
 		return
-	if on_river and not on_bridge and movement_modifiers["on_road"] == 0:
-		abort_movement()
-
+	print(  on_river , not  on_bridge , movement_modifiers["on_road"] == 0 )
+#	if on_river and not on_bridge and movement_modifiers["on_road"] == 0:
+#		abort_movement()
+#		return
 	## distance just traveled is the distanc ebetween current center and the mousepos with accounted offset that gives the current center
 	var mouse_pos = get_global_mouse_position() 
 	var new_position =  mouse_pos  - mouse_pos_offset  
@@ -155,6 +156,7 @@ func abort_movement():
 ## A very ugly way to deceslect movement
 func set_owner_position(new_position):
 	if remain_distance == base_movement_range:
+		print("CANT CHANGE THE POSITION")
 		return
 	owner.global_position = new_position
 	owner.center = owner.get_node("Center").global_position

@@ -63,14 +63,16 @@ func place_towns():
 func place_rivers():
 	var all_segments = []
 	for i in range(Globals.num_rivers):
-		var top_point =  Vector2(randi_range(100, get_viewport().size.x  -100), 0)
-		var right_point =  Vector2(  get_viewport().size.x  , randi_range(100,  get_viewport().size.y -100))
-		var left_point =  Vector2( 0 , randi_range(100,  get_viewport().size.y -100 ))
-		var bottom_point =  Vector2(randi_range(100,  get_viewport().size.x -100 ),    get_viewport().size.y )		
+		var top_point =  Vector2(randi_range(100, get_viewport().size.x  -100), -20)
+		var right_point =  Vector2(  get_viewport().size.x+20  , randi_range(100,  get_viewport().size.y -100))
+		var left_point =  Vector2( -20 , randi_range(100,  get_viewport().size.y -100 ))
+		var bottom_point =  Vector2(randi_range(100,  get_viewport().size.x -100 ),    get_viewport().size.y +20)		
+		
 		var start_point = top_point if randi() % 2 == 0 else left_point
-		var control_point =  Vector2(randi_range(100, get_viewport().size.x-100), randi_range(100, get_viewport().size.y-100))
 		var end_point = bottom_point if randi() % 2 == 0 else right_point
-		var new_segments = Utils.generate_bezier_curve(start_point, end_point, control_point,  10)
+		var control_point =  Vector2(randi_range(100, get_viewport().size.x-100), randi_range(100, get_viewport().size.y-100))
+		
+		var new_segments = Utils.generate_bezier_curve(start_point, end_point, control_point,  50)
 		var non_intersecting_segments = []
 		var intersecting_segment 
 		for segment in new_segments:

@@ -68,14 +68,6 @@ func add_to_team(team):
 	add_to_group(str(color))
 	var color_rect = get_node("ColorRect")
 	color_rect.modulate = color
-
-## tohle je potřeba přidat do action componentu
-#func process_action():
-#	action_component.try_attack()
-#	if  action_component.try_attack() ==  "FAILED":
-#		$ErrorAnimation.show()
-#		$ErrorAnimation.play("error")
-
  
 func _process(_delta):
 	queue_redraw()
@@ -150,16 +142,11 @@ func _on_tree_exiting():
 
 #func add_death_cross_to_root(death_image):
 #	get_tree().get_root().add_child(death_image )
-	
-#func ___on_movement_changed():
-#	update_stats_bar()
  
 func _on_collision_area_entered(area):
 	if $movement_comp.current_state !=   $movement_comp.state.Moving:
 		return
-#	if Globals.placed_unit != self and  Globals.placed_unit != null :
-#		print("IGNORE AREA ENTERED")
-#		return
+# 
 	if area is UnitsMainCollisionArea:
 		$movement_comp.abort_movement()
 	
@@ -174,9 +161,9 @@ func _on_collision_area_entered(area):
 			$movement_comp.on_bridge = true
 		elif overlapping.get_parent() is RiverSegment and !$movement_comp.on_bridge and  Globals.placed_unit != self and   $movement_comp.movement_modifiers["on_road"] == 0:
 			print("ENETERED RIVER")
-			$movement_comp.abort_movement()##$movement_comp.exit_movement_state()
-#		use_$movement_comp_abort()
-		if  overlapping.get_parent() is RiverSegment:
+			$movement_comp.abort_movement()
+		elif  overlapping.get_parent() is RiverSegment:
+			print("ENTERED RIVER")
 			$movement_comp.on_river = true
 		$movement_comp.calculate_total_movement_modifier()
 	print("NEW MODIFIERS ", $movement_comp.movement_modifiers)

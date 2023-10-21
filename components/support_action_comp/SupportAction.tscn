@@ -4,11 +4,11 @@
 [ext_resource type="Script" path="res://components/Polygon2D.gd" id="2_1n1kg"]
 [ext_resource type="Script" path="res://components/default_action/range_outline.gd" id="3_b32df"]
 [ext_resource type="Script" path="res://components/support_action_comp/support_action_state_machine.gd" id="3_nrnr0"]
-[ext_resource type="PackedScene" uid="uid://617dtqmgwo25" path="res://components/reachability_checker_component.tscn" id="3_thq5b"]
+[ext_resource type="PackedScene" path="res://components/reachability_checker_component.tscn" id="3_thq5b"]
 [ext_resource type="AudioStream" uid="uid://bgrtcu02y0c12" path="res://music/unit/heal/562292__colorscrimsontears__heal-rpg.wav" id="4_mqcq1"]
 [ext_resource type="Script" path="res://components/support_action_comp/support_state_idle.gd" id="4_tpgx2"]
-[ext_resource type="Script" path="res://components/support_action_comp/observe_action/observe_state_choosing.gd" id="6_vx17w"]
-[ext_resource type="Script" path="res://components/support_action_comp/observe_action/observer_state_providing.gd" id="7_fyqxq"]
+[ext_resource type="Script" path="res://components/support_action_comp/support_state_choosing.gd" id="6_8tkv7"]
+[ext_resource type="Script" path="res://components/support_action_comp/support_state_providing.gd" id="7_8ba85"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4jijj"]
 radius = 100.005
@@ -44,10 +44,10 @@ initial_state = NodePath("Idle")
 script = ExtResource("4_tpgx2")
 
 [node name="ChoosingSupport" type="Node" parent="StateMachine"]
-script = ExtResource("6_vx17w")
+script = ExtResource("6_8tkv7")
 
 [node name="ProvidingSupport" type="Node" parent="StateMachine"]
-script = ExtResource("7_fyqxq")
+script = ExtResource("7_8ba85")
 
 [node name="reachabilityCheckerComp" parent="." instance=ExtResource("3_thq5b")]
 
