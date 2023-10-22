@@ -7,6 +7,7 @@
 
 [node name="ObserveAction" instance=ExtResource("1_ff7rr")]
 script = ExtResource("2_2chrp")
+unsupportable_unit_types = ["support_unit", "melee_unit"]
 
 [node name="ChoosingSupport" parent="StateMachine" index="1"]
 script = ExtResource("3_inuu3")

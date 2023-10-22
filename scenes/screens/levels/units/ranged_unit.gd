@@ -8,7 +8,7 @@ func _ready():
 	action_component.ammo_component.max_ammo = start_ammo 
  
 	super._ready()
-	unit_name = "ranged_unit"
+	unit_class = "ranged_unit"
 func update_stats_bar():
 	super.update_stats_bar()
 	if action_component:
@@ -26,13 +26,13 @@ func _on_collision_area_entered(area):
 		$movement_comp/State/Moving.abort_movement()
 	if area .get_parent().get_parent() is Forrest:
 		if is_in_forrest():
-				$movement_comp.abort_movement()
+				$movement_comp/State/Moving.abort_movement()
 	for overlapping in $CollisionArea.get_overlapping_areas():
 		if overlapping.get_parent().get_parent() is Forrest:
 			$movement_comp.movement_modifiers["in_forrest"] = 0.5
 			$movement_comp.current_movement_modifier = Utils.sum_dict_values($movement_comp.movement_modifiers)
 #			if is_in_forrest():
-#				$movement_comp.abort_movement()
+#				$movement_comp/State/Moving.abort_movement()
 		elif overlapping.get_parent() is Road:
 			$movement_comp.movement_modifiers["on_road"] = -0.5
 			$movement_comp.current_movement_modifier = Utils.sum_dict_values($movement_comp.movement_modifiers)
@@ -42,7 +42,7 @@ func _on_collision_area_entered(area):
 			$movement_comp.on_bridge = true
 		elif overlapping.get_parent() is RiverSegment and !$movement_comp.on_bridge and  Globals.placed_unit != self and   $movement_comp.movement_modifiers["on_road"] == 0:
 			print("ENETERED RIVER")
-			$movement_comp.abort_movement()
+			$movement_comp/State/Moving.abort_movement()
 		elif  overlapping.get_parent() is RiverSegment:
 			print("ENTERED RIVER")
 			$movement_comp.on_river = true
@@ -70,7 +70,7 @@ func _on_collision_area_area_exited(area): ## zde je možné, že když rychle v
 	if not still_on_road:
 		$movement_comp.movement_modifiers["on_road"] = 0
 		if area.get_parent()  is Road and is_in_forrest():
-			$movement_comp.abort_movement()
+			$movement_comp/State/Moving.abort_movement()
 	if not still_on_forrest:
 		$movement_comp.movement_modifiers["in_forrest"] = 0
 	if not still_in_town:

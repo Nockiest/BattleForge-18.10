@@ -5,9 +5,9 @@ signal unit_deselected
 signal interferes_with_area
 signal bought(cost)
 signal died(this)
-const base_movement:int = 1
-@export var base_movement_range:int = 250 
-@export var cost:int = 20  
+const base_movement:= 1
+@export var base_movement_range:= 250 
+@export var cost:= 20  
 @export var action_range = 100 
 ## tohle budu mwnit nodem
 var action_component
@@ -17,10 +17,11 @@ var action_component
 @onready var buy_areas = get_tree().get_nodes_in_group("buy_areas")
 var attack_resistances =  {"base_resistance":  0.1  } 
 var color: Color  
-var unit_name: String = "default"
+var unit_name := "default"
+var unit_class := "default"
 #var start_hp: int = 2
 var outline_node
-var is_newly_bought:bool = true:
+var is_newly_bought:= true:
 	get:
 		return is_newly_bought
 	set(new_value):
@@ -32,7 +33,6 @@ var is_newly_bought:bool = true:
  
 func _ready(): 
 	# The code here has to come after the code in th echildren compoennts
-#	$HealthComponent.hp = start_hp
 	$movement_comp.base_movement_range = base_movement_range
 	$Center.position = to_local(Utils.get_collision_shape_center($CollisionArea))
 	$ErrorAnimation.position = $Center.position  
@@ -45,13 +45,11 @@ func _ready():
 	emit_signal("bought", cost)
 	if action_component != null:
 		action_component.owner = self
+		print(action_component.base_action_range, action_range)
 		action_component.base_action_range = action_range
 	if  is_newly_bought:
 		Globals.placed_unit = self
 		Globals.hovered_unit = null
-#		$movement_comp.enter_placed_state()
-#	else:
-#		$movement_comp.exit_placed_state()
 		
 	Globals.tenders = get_tree().get_nodes_in_group("player_tenders")
 	for tender in Globals.tenders:
@@ -164,7 +162,7 @@ func _on_collision_area_entered(area):
 			$movement_comp.on_bridge = true
 		elif overlapping.get_parent() is RiverSegment and !$movement_comp.on_bridge and  Globals.placed_unit != self and   $movement_comp.movement_modifiers["on_road"] == 0:
 			print("ENETERED RIVER")
-			$movement_comp.abort_movement()
+			$movement_comp/State/Moving.abort_movement()
 		elif  overlapping.get_parent() is RiverSegment:
 			print("ENTERED RIVER")
 			$movement_comp.on_river = true

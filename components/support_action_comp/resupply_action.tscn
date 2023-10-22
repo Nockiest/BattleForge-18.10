@@ -62,6 +62,7 @@ animations = [{
 
 [node name="ResupplyAction" instance=ExtResource("1_3gcam")]
 script = ExtResource("2_nscl3")
+unsupportable_unit_types = ["support_unit", "melee_unit"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1"]
 position = Vector2(-1, 9.53674e-07)

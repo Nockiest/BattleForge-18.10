@@ -16,6 +16,8 @@ radius = 100.005
 [node name="SupportAction" type="Area2D" node_paths=PackedStringArray("process_action_sound") groups=["support_actions"]]
 script = ExtResource("1_xi7nn")
 process_action_sound = NodePath("ActionSound")
+highlight_color = Color(0.890196, 0.631373, 0.627451, 1)
+unsupportable_unit_types = ["support_unit"]
 
 [node name="SupportConnnection" type="Line2D" parent="."]
 z_index = 1000

@@ -11,6 +11,7 @@ var remain_actions = base_actions
 var units_in_action_range:Array= []
 @export var process_action_sound:Node
 @export var highlight_color:Color
+@export var unsupportable_unit_types: Array = ["SupportUnit"]
 var reachable_units:Array = []
 var base_action_range:int = 100:
 	set(value):

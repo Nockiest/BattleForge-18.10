@@ -4,11 +4,11 @@ class_name RessuplyAction
 func _ready():
 	buffed_variable = "ammo"
 	increase_ammount = 1
-func _on_area_entered(area):
-	print("AREA ENTERED",area.get_parent(),area.get_parent() is RangedUnit )
-	if not(area.get_parent() is RangedUnit):
-		return
-	super._on_area_entered(area)
+#func _on_area_entered(area):
+#	print("AREA ENTERED",area.get_parent(),area.get_parent() is RangedUnit )
+#	if not(area.get_parent() is RangedUnit):
+#		return
+#	super._on_area_entered(area)
  
 ##	constant_buff = false
 ##	color = Color(0.5,0.5,0.5)
