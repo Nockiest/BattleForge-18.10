@@ -48,6 +48,10 @@ func choose_supported() -> void:
 #
 func highlight_units_in_range() -> void: 
 	for unit in SupportActionNode.units_in_action_range:
+		if Utils.get_collision_shape_center(SupportActionNode.owner.get_node("CollisionArea")) \
+				.distance_to(Utils.get_collision_shape_center(unit.get_node("CollisionArea"))) \
+				> SupportActionNode.action_range:
+				continue
 		print("TYPE ", unit.unit_class, " ", SupportActionNode.unsupportable_unit_types)
 		if SupportActionNode.unsupportable_unit_types.has(unit.unit_class):
 			print("Unit type is unsupported:", unit.unit_class)
