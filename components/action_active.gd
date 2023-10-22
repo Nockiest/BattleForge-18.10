@@ -3,7 +3,7 @@ extends ActionState
 
 
 # Called when the node enters the scene tree for the first time.
-func enter(msg = {}):
+func enter(_msg = {}):
 	if ! check_can_enter_state():
 		state_machine.transition_to("Idle") #####################gotta repair this line it is invalid
 		return

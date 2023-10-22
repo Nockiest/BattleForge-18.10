@@ -25,7 +25,7 @@ var is_newly_bought:bool = true:
 		return is_newly_bought
 	set(new_value):
 		is_newly_bought = new_value
-		if new_value == false and get_tree() != null:
+		if new_value == false and get_tree() != null : #and get_tree() != null
 			var tween = get_tree().create_tween()
 			tween.tween_property($ColorRect, "modulate", Color(1,1,1), 0.2)
 			tween.tween_property($ColorRect, "modulate",   color, 0.2)
@@ -49,7 +49,7 @@ func _ready():
 	if  is_newly_bought:
 		Globals.placed_unit = self
 		Globals.hovered_unit = null
-		$movement_comp.enter_placed_state()
+#		$movement_comp.enter_placed_state()
 #	else:
 #		$movement_comp.exit_placed_state()
 		
@@ -75,8 +75,7 @@ func _process(_delta):
 	center = $Center.global_position 
 #	if $movement_comp.current_state !=  $movement_comp.state.Moving:
 #		action_component.process(_delta)
-	if Color(Globals.cur_player) == color:
-		$movement_comp.process(_delta)
+
 
 func _on_movement_comp_ran_out_of_movement():
 	call_deferred_thread_group("use_$movement_comp_abort")
@@ -148,11 +147,11 @@ func _on_tree_exiting():
 
 ## ranged unit has its own version of this function
 func _on_collision_area_entered(area):
-	if $movement_comp.current_state !=   $movement_comp.state.Moving:
+	if $movement_comp/State.state !=   $movement_comp/State/Moving :
 		return
 # 
 	if area is UnitsMainCollisionArea:
-		$movement_comp.abort_movement()
+		$movement_comp/State/Moving.abort_movement()
 	
 	for overlapping in $CollisionArea.get_overlapping_areas():
 		if overlapping.get_parent().get_parent() is Forrest:

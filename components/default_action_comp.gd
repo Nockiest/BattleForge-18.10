@@ -41,7 +41,7 @@ func  update_for_next_turn():
 	remain_actions = base_actions
  
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if get_node("RangeOutline") == null:
 		return
 #	if owner is Musketeer:

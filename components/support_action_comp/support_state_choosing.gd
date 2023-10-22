@@ -2,7 +2,7 @@ class_name SupportStateChoosing
 extends SupportState
 
  
-func enter(msg:={}):
+func enter(_msg:={}):
 	$"../../AttackRangeCircle".show()
 	Globals.action_taking_unit =   SupportActionNode.owner
 	highlight_units_in_range()
@@ -15,7 +15,7 @@ func exit():
 	$"../../AttackRangeCircle".hide()
  
 
-func update(delta):
+func update(_delta):
 	if Input.is_action_just_pressed("right_click"):
 		choose_supported()
 

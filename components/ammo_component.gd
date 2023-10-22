@@ -2,7 +2,7 @@ extends Node2D
 signal ammo_changed()
  
 var max_ammo: int
-@onready var ammo:int = max_ammo/2:
+@onready var ammo:int = max_ammo:
 	get:
 		return ammo
 	set(value):

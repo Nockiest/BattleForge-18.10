@@ -34,7 +34,7 @@ var aciton_range_modifiers = {
 func _ready():
 	pass
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if get_node("RangeOutline") == null:
 		return
 	

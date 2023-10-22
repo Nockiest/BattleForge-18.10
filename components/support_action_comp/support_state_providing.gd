@@ -17,7 +17,7 @@ func exit():
 	print("STOPPED SUPPORTING")
 	SupportActionNode.get_node("SupportConnnection").clear_points()
 	supported_entity = null
-func update(delta):
+func update(_delta):
 	draw_line_to_supported_entity()
 	if Input.is_action_just_pressed("right_click"):
 		state_machine.transition_to("Idle")

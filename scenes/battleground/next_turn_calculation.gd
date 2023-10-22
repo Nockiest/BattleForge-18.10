@@ -13,7 +13,7 @@ func update_elements():
 	## not currently used
 	var Supply_depos =  get_tree().get_nodes_in_group("supply_depos") 
 	var units = get_tree().get_nodes_in_group("living_units")
-	var support_actions = get_tree().get_nodes_in_group("support_actions")
+	#var support_actions = get_tree().get_nodes_in_group("support_actions")
 	var towns = get_tree().get_nodes_in_group("towns") 
 	var projectiles = get_tree().get_nodes_in_group("projectiles") 
 	for unit in units:
