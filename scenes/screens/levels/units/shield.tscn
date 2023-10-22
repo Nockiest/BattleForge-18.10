@@ -31,10 +31,7 @@ metadata/_edit_lock_ = true
 [node name="OutlinePolygon" parent="." index="8"]
 metadata/_edit_lock_ = true
 
-[node name="RemainMovementLabel" parent="." index="9"]
-metadata/_edit_lock_ = true
-
-[node name="Center" parent="." index="10"]
+[node name="Center" parent="." index="9"]
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" parent="CollisionArea" index="0"]

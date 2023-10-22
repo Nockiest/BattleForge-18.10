@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dkrdjtyb1p88n"]
 
-[ext_resource type="Script" path="res://scenes/screens/levels/units/basic_unit.gd" id="1_vdjhd"]
+[ext_resource type="Script" path="res://scenes/screens/levels/units/basic_unit.gd" id="1_av0y2"]
 [ext_resource type="Texture2D" uid="uid://ixa58p2rs7m1" path="res://img/knight.png" id="2_bl1id"]
 [ext_resource type="PackedScene" uid="uid://c82skjj0rnb0j" path="res://animations/error_animation.tscn" id="3_4eh3g"]
 [ext_resource type="Script" path="res://scenes/screens/levels/units/CollisionArea.gd" id="4_gcuuy"]
@@ -17,7 +17,7 @@ size = Vector2(49, 50)
 
 [node name="basic_unit" type="Node2D" groups=["living_units"]]
 z_index = 9
-script = ExtResource("1_vdjhd")
+script = ExtResource("1_av0y2")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = 10

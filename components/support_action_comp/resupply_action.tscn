@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://boq8qhpa8js36"]
 
-[ext_resource type="PackedScene" uid="uid://bk004xnrbax3d" path="res://components/support_action_comp/support_action.tscn" id="1_8cgp0"]
+[ext_resource type="PackedScene" uid="uid://bk004xnrbax3d" path="res://components/support_action_comp/support_action.tscn" id="1_3gcam"]
 [ext_resource type="Script" path="res://ResupplyAction.gd" id="2_nscl3"]
 [ext_resource type="Texture2D" uid="uid://pcxxhn07tnn8" path="res://img/anime/resupply/pixil-frame-0.png" id="3_w28ge"]
 [ext_resource type="Texture2D" uid="uid://bla0ofalb120l" path="res://img/anime/resupply/pixil-frame-1.png" id="4_wo1hs"]
@@ -60,7 +60,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="ResupplyAction" instance=ExtResource("1_8cgp0")]
+[node name="ResupplyAction" instance=ExtResource("1_3gcam")]
 script = ExtResource("2_nscl3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1"]

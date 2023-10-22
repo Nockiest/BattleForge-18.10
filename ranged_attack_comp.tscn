@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cu215v0hfagwt" path="res://img/anime/blast_animation/pixil-frame-8.png" id="10_exe3u"]
 [ext_resource type="Texture2D" uid="uid://c3eiyptqv2v8x" path="res://img/anime/blast_animation/pixil-frame-9.png" id="11_ggwlh"]
 [ext_resource type="Texture2D" uid="uid://d3pdr3rq28br" path="res://img/anime/blast_animation/pixil-frame-10.png" id="12_iof4a"]
-[ext_resource type="PackedScene" path="res://components/ammo_component.tscn" id="14_7l630"]
+[ext_resource type="PackedScene" uid="uid://b8l26kil3dvlm" path="res://components/ammo_component.tscn" id="14_7l630"]
 [ext_resource type="AudioStream" uid="uid://5m3hqksm6s6i" path="res://music/unit/canon_shots/artillery-blast.ogg" id="16_2nf3e"]
 [ext_resource type="Script" path="res://components/default_action/ranged_active_state.gd" id="17_ygniw"]
 

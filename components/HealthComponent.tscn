@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://juqsf83fek86" path="res://img/progress_bar/bg.png" id="2_j8lr3"]
 [ext_resource type="Texture2D" uid="uid://bgtq72x20topn" path="res://img/progress_bar/over.png" id="3_r5whs"]
 [ext_resource type="Texture2D" uid="uid://djpljv3ujivip" path="res://img/progress_bar/progress.png" id="4_gj7po"]
-[ext_resource type="Script" path="res://components/TextureProgressBar.gd" id="5_pkj53"]
+[ext_resource type="Script" path="res://components/texture_progress_bar.gd" id="5_nfei4"]
 
 [node name="HealthComponent" type="Node2D"]
 script = ExtResource("1_4yxwb")
@@ -21,6 +21,6 @@ rounded = true
 texture_under = ExtResource("2_j8lr3")
 texture_over = ExtResource("3_r5whs")
 texture_progress = ExtResource("4_gj7po")
-script = ExtResource("5_pkj53")
+script = ExtResource("5_nfei4")
 
 [connection signal="hp_changed" from="." to="HealthBar" method="_on_health_component_hp_changed"]

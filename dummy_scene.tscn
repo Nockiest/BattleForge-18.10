@@ -7,4 +7,4 @@
 script = ExtResource("1_wkeby")
 
 [node name="StatsBar" parent="." instance=ExtResource("2_p8qsk")]
-tracked_variables = Array[String](["increasing_number"])
+tracked_variables = Array[StringName]([&"increasing_number"])

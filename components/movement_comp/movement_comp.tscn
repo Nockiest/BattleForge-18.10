@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsghedd31qfoa"]
+[gd_scene load_steps=7 format=3 uid="uid://bsghedd31qfoa"]
 
 [ext_resource type="Script" path="res://components/movement_comp/movement_comp.gd" id="1_i5omy"]
-[ext_resource type="Script" path="res://components/movement_comp/state_machine.gd" id="2_evtpk"]
-[ext_resource type="Script" path="res://components/movement_comp/moving_state.gd" id="3_7w4gi"]
+[ext_resource type="Script" path="res://components/movement_comp/movement_state_machine.gd" id="2_iych8"]
+[ext_resource type="Script" path="res://components/movement_comp/moving_state.gd" id="3_6ky7o"]
+[ext_resource type="Script" path="res://components/movement_comp/movement_idle_state.gd" id="4_ntq41"]
 [ext_resource type="AudioStream" uid="uid://12xa7dj1stmj" path="res://music/ui_sounds/movement_selcted_beep.wav" id="4_q8hub"]
 [ext_resource type="AudioStream" uid="uid://c2l0rsn6rxk4t" path="res://music/unit/movement/infantry-march.wav" id="9_h7amt"]
 
@@ -16,12 +17,13 @@ collision_mask = 459
 collide_with_areas = true
 
 [node name="State" type="Node" parent="."]
-script = ExtResource("2_evtpk")
+script = ExtResource("2_iych8")
 
 [node name="Moving" type="Node" parent="State"]
-script = ExtResource("3_7w4gi")
+script = ExtResource("3_6ky7o")
 
 [node name="Idle" type="Node" parent="State"]
+script = ExtResource("4_ntq41")
 
 [node name="SelectSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_q8hub")

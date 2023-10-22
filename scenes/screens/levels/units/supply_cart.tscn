@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b8esb3nkgltuq" path="res://scenes/screens/levels/support_unit.tscn" id="1_ibwgx"]
 [ext_resource type="Script" path="res://scenes/screens/levels/units/supply_cart.gd" id="2_8oah7"]
 [ext_resource type="Texture2D" uid="uid://b72braopnqrkw" path="res://img/supplycart.png" id="3_6tgvu"]
-[ext_resource type="PackedScene" uid="uid://bg1dfecnxp0dr" path="res://components/support_action_comp/resupply_action.tscn" id="3_chlst"]
+[ext_resource type="PackedScene" uid="uid://boq8qhpa8js36" path="res://components/support_action_comp/resupply_action.tscn" id="3_chlst"]
 
 [node name="SupplyCart" instance=ExtResource("1_ibwgx")]
 script = ExtResource("2_8oah7")

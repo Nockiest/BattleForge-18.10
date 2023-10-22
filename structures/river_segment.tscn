@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ccd0orsik47b2"]
 
 [ext_resource type="Script" path="res://structures/river_segment.gd" id="1_ig322"]
-[ext_resource type="Script" path="res://structures/enlarged_col_area.gd" id="2_mc60v"]
+[ext_resource type="Script" path="res://structures/enlarged_col_area.gd" id="2_x8t8l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xotdu"]
 
@@ -27,6 +27,6 @@ shape = SubResource("RectangleShape2D_xotdu")
 
 [node name="EnlargedColArea" type="Area2D" parent="." groups=["river_segment_enlarged_col_shape"]]
 collision_layer = 129
-script = ExtResource("2_mc60v")
+script = ExtResource("2_x8t8l")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

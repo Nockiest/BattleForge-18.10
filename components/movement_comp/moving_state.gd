@@ -1,4 +1,6 @@
-extends State
+extends MovementState
+
+ 
 #
 #var parent: MovementComponent
 #var mouse_pos_offset
