@@ -15,7 +15,7 @@ var bridge_scene:PackedScene = preload("res://structures/bridge.tscn")
  
 # is a dictionary with arbitrary data the state can use to initialize itself.
 func enter(_msg := {}) -> void:
-	print("ENTERED GENERATING STATE")
+#	print("ENTERED GENERATING STATE")
 	Globals.tenders = get_tree().get_nodes_in_group("player_tenders")
 	LoadingScreen.render_loading_screen()
 	place_towns()
@@ -123,7 +123,7 @@ func place_starting_units(placment_area: Area2D, color, units_list  ):
 			var res = Utils.calculate_is_inside(segment, global_new_point) 
 			if res:
 				valid_position= false
-				print("CANT PLACE IT ON POINT", new_point )
+#				print("CANT PLACE IT ON POINT", new_point )
 				break
  
 		if valid_position:

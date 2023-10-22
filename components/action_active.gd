@@ -9,7 +9,7 @@ func enter(_msg = {}):
 		return
 	Globals.action_taking_unit = AttackComponent.owner
 	Globals.attacking_component = self
-	print("ENTERING ACTION STATE ",  Globals.action_taking_unit )
+#	print("ENTERING ACTION STATE ",  Globals.action_taking_unit )
 	$"../..".get_node("AttackRangeCircle").show()
 	find_attackable_units()
 	highlight_units_in_range()

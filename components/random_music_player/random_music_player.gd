@@ -9,5 +9,4 @@ func play_random_sound():
 	
 func _process(_delta: float) -> void:
 	if !$AudioStreamPlayer.playing and active:
-		print("PlAYING RANDOM SOUND")
 		play_random_sound()

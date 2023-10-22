@@ -7,9 +7,12 @@ var overlapping_terrain_type:String = "pasture"
 
 func _ready() -> void:
 	for index in bodies_masks_for_detection:
-		print(index)
+#		print(index)
 		$Area2D.set_collision_mask_value(index , true)
-		
+func _process(delta: float) -> void:
+	queue_redraw()
+func _draw():
+	draw_circle(Vector2.ZERO, 2, Color("black"))
 func find_current_overlapping_terrain():
 	# Set the point in 2D space where you want to check for overlapping areas
 	var new_overlap = "pasture"

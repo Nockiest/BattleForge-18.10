@@ -12,7 +12,6 @@ func exit():
 		Globals.placed_unit = null
 func update(_delta):
 	MoveComp.owner.position = MoveComp.get_global_mouse_position() - MoveComp.owner.size / 2
-	print("OWNER POS ", MoveComp.owner.position)
 	if Input.is_action_just_pressed("left_click"):
 		process_unit_placement()
 	elif Input.is_action_just_pressed("right_click"):

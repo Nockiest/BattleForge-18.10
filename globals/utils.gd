@@ -34,14 +34,14 @@ func square_to_packed_polygon(col_shape: CollisionShape2D) -> Polygon2D:
  
  
 ## you have to put this variable wheter you want to put the z_indexes
-#var nodes_list = []
-#func get_z_indexes(node,nodes_list):
-#	if node is CanvasItem:
-#		nodes_list.append([node, node.z_index])
-#	for child in node.get_children():
-#		get_z_indexes(child,nodes_list)
-#func sort_by_z_index_desc(a, b):
-#	return a[1] < b[1]
+var nodes_list = []
+func get_z_indexes(node,nodes_list):
+	if node is CanvasItem:
+		nodes_list.append([node, node.z_index])
+	for child in node.get_children():
+		get_z_indexes(child,nodes_list)
+func sort_by_z_index_desc(a, b):
+	return a[1] < b[1]
  
 func get_collision_shape_center(area: Area2D, node_name: String= "CollisionShape2D") -> Vector2:
 	if area.get_node(node_name) == null:

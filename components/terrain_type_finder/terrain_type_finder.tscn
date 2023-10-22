@@ -6,6 +6,7 @@
 size = Vector2(1.5, 1.5)
 
 [node name="terrain_type_finder" type="Node2D"]
+z_index = 1000
 script = ExtResource("1_yht0d")
 
 [node name="Area2D" type="Area2D" parent="."]

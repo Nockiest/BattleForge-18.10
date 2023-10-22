@@ -6,7 +6,6 @@ func _ready() -> void:
 	# The state machine assigns itself to the State objects' state_machine property.
 	for child in get_children():
 		child.state_machine = self
-		print(get_parent())
 		child.MoveComp = get_parent()
 	
 	if get_parent().owner == Globals.placed_unit:

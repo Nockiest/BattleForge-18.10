@@ -14,7 +14,7 @@ func enter(msg := {}):
   
 ## this is independent of the parent exit action function
 func exit():
-	print("STOPPED SUPPORTING")
+#	print("STOPPED SUPPORTING")
 	SupportActionNode.get_node("SupportConnnection").clear_points()
 	supported_entity = null
 func update(_delta):
