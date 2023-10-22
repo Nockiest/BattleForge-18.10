@@ -9,7 +9,8 @@ func _ready() -> void:
 	for index in bodies_masks_for_detection:
 		print(index)
 		$Area2D.set_collision_mask_value(index , true)
-func _process(delta: float) -> void:
+		
+func find_current_overlapping_terrain():
 	# Set the point in 2D space where you want to check for overlapping areas
 	var new_overlap = "pasture"
 	global_position = get_global_mouse_position()

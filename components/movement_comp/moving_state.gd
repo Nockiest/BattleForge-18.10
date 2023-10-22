@@ -8,7 +8,7 @@ func enter(_msg=[]):
 		state_machine.transition_to("Idle") 
 		return 
 	exiting_moving_state = false
-	MoveComp.calculate_total_movement_modifier() 
+#	MoveComp.calculate_total_movement_modifier() 
 	Globals.moving_unit = MoveComp.owner
 	Globals.action_taking_unit = null
 	print("TURNING MOVEMENT LOOK ON")
@@ -21,6 +21,17 @@ func enter(_msg=[]):
 	MoveComp.get_node("MovementSound").play()
  
 func update(_delta: float):
+#	$"../../terrain_type_finder".find_current_overlapping_terrain()
+	MoveComp.current_movement_modifier = MoveComp.translate_terrain_to_move_modifier() 
+#	match MoveComp.get_node("terrain_type_finder").overlapping_terrain_type:
+#		"river":
+#			abort_movement()
+#		"pasture":
+#			MoveComp.current_movement_modifier = 1
+#		"road":
+#			MoveComp.current_movement_modifier = 0.5
+#		"town":
+#			MoveComp.current_movement_modifier = 0.75 
 	if Input.is_action_just_pressed("right_click"):
 		abort_movement()
 	elif Input.is_action_just_pressed("left_click"):
@@ -41,7 +52,7 @@ func exit():
 func toggle_moving_appearance(toggle):
 	if toggle == "on":
 		MoveComp.owner.outline_node.modulate = Color("black")
-		MoveComp.owner.get_node("ColorRect").modulate = Color("gray")
+		MoveComp.owner.get_node("ColorRect").modulate = Color(0.5,0.5,0.5,0.25)
 	elif toggle == "off":
 		MoveComp.owner.outline_node.modulate = Color("white")
 		MoveComp.owner.get_node("ColorRect").modulate = Color(MoveComp.owner.color)
@@ -67,6 +78,8 @@ func check_can_turn_movement_on():
 	return true
 
 
+func _on_movement_comp_hit_river() -> void:
+	abort_movement()
 func move( ):
 	if Globals.moving_unit != MoveComp.owner:
 		return
@@ -92,9 +105,4 @@ func abort_movement():
 ## A very ugly way to deceslect movement
  
 
-
-
  
- 
- 
-

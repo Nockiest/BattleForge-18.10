@@ -2,39 +2,55 @@ class_name MovementComponent
 extends Node2D
 #signal remain_movement_changed( )
 signal ran_out_of_movement()
+signal hit_river()
 var base_movement_range:int:
 	set(new_range):
 		base_movement_range = new_range *3
 		remain_distance = base_movement_range  
-@onready var global_start_turn_position #=  global_position 
-#@export var movement_sounds:Array[AudioStream] = []
+@onready var global_start_turn_position 
+ 
 var remain_distance  = base_movement_range:
 	set(new_distance):
 		remain_distance =new_distance 
-#		emit_signal("remain_movement_changed"  )
 		if new_distance < 0 :
 			ran_out_of_movement.emit()#abort_movement()
 			remain_distance =  base_movement_range
 			owner.update_stats_bar()
 	get:
 		return remain_distance
-var movement_modifiers:Dictionary = {
-	"base_modifier": 1,
-	"on_road": 0,
-	"in_forrest": 0,
-	"in_town": 0, 
-} 
-var current_movement_modifier #=  calculate_total_movement_modifier()
-var on_bridge:= false 
-var on_river:= false
-#var mouse_pos_offset: Vector2 Redefined in moving state
+#var movement_modifiers:Dictionary = {
+#	"base_modifier": 1,
+#	"on_road": 0,
+#	"in_forrest": 0,
+#	"in_town": 0, 
+#} 
+var current_movement_modifier:float = 1.0   
+#var on_bridge:= false 
+#var on_river:= false
  
-#
 func _ready():
 	await owner._ready()
+#	$"terrain_type_finder".find_current_overlapping_terrain()
+#	current_movement_modifier= call_deferred_thread_group("translate_terrain_to_move_modifier") 
 #	call_deferred_thread_group("calculate_total_movement_modifier")
 	global_start_turn_position = owner.center
 
+func translate_terrain_to_move_modifier() -> float:
+	$"terrain_type_finder".find_current_overlapping_terrain()
+	match $"terrain_type_finder".overlapping_terrain_type:
+		"river":
+			hit_river.emit()
+			return 10000
+		"pasture":
+			return 1 
+		"road":
+			return 0.5 
+		"town":
+			return 0.75 
+	print("THERE IS A PROBLEM IN THE TRANSLATE TO MOVE MODIFIER FC ", $"../../terrain_type_finder".overlapping_terrain_type)
+	return 10000
+ 
+ 
 func process_for_next_turn():
 	remain_distance = base_movement_range
 	set_new_start_turn_point()  
@@ -49,8 +65,8 @@ func set_owner_position(new_position):
 func  set_new_start_turn_point():
 	print("SETTING NEW START TURN POS", global_position)
 	global_start_turn_position = global_position
-func calculate_total_movement_modifier():
-	current_movement_modifier = Utils.sum_dict_values(movement_modifiers)
+#func calculate_total_movement_modifier():
+#	current_movement_modifier = Utils.sum_dict_values(movement_modifiers)
 
 
 #func enter_movement_state():
