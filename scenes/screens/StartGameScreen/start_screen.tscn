@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cimwhyema17n6"]
+[gd_scene load_steps=11 format=3 uid="uid://cimwhyema17n6"]
 
 [ext_resource type="Script" path="res://scenes/screens/StartGameScreen/start_screen.gd" id="1_wxax6"]
 [ext_resource type="PackedScene" uid="uid://bl2jno7h2an0k" path="res://scenes/screens/SettingsScreen/settings_slider.tscn" id="2_hthqh"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://dwy4f8bbokj15" path="res://music/bg_music/Pappenheimer Marsch Aus Dem 30 Jahrigen Krieg - 88 - Z .mp3" id="7_okisi"]
 [ext_resource type="AudioStream" uid="uid://bufgy7mbo814k" path="res://music/bg_music/Tchaikovsky - 1812 Overture - Excerpt.mp3" id="8_uvyoj"]
 [ext_resource type="AudioStream" uid="uid://b781hcf5b5ggh" path="res://music/bg_music/When Johnny Comes Marching Home.mp3" id="9_3oejk"]
+[ext_resource type="PackedScene" uid="uid://b82g35qlctu1l" path="res://scenes/screens/tutorial_screen_page_1.tscn" id="10_t3h5h"]
 
 [node name="Start screen" type="Control"]
 layout_mode = 3
@@ -63,6 +64,10 @@ text = "Start Game"
 [node name="SettingsBtn" type="Button" parent="MainButtons"]
 layout_mode = 2
 text = "Settings"
+
+[node name="TutorialBtn" type="Button" parent="MainButtons"]
+layout_mode = 2
+text = "Tutorial"
 
 [node name="ExitBtn" type="Button" parent="MainButtons"]
 layout_mode = 2
@@ -344,7 +349,11 @@ stream = ExtResource("3_tihyt")
 [node name="random_music_player" parent="." instance=ExtResource("4_swsi7")]
 sound_list = Array[AudioStream]([ExtResource("5_i3f02"), ExtResource("6_x67xj"), ExtResource("7_okisi"), ExtResource("8_uvyoj"), ExtResource("9_3oejk")])
 
+[node name="tutorial_screen_page_1" parent="." instance=ExtResource("10_t3h5h")]
+layout_mode = 1
+
 [connection signal="pressed" from="MainButtons/StartGameBtn" to="." method="_on_start_game_btn_pressed"]
 [connection signal="pressed" from="MainButtons/SettingsBtn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="MainButtons/TutorialBtn" to="." method="_on_tutorial_btn_pressed"]
 [connection signal="button_up" from="MainButtons/ExitBtn" to="." method="_on_exit_btn_button_up"]
 [connection signal="button_up" from="SettingsScreen/VBoxContainer/BackToStartScreenBtn" to="." method="_on_back_to_start_screen_btn_button_up"]

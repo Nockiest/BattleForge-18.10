@@ -1,18 +1,5 @@
 extends Node
-
-#func lighten_color(color: Color, amount: float) -> Color:
-#
-#	var h = color.h
-#	var s = color.s
-#	var v = min(color.v - amount, 1)
-#	return Color.from_hsv(h, s, v, color.a)
  
-#func is_town_far_enough(  new_coors, min_distance, towns):
-#	for town in towns:
-#		var distance = new_coors.distance_to(town.center)
-#		if distance < min_distance:
-#			return false
-#	return true
 func are_points_far_enough(a:Vector2, b:Vector2, min_distance:int):
 	return a.distance_to(b) > min_distance
 	
@@ -21,30 +8,30 @@ func find_child_with_variable(parent, variable):
 		if variable in child:
 			return child
 	return null
-func is_point_inside_rect(area_2d: Area2D, extents: Vector2, point: Vector2) -> bool:
-	var rect = Rect2(area_2d.position - extents, area_2d.position + extents)
-	return rect.has_point(point)
-#func debug(position: Vector2, value):
-#	# Create a new Label node.
-#	var label = Label.new()
-#	# Set the text of the label to the value.
-#	label.text = str(value)
-#	# Set the position of the label.
-#	label.position = position
-#	# Add the label as a child of the current node.
-#	add_child(label)
-#
-#	# Create a new Timer node.
-#	var timer = Timer.new()
-#	# Set the timer to one-shot mode and start it with a delay of 5 seconds.
-#	timer.set_one_shot(true)
-#	timer.start(0.1)
-#	# Connect the timeout signal of the timer to a function that removes the label.
-#
-#	# Add the timer as a child of the current node.
-#	add_child(timer)
-#	label.queue_free()
+	
+func square_to_packed_polygon(col_shape: CollisionShape2D) -> Polygon2D:
+	var size = col_shape.shape.extents * 2
+	var half_size = size / 2
+	var position = col_shape.global_position
 
+	var polygon = Polygon2D.new()
+	polygon.set_polygon(PackedVector2Array(
+		[
+		Vector2(position.x - half_size.x, position.y - half_size.y),
+		Vector2(position.x + half_size.x, position.y - half_size.y),
+		Vector2(position.x + half_size.x, position.y + half_size.y),
+		Vector2(position.x - half_size.x, position.y + half_size.y)
+		]
+		))
+#	print(polygon.get_polygon ( ))
+#	polygon.append(Vector2(position.x - half_size.x, position.y - half_size.y))
+#	polygon.append(	Vector2(position.x + half_size.x, position.y - half_size.y))
+#	polygon.append(	Vector2(position.x + half_size.x, position.y + half_size.y))
+#	polygon.append(Vector2(position.x - half_size.x, position.y + half_size.y))
+#
+
+	return polygon
+ 
  
 ## you have to put this variable wheter you want to put the z_indexes
 #var nodes_list = []
@@ -180,6 +167,8 @@ func do_lines_intersect_in_viewport(p1: Vector2, p2: Vector2, p3: Vector2, p4: V
 				return intersection_point
 
 	return Vector2.ZERO
+
+
 func calculate_is_inside(polygon, point = Vector2(100,100)):
 #	print(collision_shape.polygon)
 #	var point_in_local = polygon.to_local(point ) #.get_global_transform()

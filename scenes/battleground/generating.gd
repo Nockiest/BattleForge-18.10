@@ -60,6 +60,8 @@ func place_towns():
 		town.connect_to_other_towns()
 		for other_town in town.connected_towns:
 			instantiate_roads(Utils.get_collision_shape_center(town  ), Utils.get_collision_shape_center(other_town ))
+
+
 func place_rivers():
 	var all_segments = []
 	for i in range(Globals.num_rivers):
@@ -72,7 +74,7 @@ func place_rivers():
 		var end_point = bottom_point if randi() % 2 == 0 else right_point
 		var control_point =  Vector2(randi_range(100, get_viewport().size.x-100), randi_range(100, get_viewport().size.y-100))
 		
-		var new_segments = Utils.generate_bezier_curve(start_point, end_point, control_point,  50)
+		var new_segments = Utils.generate_bezier_curve(start_point, end_point, control_point, 50)
 		var non_intersecting_segments = []
 		var intersecting_segment 
 		for segment in new_segments:

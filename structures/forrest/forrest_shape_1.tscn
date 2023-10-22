@@ -8,7 +8,7 @@ color = Color(0, 1, 1, 1)
 invert_border = 0.1
 polygon = PackedVector2Array(-35, 19, -43, 40, -29, 65, 14, 68, 34, 42, 71, 27, 93, -9, 96, -41, 65, -75, 14, -88, -31, -72, -29, -45, -26, -14, -42, 4)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["forrest_shape"]]
 collision_layer = 72
 collision_mask = 17
 

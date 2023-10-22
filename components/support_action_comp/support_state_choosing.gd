@@ -19,6 +19,7 @@ func update(_delta):
 	if Input.is_action_just_pressed("right_click"):
 		choose_supported()
 
+
 func check_can_support() -> bool:
 	if  Globals.hovered_unit == null  :
 		print_debug( Globals.hovered_unit ," No Hovere unit")
@@ -45,7 +46,9 @@ func choose_supported() -> void:
 	else:
 		print("STARTING TO SUPPORT")
 		state_machine.transition_to("ProvidingSupport", {"suppported_entity" = Globals.hovered_unit}) 
-#
+
+
+
 func highlight_units_in_range() -> void: 
 	for unit in SupportActionNode.units_in_action_range:
 		if Utils.get_collision_shape_center(SupportActionNode.owner.get_node("CollisionArea")) \

@@ -19,7 +19,7 @@ func exit():
 	supported_entity = null
 func update(_delta):
 	draw_line_to_supported_entity()
-	if Input.is_action_just_pressed("right_click"):
+	if Input.is_action_just_pressed("right_click") and Globals.hovered_unit == SupportActionNode.owner:
 		state_machine.transition_to("Idle")
 #	elif Input.is_action_just_pressed("left_click"):
 #		state_machine.transition_to("Idle")

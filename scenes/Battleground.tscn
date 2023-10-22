@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://x55p4342hqhh"]
+[gd_scene load_steps=9 format=3 uid="uid://x55p4342hqhh"]
 
 [ext_resource type="Script" path="res://scenes/Battleground.gd" id="1_conv3"]
 [ext_resource type="PackedScene" uid="uid://cyl4gg4y6i7mv" path="res://scenes/ui/canvas.tscn" id="2_5oida"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scenes/battleground/generating.gd" id="6_fewda"]
 [ext_resource type="PackedScene" uid="uid://bs2ojp8fmt43t" path="res://scenes/screens/levels/buy_area.tscn" id="6_tkc11"]
 [ext_resource type="Script" path="res://scenes/battleground/next_turn_calculation.gd" id="7_4pmac"]
+[ext_resource type="PackedScene" uid="uid://bxihhqvokjqy" path="res://components/terrain_type_finder/terrain_type_finder.tscn" id="8_mwf72"]
 
 [node name="BattleGround" type="Node2D"]
 script = ExtResource("1_conv3")
@@ -61,6 +62,9 @@ root = NodePath("../..")
 
 [node name="NextTurnProcess" type="Node" parent="State"]
 script = ExtResource("7_4pmac")
+
+[node name="terrain_type_finder" parent="." instance=ExtResource("8_mwf72")]
+position = Vector2(508, 244)
 
 [connection signal="next_turn_pressed" from="canvas" to="State" method="_on_canvas_next_turn_pressed"]
 [connection signal="buy_unit" from="RedBuyArea" to="." method="_on_red_buy_area_buy_unit"]

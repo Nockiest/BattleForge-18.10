@@ -11,7 +11,7 @@ script = ExtResource("1_gt7rl")
 [node name="Line2D" type="Line2D" parent="."]
 z_index = 5
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["road_areas"]]
 collision_layer = 2
 collision_mask = 9
 

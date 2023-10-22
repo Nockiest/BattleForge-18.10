@@ -13,7 +13,8 @@ scale = Vector2(1, 1.00877)
 texture = ExtResource("1_y8he5")
 script = ExtResource("2_xjd85")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["bridge_areas"]]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 0.20435)

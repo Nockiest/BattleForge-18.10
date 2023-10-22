@@ -12,15 +12,22 @@ var itersecting_point_index:int
 var segment_edges:Array = []
  
 
-func add_river_segment(segment_start, segment_end,   ):
+func add_river_segment(segment_start, segment_end):
 	var river_segment_instance = river_segment_scene.instantiate() as Node2D
-	river_segment_instance.connect("intersects_another_river", set_river_intersection   )
+	river_segment_instance.connect("intersects_another_river", set_river_intersection)
+	
 	var collision_area = river_segment_instance.get_node("Area2D")
-	collision_area.position = (segment_start+ segment_end ) / 2
+	collision_area.position = (segment_start + segment_end) / 2
 	collision_area.rotation = segment_start.direction_to(segment_end).angle()
+	
 	var length = segment_start.distance_to(segment_end)
+	var extra_space = 10.0  # Adjust this value to determine the extra space around the river segment
+	
+	# Augment the size of the rectangle shape
 	var rect = RectangleShape2D.new()
-#	var rect2 = rect
+	rect.extents.x = length / 2 + extra_space
+	rect.extents.y = 4  # You need to define the original size or obtain it dynamically
+	
 	var collision_shape = collision_area.get_node("CollisionShape2D")
 	collision_shape.shape = rect
 	var enlarged_area = river_segment_instance.get_node("EnlargedColArea")

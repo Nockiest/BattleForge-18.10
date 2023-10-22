@@ -1,5 +1,8 @@
 extends Control
 
+func _ready() -> void:
+	$tutorial_screen_page_1.connect("go_back_clicked", _go_back_from_tutorial)
+
 func _on_start_game_btn_pressed():
 		get_tree().change_scene_to_file("res://scenes/Battleground.tscn") 
 
@@ -24,3 +27,15 @@ func _on_exit_btn_button_up():
 #
 func _process(_delta: float) -> void:
 	$random_music_player.active = true
+
+
+func _on_tutorial_btn_pressed() -> void:
+	show_and_hide($tutorial_screen_page_1,$MainButtons,   )
+
+
+func _go_back_from_tutorial() -> void:
+	show_and_hide( $MainButtons,$tutorial_screen_page_1)
+
+
+ 
+ 

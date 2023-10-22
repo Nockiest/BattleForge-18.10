@@ -1,0 +1,155 @@
+[gd_scene load_steps=2 format=3 uid="uid://b82g35qlctu1l"]
+
+[ext_resource type="Script" path="res://scenes/screens/tutorial_screen_page_1.gd" id="1_8hcag"]
+
+[node name="TutorialScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8hcag")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.631373, 0.631373, 0.631373, 1)
+
+[node name="BackToStartScreenBtn2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.5
+offset_top = -15.5
+offset_right = 83.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back To Start Screen"
+
+[node name="Introduction" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 0
+offset_left = 30.0
+offset_top = 60.0
+offset_right = 127.0
+offset_bottom = 100.0
+
+[node name="Label" type="Label" parent="Introduction"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Introduction"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Introduction"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 15
+text = "WELCOME TO BATTLEFORGE!.
+Take lead of 9 unique unit types in this randomly generated enviroment and outmaenouver you opponent with your  strategy and cunning! But first lets go over the rules."
+fit_content = true
+
+[node name="UnitTypesUrlBtn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -141.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "About Unit Types
+"
+
+[node name="Terrain Description" type="Control" parent="."]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 280.0
+offset_right = 574.0
+offset_bottom = 400.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Terrain Description"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 400.0
+
+[node name="Terrain" type="Label" parent="Terrain Description/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Terrain
+"
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Terrain Description/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 10
+theme_override_font_sizes/bold_font_size = 12
+bbcode_enabled = true
+text = "[b]Rivers:[/b]
+Units can`t cross them without using roads and bridges
+Melee units cant attack over enemies over river
+[b]Forrests:[/b]
+Ranged units cant enter it
+They increase movement cost by 50%
+Ranged units cant shoot into them
+[b]Roads:[/b]
+Decrease movement cost by 50%
+Connect every town on the map
+You can cross rivers over them
+[b]Bridges:[/b]
+You can cross rivers over them
+[b]Towns:[/b]
+Earn you extra 10 money per turn
+You have to captur them first
+You can place new units into captured towns
+"
+fit_content = true
+
+[node name="Basics" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Basics"]
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 191.0
+
+[node name="Basics" type="Label" parent="Basics/VBoxContainer"]
+layout_mode = 2
+text = "Basics"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Basics/VBoxContainer"]
+layout_mode = 2
+text = "Players change turns moving and doing actions with their units
+To win kill the enemy commander
+Left click to move unit
+Right click to make action with a unit
+If a unit makes an invalid movement, it resets its position and you can move it again
+You can buy units from the bottom bar with earned money and place them into your territory.
+You earn 10 money per turn
+"
+fit_content = true
+
+[connection signal="button_up" from="BackToStartScreenBtn2" to="." method="_on_back_to_start_screen_btn_2_button_up"]
+[connection signal="pressed" from="UnitTypesUrlBtn" to="." method="_on_unit_types_url_btn_pressed"]

@@ -16,7 +16,6 @@ width = 5.0
 default_color = Color(0.160784, 0.388235, 0.486275, 1)
 
 [node name="Area2D" type="Area2D" parent="." groups=["river_segment_collision_shapes"]]
-visible = false
 light_mask = 8
 visibility_layer = 9
 collision_layer = 136

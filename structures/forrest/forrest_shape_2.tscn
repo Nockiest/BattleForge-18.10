@@ -6,7 +6,7 @@ visibility_layer = 33
 color = Color(0, 0.768627, 0.439216, 1)
 polygon = PackedVector2Array(-66, -64, -92, 16, -82, 92, -30, 143, 52, 162, 75, 212, 152, 236, 240, 219, 315, 144, 307, 69, 232, 21, 112, -27, 102, -71, 60, -107, -19, -115)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["forrest_shape"]]
 collision_layer = 72
 collision_mask = 17
 

@@ -5,6 +5,7 @@ class_name SupportUnit
 func _ready():
 	super._ready()
 	unit_class = "support_unit"
+	action_component.owner = self
 ## This Should Be in the support action
 #func process_action():
 ##	action_component.toggle_action_screen()
