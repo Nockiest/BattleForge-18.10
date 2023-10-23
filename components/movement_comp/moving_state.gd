@@ -13,7 +13,6 @@ func enter(_msg=[]):
 	Globals.action_taking_unit = null
 	print("TURNING MOVEMENT LOOK ON")
 	var mouse_pos = MoveComp.get_global_mouse_position()
-	$"../../MouseDragPosition".global_position = mouse_pos
 	var x_distance = mouse_pos.x - MoveComp.owner.global_position.x
 	var y_distance = mouse_pos.y - MoveComp.owner.global_position.y
 	mouse_pos_offset = Vector2(x_distance, y_distance) 
@@ -29,9 +28,8 @@ func update(_delta: float):
 		state_machine.transition_to("Idle") 
 	elif !exiting_moving_state:
 		move() 
-		
-	
- 
+  
+
 func exit():
 	toggle_moving_appearance("off")
 	MoveComp.get_node("SelectSound").stop()
