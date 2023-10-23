@@ -79,9 +79,11 @@ func move( ):
 	var old_position = MoveComp.owner.global_position
 	var distance_just_traveled = floor( new_position.distance_to(old_position) ) * MoveComp.current_movement_modifier  
 #	print( new_position.distance_to(old_position) , "DISTANCE",mouse_pos_offset,  new_position,   old_position)
-	MoveComp.remain_distance -= distance_just_traveled
 	if MoveComp.remain_distance < 0:
-		abort_movement()
+		return 
+	MoveComp.remain_distance -= distance_just_traveled
+
+#		abort_movement()
 	MoveComp.set_owner_position(new_position)
  
 func abort_movement():

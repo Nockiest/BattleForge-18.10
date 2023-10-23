@@ -72,17 +72,23 @@ func _process(_delta):
 	queue_redraw()
 	update_stats_bar()
 	center = $Center.global_position 
-	
-	if Globals.hovered_unit != self and $movement_comp/State.state!= $movement_comp/State/Moving:
-		$UnitStatsBar.visible = false
-		$HealthComponent.visible = true
+	handle_show_unit_information()
 #	if $movement_comp.current_state !=  $movement_comp.state.Moving:
 #		action_component.process(_delta)
-
-
-func _on_movement_comp_ran_out_of_movement():
-	call_deferred_thread_group("use_$movement_comp_abort")
-	print("POSITION", position, " ", global_position)
+func handle_show_unit_information():
+	if Globals.hovered_unit == self:
+		$UnitStatsBar.visible = true
+		$HealthComponent.visible = false
+	elif Globals.hovered_unit != self and $movement_comp/State.state!= $movement_comp/State/Moving:
+		$UnitStatsBar.visible = false
+		$HealthComponent.visible = true
+	else:
+		$UnitStatsBar.visible = true
+		$HealthComponent.visible = false
+	
+#
+#func _on_movement_comp_ran_out_of_movement():
+#	call_deferred_thread_group("use_$movement_comp_abort")
 
 func update_for_next_turn():
 	$movement_comp.process_for_next_turn()
@@ -106,7 +112,7 @@ func _on_collision_area_mouse_entered():
 	if Globals.placed_unit == self:
 		return
 	Globals.hovered_unit = self
-	toggle_show_information()
+#	toggle_show_information()
  
 func _on_collision_area_mouse_exited():
 	Globals.hovered_unit = null
@@ -153,56 +159,7 @@ func _on_collision_area_entered(area):
 ## 
 	if area is UnitsMainCollisionArea and area.get_parent().color != color:
 		$movement_comp/State/Moving.abort_movement()
-	
-#	for overlapping in $CollisionArea.get_overlapping_areas():
-#		if overlapping.get_parent().get_parent() is Forrest:
-#			$movement_comp.movement_modifiers["in_forrest"] = 0.5
-#			$movement_comp.current_movement_modifier = Utils.sum_dict_values($movement_comp.movement_modifiers)
-#		elif overlapping.get_parent() is Road:
-#			$movement_comp.movement_modifiers["on_road"] = -0.5
-#			$movement_comp.current_movement_modifier = Utils.sum_dict_values($movement_comp.movement_modifiers)
-#		elif overlapping.get_parent() is Bridge:
-#			$movement_comp.on_bridge = true
-#		elif overlapping.get_parent() is RiverSegment and !$movement_comp.on_bridge and  Globals.placed_unit != self and   $movement_comp.movement_modifiers["on_road"] == 0:
-#			print("ENETERED RIVER")
-#			$movement_comp/State/Moving.abort_movement()
-#		elif  overlapping.get_parent() is RiverSegment:
-#			print("ENTERED RIVER")
-#			$movement_comp.on_river = true
-#		elif overlapping is Town:
-#			$movement_comp.movement_modifiers["in_town"] = -0.25
-#		$movement_comp.calculate_total_movement_modifier()
-#	print("NEW MODIFIERS ", $movement_comp.movement_modifiers)
-	#print("MOVEMENT MODIFIERS ", Utils.sum_dict_values($movement_comp.movement_modifiers) , $movement_comp.movement_modifiers)
- 
-#func _on_collision_area_area_exited(_area): ## zde je možné, že když rychle vystoupíz jednoho leasa do druhého bude se myslet že není v lese 
-#	var still_on_bridge = false
-#	var still_on_road = false
-#	var still_on_river = false
-#	var still_on_forrest = false
-#	var still_in_town = false
-#	for overlapping in $CollisionArea.get_overlapping_areas():
-#		if overlapping.get_parent().get_parent() is Forrest:
-#			still_on_forrest = true #$movement_comp.movement_modifiers["in_forrest"] = 0.5
-#		elif overlapping.get_parent() is Road:
-#			still_on_road = true #$movement_comp.movement_modifiers["on_road"] = -0.5
-#		elif overlapping.get_parent() is Bridge:
-#			still_on_bridge = true
-#		elif overlapping.get_parent() is RiverSegment:
-#			still_on_river = true
-#		elif overlapping is Town:
-#			still_in_town = true
-#	print("AREA EXITED",	$movement_comp.movement_modifiers)
-#	if not still_on_road:
-#		$movement_comp.movement_modifiers["on_road"] = 0
-#	if not still_on_forrest:
-#		$movement_comp.movement_modifiers["in_forrest"] = 0
-#	if not still_in_town:
-#		$movement_comp.movement_modifiers["in_town"] = 0
-#	$movement_comp.on_bridge = still_on_bridge
-#	$movement_comp.on_river = still_on_river
-#	$movement_comp.calculate_total_movement_modifier()
-
+		
 func _on_error_animation_finished():
 	$ErrorAnimation.hide()
 
