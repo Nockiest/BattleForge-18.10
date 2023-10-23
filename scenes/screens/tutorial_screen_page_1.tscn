@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://b82g35qlctu1l"]
+[gd_scene load_steps=8 format=3 uid="uid://b82g35qlctu1l"]
 
 [ext_resource type="Script" path="res://scenes/screens/tutorial_screen_page_1.gd" id="1_8hcag"]
+[ext_resource type="Texture2D" uid="uid://b68dnvic6qch7" path="res://img/river.png" id="2_7ag5e"]
+[ext_resource type="Texture2D" uid="uid://bpptcgqofcf1p" path="res://img/ranged_unit_with_stats_bar.png" id="2_dokih"]
+[ext_resource type="Texture2D" uid="uid://d13ffwh3yh5bh" path="res://img/forrest.png" id="3_tvfpu"]
+[ext_resource type="Texture2D" uid="uid://biscv51j1iug6" path="res://img/road_line.png" id="4_mbu2q"]
+[ext_resource type="Texture2D" uid="uid://cgt7ch05gs3lw" path="res://img/road.png" id="5_3tjif"]
+[ext_resource type="Texture2D" uid="uid://pjopvhc5qltt" path="res://img/town.png" id="6_npak1"]
 
 [node name="TutorialScreen" type="Control"]
 layout_mode = 3
@@ -82,20 +88,52 @@ offset_right = 574.0
 offset_bottom = 400.0
 grow_horizontal = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Terrain Description"]
-custom_minimum_size = Vector2(0, 300)
+[node name="HBoxContainer" type="HBoxContainer" parent="Terrain Description"]
 layout_mode = 0
-offset_right = 300.0
-offset_bottom = 400.0
+offset_right = 600.0
+offset_bottom = 913.0
 
-[node name="Terrain" type="Label" parent="Terrain Description/VBoxContainer"]
+[node name="TerrainImages" type="VBoxContainer" parent="Terrain Description/HBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain Description/HBoxContainer/TerrainImages"]
+position = Vector2(-61.9999, 52)
+scale = Vector2(0.332132, 0.200431)
+texture = ExtResource("2_7ag5e")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Terrain Description/HBoxContainer/TerrainImages"]
+position = Vector2(-79, 144)
+scale = Vector2(0.332132, 0.471644)
+texture = ExtResource("3_tvfpu")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Terrain Description/HBoxContainer/TerrainImages"]
+position = Vector2(276, 163)
+scale = Vector2(0.332132, 0.397245)
+texture = ExtResource("4_mbu2q")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Terrain Description/HBoxContainer/TerrainImages"]
+position = Vector2(182, 215)
+scale = Vector2(0.991065, 0.731795)
+texture = ExtResource("5_3tjif")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Terrain Description/HBoxContainer/TerrainImages"]
+position = Vector2(-52, 259)
+scale = Vector2(0.507383, 0.444848)
+texture = ExtResource("6_npak1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Terrain Description/HBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="Terrain" type="Label" parent="Terrain Description/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Terrain
 "
 horizontal_alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Terrain Description/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Terrain Description/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 10
 theme_override_font_sizes/bold_font_size = 12
@@ -105,10 +143,10 @@ Units can`t cross them without using roads and bridges
 Melee units cant attack over enemies over river
 [b]Forrests:[/b]
 Ranged units cant enter it
-They increase movement cost by 50%
+They increase movement difficulty by 50%
 Ranged units cant shoot into them
 [b]Roads:[/b]
-Decrease movement cost by 50%
+Decrease movement difficulty by 50%
 Connect every town on the map
 You can cross rivers over them
 [b]Bridges:[/b]
@@ -117,7 +155,7 @@ You can cross rivers over them
 Earn you extra 10 money per turn
 You have to captur them first
 You can place new units into captured towns
-"
+Decrease Movement Difficulty by 25%"
 fit_content = true
 
 [node name="Basics" type="Control" parent="."]
@@ -125,31 +163,320 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -20.0
+offset_top = -74.0
 offset_right = 40.0
-offset_bottom = 20.0
+offset_bottom = -34.0
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Basics"]
 layout_mode = 0
-offset_right = 500.0
-offset_bottom = 191.0
+offset_left = 30.0
+offset_right = 390.0
+offset_bottom = 353.0
 
 [node name="Basics" type="Label" parent="Basics/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Basics"
+horizontal_alignment = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Basics/VBoxContainer"]
 layout_mode = 2
-text = "Players change turns moving and doing actions with their units
-To win kill the enemy commander
-Left click to move unit
-Right click to make action with a unit
-If a unit makes an invalid movement, it resets its position and you can move it again
-You can buy units from the bottom bar with earned money and place them into your territory.
-You earn 10 money per turn
-"
+theme_override_font_sizes/normal_font_size = 10
+theme_override_font_sizes/bold_font_size = 12
+bbcode_enabled = true
+text = "[b]Win Condition:[/b]
+ Kill The enemy commander
+[b]Money:[/b]:
+You earn 10 dolars per turn
+Every captured city provides 10 extra money per turn
+To capture a city, you must have more units in it than your opponent
+You can buy units from the bottom-
+bar with earned money and place them into your territory.
+[b]Movement:[/b]
+Left Click The unit
+Move It where you need it
+If you move the unit on a river of run out of movement, the position resets 
+[b]Supporting units:[/b]
+Right  click On Your Support Unit
+Select a unit to support
+A Line Is created between them
+The supporte unit gets bonuses as long as it is in the range of the unit at the end of each turn
+[b]Attacking:[/b]
+Right click on your Battle Unit
+Select a unit in its range to attack
+Ranged units cant shoot into forrests
+Melee Units cant attack over rivers"
 fit_content = true
+
+[node name="statsDescription" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="statsDescription"]
+layout_mode = 0
+offset_left = -25.0
+offset_right = 105.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Unit Information"
+
+[node name="Sprite2D" type="Sprite2D" parent="statsDescription"]
+position = Vector2(-36, 100)
+scale = Vector2(0.7, 0.704545)
+texture = ExtResource("2_dokih")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="statsDescription"]
+layout_mode = 0
+offset_top = 60.0
+offset_right = 106.0
+offset_bottom = 161.0
+
+[node name="Label" type="Label" parent="statsDescription/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "1: Hp"
+
+[node name="Label2" type="Label" parent="statsDescription/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "2: Remain Movement "
+
+[node name="Label3" type="Label" parent="statsDescription/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "3:  Actions"
+
+[node name="Label4" type="Label" parent="statsDescription/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "4. Ammo"
+
+[node name="Label5" type="Label" parent="statsDescription/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "5. Movement Dificulty"
+
+[node name="Controls" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -362.0
+offset_top = -20.0
+offset_right = -322.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Controls"]
+layout_mode = 0
+offset_left = 63.11
+offset_right = 363.11
+offset_bottom = 130.0
+alignment = 1
+
+[node name="Label" type="Label" parent="Controls/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Controls
+"
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Controls/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 10
+theme_override_font_sizes/bold_font_size = 15
+bbcode_enabled = true
+text = "[b]Left Click[/b]
+Move unit, Do action
+[b]Right Click[/b]
+Abort movement, Toggle action screen"
+
+[node name="Unit Types" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -175.5
+offset_top = -190.0
+offset_right = 531.5
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Unit Types"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Unit Types/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Commander"
+
+[node name="Sprite2D" type="Sprite2D" parent="Unit Types/VBoxContainer"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Unit Types/VBoxContainer"]
+layout_mode = 2
+text = "Hp:
+Attack Range:
+Movement Range
+Do not lose this unit!!"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Unit Types"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Unit Types/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Commander"
+
+[node name="Sprite2D" type="Sprite2D" parent="Unit Types/VBoxContainer2"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Unit Types/VBoxContainer2"]
+layout_mode = 2
+text = "Hp:
+Attack Range:
+Movement Range
+Do not lose this unit!!"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Unit Types"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Unit Types/VBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Commander"
+
+[node name="Sprite2D" type="Sprite2D" parent="Unit Types/VBoxContainer3"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Unit Types/VBoxContainer3"]
+layout_mode = 2
+text = "Hp:
+Attack Range:
+Movement Range
+Do not lose this unit!!"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="Unit Types"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Unit Types/VBoxContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Commander"
+
+[node name="Sprite2D" type="Sprite2D" parent="Unit Types/VBoxContainer4"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Unit Types/VBoxContainer4"]
+layout_mode = 2
+text = "Hp:
+Attack Range:
+Movement Range
+Do not lose this unit!!"
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="Unit Types"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Unit Types/VBoxContainer5"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Commander"
+
+[node name="Sprite2D" type="Sprite2D" parent="Unit Types/VBoxContainer5"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Unit Types/VBoxContainer5"]
+layout_mode = 2
+text = "Hp:
+Attack Range:
+Movement Range
+Do not lose this unit!!"
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="Unit Types"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Unit Types/VBoxContainer6"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Commander"
+
+[node name="Sprite2D" type="Sprite2D" parent="Unit Types/VBoxContainer6"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Unit Types/VBoxContainer6"]
+layout_mode = 2
+text = "Hp:
+Attack Range:
+Movement Range
+Do not lose this unit!!"
+
+[node name="VBoxContainer7" type="VBoxContainer" parent="Unit Types"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Unit Types/VBoxContainer7"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Commander"
+
+[node name="Sprite2D" type="Sprite2D" parent="Unit Types/VBoxContainer7"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Unit Types/VBoxContainer7"]
+layout_mode = 2
+text = "Hp:
+Attack Range:
+Movement Range
+Do not lose this unit!!"
+
+[node name="VBoxContainer8" type="VBoxContainer" parent="Unit Types"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Unit Types/VBoxContainer8"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Commander"
+
+[node name="Sprite2D" type="Sprite2D" parent="Unit Types/VBoxContainer8"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Unit Types/VBoxContainer8"]
+layout_mode = 2
+text = "Hp:
+Attack Range:
+Movement Range
+Do not lose this unit!!"
+
+[node name="VBoxContainer9" type="VBoxContainer" parent="Unit Types"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Unit Types/VBoxContainer9"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Commander"
+
+[node name="Sprite2D" type="Sprite2D" parent="Unit Types/VBoxContainer9"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Unit Types/VBoxContainer9"]
+layout_mode = 2
+text = "Hp:
+Attack Range:
+Movement Range
+Do not lose this unit!!"
 
 [connection signal="button_up" from="BackToStartScreenBtn2" to="." method="_on_back_to_start_screen_btn_2_button_up"]
 [connection signal="pressed" from="UnitTypesUrlBtn" to="." method="_on_unit_types_url_btn_pressed"]

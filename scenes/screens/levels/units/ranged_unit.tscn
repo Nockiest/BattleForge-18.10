@@ -17,7 +17,6 @@ scale = Vector2(1.04167, 0.979167)
 texture = ExtResource("3_kdekp")
 
 [node name="UnitStatsBar" parent="." index="3"]
-visible = true
 z_index = 1000
 offset_top = 48.0
 offset_bottom = 48.0
