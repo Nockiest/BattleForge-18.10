@@ -1,12 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dc36ygib7wjc8"]
+[gd_scene load_steps=2 format=3 uid="uid://dc36ygib7wjc8"]
 
-[ext_resource type="PackedScene" uid="uid://bmn7m62gc1dc2" path="res://scenes/screens/levels/units/ranged_unit.tscn" id="1_pg7py"]
-[ext_resource type="Script" path="res://scenes/screens/levels/units/musketeer.gd" id="2_305ed"]
+[ext_resource type="PackedScene" uid="uid://bmn7m62gc1dc2" path="res://scenes/screens/levels/units/ranged_unit.tscn" id="1_dejdd"]
 
-[node name="Musketeer" instance=ExtResource("1_pg7py")]
-script = ExtResource("2_305ed")
-
-[node name="CollisionShape2D" parent="CollisionArea" index="0"]
-debug_color = Color(0.835294, 0.301961, 0.623529, 0.419608)
-
-[connection signal="area_entered" from="CollisionArea" to="." method="_on_collision_area_entered" flags=18]
+[node name="Musketeer" instance=ExtResource("1_dejdd")]
+cost = 25

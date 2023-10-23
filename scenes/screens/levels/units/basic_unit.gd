@@ -71,6 +71,10 @@ func _process(_delta):
 	queue_redraw()
 	update_stats_bar()
 	center = $Center.global_position 
+	
+	if Globals.hovered_unit != self and $movement_comp/State.state!= $movement_comp/State/Moving:
+		$UnitStatsBar.visible = false
+		$HealthComponent.visible = true
 #	if $movement_comp.current_state !=  $movement_comp.state.Moving:
 #		action_component.process(_delta)
 
@@ -85,8 +89,6 @@ func update_for_next_turn():
 		action_component.update_for_next_turn()
 	else:
 		print("DOESNT HAVE AN ACTION COMPONENT TO TOGGLE")
-#	if  has_node("HealthComponent"):
-#		$HealthComponent.heal(1)
 
 func _on_health_component_hp_changed(hp, prev_hp):
 	if color and $ColorRect.is_inside_tree():
@@ -107,7 +109,7 @@ func _on_collision_area_mouse_entered():
  
 func _on_collision_area_mouse_exited():
 	Globals.hovered_unit = null
-	toggle_show_information()
+	#toggle_show_information()
  
 func toggle_show_information():
 	$UnitStatsBar.visible = !$UnitStatsBar.visible

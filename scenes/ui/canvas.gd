@@ -7,8 +7,8 @@ func on_cur_player_has_been_changed():
 	update_label()
 	
 func update_label():
-	$Label.text = "Cur_player: " + str(Globals.cur_player)
-	$Label.modulate = Color(Globals.cur_player)
+	$Ui/Label.text = "Cur_player: " + str(Globals.cur_player)
+	$Ui/Label.modulate = Color(Globals.cur_player)
  
 func update_color(ammount:int, label: Label,   color:Color) -> void:
 	if ammount > 0:
@@ -19,8 +19,6 @@ func update_color(ammount:int, label: Label,   color:Color) -> void:
 func _ready():
 	update_label()
 	Globals.connect("cur_player_has_been_changed", on_cur_player_has_been_changed) 
-#		teams[team].sort( )
-#		print("Team ", team, ": ",   teams[team] )
  
 
 func sort_by_instance(a, b):
@@ -37,6 +35,7 @@ func _on_next_turn_btn_button_up():
 	StatsTracker.increase_stat_by("turns_played", null, 1)
 
 func _on_check_button_pressed():
+	print("PRESSED")
 	for unit in get_tree().get_nodes_in_group("living_units"):
 		unit.get_node("ColorRect").visible = !unit.get_node("ColorRect").visible
 		unit.get_node("Sprite2D").visible = !unit.get_node("Sprite2D").visible
@@ -46,3 +45,12 @@ func _on_check_button_2_pressed():
 	for unit in get_tree().get_nodes_in_group("living_units"):
 		unit.action_component.get_node("AttackRangeShape").visible = !unit.action_component.get_node("AttackRangeShape").visible
 
+
+ 
+
+func _on_check_button_3_toggled(button_pressed):
+	$Ui.visible = !$Ui.visible 
+
+
+func _on_check_button_button_up():
+	print("PRESSED")

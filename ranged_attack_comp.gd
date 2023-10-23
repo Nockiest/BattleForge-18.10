@@ -15,10 +15,6 @@ func update_for_next_turn():
 	super.update_for_next_turn()
 	
  
-#func update_from_observer_boost():
-#	print("UPDATING FROM OBSERVER BOOST")
-#	action_range = Utils.sum_dict_values(aciton_range_modifiers)
-#
 func _on_ammo_component_ammo_changed():
 	ammo_changed.emit(ammo_component.ammo)
 

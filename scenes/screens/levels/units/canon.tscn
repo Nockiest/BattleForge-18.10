@@ -1,20 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbbyxoulkwe8s"]
+[gd_scene load_steps=3 format=3 uid="uid://dbbyxoulkwe8s"]
 
-[ext_resource type="PackedScene" uid="uid://bmn7m62gc1dc2" path="res://scenes/screens/levels/units/ranged_unit.tscn" id="1_ai24m"]
-[ext_resource type="Script" path="res://scenes/screens/levels/units/canon.gd" id="2_er8hf"]
-[ext_resource type="Texture2D" uid="uid://s10n8gns5q1w" path="res://img/cannon.png" id="2_kkjrl"]
-[ext_resource type="Texture2D" uid="uid://blji7c3clubrn" path="res://img/HealthIcon.png" id="4_6ykqb"]
+[ext_resource type="PackedScene" uid="uid://bmn7m62gc1dc2" path="res://scenes/screens/levels/units/ranged_unit.tscn" id="1_ejf3v"]
+[ext_resource type="Texture2D" uid="uid://s10n8gns5q1w" path="res://img/cannon.png" id="2_mxsjt"]
 
-[node name="Canon" instance=ExtResource("1_ai24m")]
-script = ExtResource("2_er8hf")
+[node name="Canon" instance=ExtResource("1_ejf3v")]
+cost = 40
+action_range = 300
 
 [node name="Sprite2D" parent="." index="1"]
-texture = ExtResource("2_kkjrl")
-
-[node name="TextureRect" parent="UnitStatsBar/ColorRect/VBoxContainer/HBoxContainer4" index="0"]
-texture = ExtResource("4_6ykqb")
+position = Vector2(25, 25.5)
+scale = Vector2(1.04167, 1.02083)
+texture = ExtResource("2_mxsjt")
 
 [node name="CollisionShape2D" parent="CollisionArea" index="0"]
-position = Vector2(25.5, 25)
-
-[connection signal="area_entered" from="CollisionArea" to="." method="_on_collision_area_entered" flags=18]
+debug_color = Color(0.956863, 0.203922, 0, 0.941176)

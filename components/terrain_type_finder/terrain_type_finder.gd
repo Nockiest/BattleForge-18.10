@@ -9,7 +9,7 @@ func _ready() -> void:
 	for index in bodies_masks_for_detection:
 #		print(index)
 		$Area2D.set_collision_mask_value(index , true)
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	queue_redraw()
 func _draw():
 	draw_circle(Vector2.ZERO, 2, Color("white"))
@@ -34,8 +34,6 @@ func find_current_overlapping_terrain():
 		if Utils.calculate_is_inside(area.get_parent(), global_position)and (new_overlap != "road"and new_overlap != "river"):
 			print("Point is inside Area2D:", area,  ) 
 			new_overlap = "forest"	
- 
-	print("OVERLAP", new_overlap)
 	overlapping_terrain_type = new_overlap
 	# Get an array of Area2D nodes overlapping the specified point
 #	for area in get_tree().get_nodes_in_group("river_segment_collision_shapes"):  # Replace with your group name
