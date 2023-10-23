@@ -8,12 +8,13 @@ signal buy_unit
 		%Cost.text = str(instance.cost)
 		call_deferred_thread_group("change_buy_button_label")
 		instance.queue_free()
-@export var instanced_units_index = 0
+@export var instanced_units_index:= 0
+@export var label_text:= "default"
 @onready var battleground = get_tree().get_root().get_node("BattleGround")
 #@export var connected_unit_scene = null
 func change_buy_button_label():
 	var instance = UnitClass.instantiate() as  Node2D
-	%UnitTypeLabel.text = str(instance.unit_name)
+	%UnitTypeLabel.text = label_text#str(instance.unit_name)
 
 func _ready():
 	%TextureRect.set_size(Vector2(32,32))
