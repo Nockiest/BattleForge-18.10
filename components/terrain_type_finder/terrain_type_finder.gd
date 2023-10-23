@@ -16,7 +16,7 @@ func _draw():
 func find_current_overlapping_terrain():
 	# Set the point in 2D space where you want to check for overlapping areas
 	var new_overlap = "pasture"
-	global_position = get_global_mouse_position()
+#	global_position = get_global_mouse_position()
  
 	for area in $Area2D.get_overlapping_areas():
 #		for shape in area.get_overlapping_areas():

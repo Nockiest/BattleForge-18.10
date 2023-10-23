@@ -1,6 +1,6 @@
 class_name MovementComponent
 extends Node2D
-signal ran_out_of_movement()
+ 
 signal hit_river()
 var base_movement_range:int:
 	set(new_range):
@@ -12,8 +12,6 @@ var remain_distance  = base_movement_range:
 	set(new_distance):
 		remain_distance =new_distance 
 		if new_distance < 0 :
-			ran_out_of_movement.emit()#abort_movement()
-			remain_distance =  base_movement_range
 			owner.update_stats_bar()
 	get:
 		return remain_distance
@@ -23,8 +21,7 @@ var current_movement_modifier:float = 1.0
 func _ready():
 	await owner._ready()
 	global_start_turn_position = owner.center
-func _process(_delta):
-	$terrain_type_finder.global_position = owner.center
+ 
 func translate_terrain_to_move_modifier() -> float:
 	$"terrain_type_finder".find_current_overlapping_terrain()
 	match $"terrain_type_finder".overlapping_terrain_type:

@@ -34,4 +34,6 @@ stream = ExtResource("9_h7amt")
 
 [node name="terrain_type_finder" parent="." instance=ExtResource("8_nd53a")]
 
+[node name="MouseDragPosition" type="Marker2D" parent="."]
+
 [connection signal="hit_river" from="." to="State/Moving" method="_on_movement_comp_hit_river"]
