@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ypumyd0r6f7o"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_wgq34"]
+
+[node name="player" type="Node2D" groups=["players"]]
+script = ExtResource("1_wgq34")

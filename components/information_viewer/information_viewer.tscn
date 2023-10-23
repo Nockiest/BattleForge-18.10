@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3614m3v7idnh"]
+
+[ext_resource type="Script" path="res://components/information_viewer/information_viewer.gd" id="1_b5kv8"]
+
+[node name="StatsBar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 50.0
+offset_bottom = 50.0
+script = ExtResource("1_b5kv8")

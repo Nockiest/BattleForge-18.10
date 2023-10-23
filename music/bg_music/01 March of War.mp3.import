@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhktqx0omhrn8"
+path="res://.godot/imported/01 March of War.mp3-9091924ad897fc1b32d26e356f9ab2ce.mp3str"
+
+[deps]
+
+source_file="res://music/bg_music/01 March of War.mp3"
+dest_files=["res://.godot/imported/01 March of War.mp3-9091924ad897fc1b32d26e356f9ab2ce.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

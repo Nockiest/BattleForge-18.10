@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxihhqvokjqy"]
+
+[ext_resource type="Script" path="res://components/terrain_type_finder/terrain_type_finder.gd" id="1_yht0d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1n20v"]
+size = Vector2(1.5, 1.5)
+
+[node name="terrain_type_finder" type="Node2D"]
+z_index = 1000
+script = ExtResource("1_yht0d")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_1n20v")
+
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

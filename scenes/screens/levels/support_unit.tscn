@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8esb3nkgltuq"]
+
+[ext_resource type="PackedScene" uid="uid://dkrdjtyb1p88n" path="res://scenes/screens/levels/units/basic_unit.tscn" id="1_2rr4a"]
+[ext_resource type="Script" path="res://scenes/screens/levels/units/support_unit.gd" id="2_q1tfr"]
+[ext_resource type="Texture2D" uid="uid://l7e2g3eamdcv" path="res://img/anime/error/pixil-frame-9.png" id="3_074yq"]
+
+[node name="SupportUnit" instance=ExtResource("1_2rr4a")]
+script = ExtResource("2_q1tfr")
+base_movement_range = 80
+cost = 40
+action_range = 150
+
+[node name="Sprite2D" parent="." index="1"]
+scale = Vector2(0.75, 0.734375)
+texture = ExtResource("3_074yq")
+
+[node name="UnitStatsBar" parent="." index="3"]
+z_index = 1000

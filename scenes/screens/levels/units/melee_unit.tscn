@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://jsotvstucd7a"]
+
+[ext_resource type="PackedScene" uid="uid://dkrdjtyb1p88n" path="res://scenes/screens/levels/units/basic_unit.tscn" id="1_7vyga"]
+[ext_resource type="Script" path="res://scenes/screens/levels/units/melee_unit.gd" id="2_bnftf"]
+[ext_resource type="PackedScene" uid="uid://clbhbsvrbf11l" path="res://animations/slash_animation.tscn" id="3_tu6o0"]
+[ext_resource type="PackedScene" uid="uid://j1m3phvcc4ib" path="res://components/melee_attack_comp/melee_attack_comp.tscn" id="4_uxegk"]
+
+[node name="MeleeUnit" instance=ExtResource("1_7vyga")]
+script = ExtResource("2_bnftf")
+base_movement_range = 100
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(24, 23)
+
+[node name="SlashAnimation" parent="." index="3" instance=ExtResource("3_tu6o0")]
+z_index = 4000
+z_as_relative = false
+
+[node name="UnitStatsBar" parent="." index="4"]
+z_index = 1000
+
+[node name="Health" parent="UnitStatsBar/ColorRect/VBoxContainer/HBoxContainer" index="1"]
+text = " "
+
+[node name="Movement" parent="UnitStatsBar/ColorRect/VBoxContainer/HBoxContainer2" index="1"]
+text = " "
+
+[node name="Actions" parent="UnitStatsBar/ColorRect/VBoxContainer/HBoxContainer3" index="1"]
+z_index = 11
+text = " "
+
+[node name="melee_attack_comp" parent="ActionComponent" index="0" instance=ExtResource("4_uxegk")]

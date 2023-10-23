@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk004xnrbax3d"]
+
+[ext_resource type="Script" path="res://components/support_action_comp/SupportAction.gd" id="1_yjral"]
+[ext_resource type="Script" path="res://components/Polygon2D.gd" id="2_1n1kg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4jijj"]
+
+[node name="SupportAction" type="Area2D" groups=["support_actions"]]
+script = ExtResource("1_yjral")
+
+[node name="SupportConnnection" type="Line2D" parent="."]
+z_index = 1000
+
+[node name="AttackRangeShape" type="CollisionShape2D" parent="."]
+light_mask = 2
+visibility_layer = 32
+shape = SubResource("CircleShape2D_4jijj")
+debug_color = Color(0.843137, 0.294118, 0.619608, 0.756863)
+
+[node name="Polygon2D" type="Node2D" parent="AttackRangeShape"]
+rotation = 2.28427
+script = ExtResource("2_1n1kg")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://wsc5c2qarhv5"]
+
+[ext_resource type="PackedScene" uid="uid://jsotvstucd7a" path="res://scenes/screens/levels/units/melee_unit.tscn" id="1_du3uw"]
+[ext_resource type="Texture2D" uid="uid://bu7erw8ki7qkq" path="res://img/shield.png" id="2_5xs6j"]
+[ext_resource type="Script" path="res://scenes/screens/levels/units/shield.gd" id="2_lyma3"]
+
+[node name="Shield" instance=ExtResource("1_du3uw")]
+script = ExtResource("2_lyma3")
+base_movement_range = 80
+cost = 30
+action_range = 80
+
+[node name="ColorRect" parent="." index="0"]
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(22, 28)
+scale = Vector2(0.854168, 0.802082)
+texture = ExtResource("2_5xs6j")
+
+[node name="HealthComponent" parent="." index="5"]
+max_hp = 6
+hp = 6
+
+[node name="ActionComponent" parent="." index="7"]
+metadata/_edit_lock_ = true
+
+[node name="melee_attack_comp" parent="ActionComponent" index="0"]
+metadata/_edit_lock_ = true
+
+[node name="OutlinePolygon" parent="." index="8"]
+metadata/_edit_lock_ = true
+
+[node name="Center" parent="." index="9"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" parent="CollisionArea" index="0"]
+debug_color = Color(0.835294, 0.301961, 0.623529, 0.419608)
+metadata/_edit_lock_ = true
+
+[connection signal="area_entered" from="CollisionArea" to="." method="_on_collision_area_entered" flags=18]

@@ -1,0 +1,82 @@
+[gd_scene load_steps=19 format=3 uid="uid://b1r72bjjygjou"]
+
+[ext_resource type="Script" path="res://ranged_attack_comp.gd" id="1_56ypw"]
+[ext_resource type="PackedScene" uid="uid://5mi3kabinyrb" path="res://components/default_attack_comp.tscn" id="1_mrdke"]
+[ext_resource type="Texture2D" uid="uid://bpahu66r4rddg" path="res://img/anime/blast_animation/pixil-frame-0.png" id="2_mjfw6"]
+[ext_resource type="AudioStream" uid="uid://caw17dgsr0rhs" path="res://music/unit/canon_shots/musketshot.wav" id="3_6glc6"]
+[ext_resource type="Texture2D" uid="uid://byvsynqne2dy7" path="res://img/anime/blast_animation/pixil-frame-1.png" id="3_svd2n"]
+[ext_resource type="Texture2D" uid="uid://u8k0ku18hm4k" path="res://img/anime/blast_animation/pixil-frame-2.png" id="4_e0bxa"]
+[ext_resource type="Texture2D" uid="uid://c7hx41wh5weia" path="res://img/anime/blast_animation/pixil-frame-3.png" id="5_ebrq5"]
+[ext_resource type="Texture2D" uid="uid://bis3s16owvapr" path="res://img/anime/blast_animation/pixil-frame-4.png" id="6_muvo5"]
+[ext_resource type="Texture2D" uid="uid://di3tmtrdlxwas" path="res://img/anime/blast_animation/pixil-frame-5.png" id="7_yiwua"]
+[ext_resource type="Texture2D" uid="uid://c2lug0ys2dm4" path="res://img/anime/blast_animation/pixil-frame-6.png" id="8_5r23l"]
+[ext_resource type="Texture2D" uid="uid://bberud1dow55" path="res://img/anime/blast_animation/pixil-frame-7.png" id="9_wg8do"]
+[ext_resource type="Texture2D" uid="uid://cu215v0hfagwt" path="res://img/anime/blast_animation/pixil-frame-8.png" id="10_exe3u"]
+[ext_resource type="Texture2D" uid="uid://c3eiyptqv2v8x" path="res://img/anime/blast_animation/pixil-frame-9.png" id="11_ggwlh"]
+[ext_resource type="Texture2D" uid="uid://d3pdr3rq28br" path="res://img/anime/blast_animation/pixil-frame-10.png" id="12_iof4a"]
+[ext_resource type="PackedScene" uid="uid://b8l26kil3dvlm" path="res://components/ammo_component.tscn" id="14_7l630"]
+[ext_resource type="AudioStream" uid="uid://5m3hqksm6s6i" path="res://music/unit/canon_shots/artillery-blast.ogg" id="16_2nf3e"]
+[ext_resource type="Script" path="res://components/default_action/ranged_active_state.gd" id="17_ygniw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7qb1l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mjfw6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_svd2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_e0bxa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ebrq5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_muvo5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yiwua")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5r23l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_wg8do")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_exe3u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ggwlh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_iof4a")
+}],
+"loop": false,
+"name": &"blast",
+"speed": 10.0
+}]
+
+[node name="RangedAttackComp" node_paths=PackedStringArray("ammo_component") instance=ExtResource("1_mrdke")]
+script = ExtResource("1_56ypw")
+ammo_component = NodePath("ammo_component")
+process_action_sound = ExtResource("3_6glc6")
+
+[node name="BlastAnimation" type="AnimatedSprite2D" parent="." index="2"]
+sprite_frames = SubResource("SpriteFrames_7qb1l")
+animation = &"blast"
+
+[node name="ammo_component" parent="." index="4" instance=ExtResource("14_7l630")]
+
+[node name="reachabilityCheckerComp" parent="." index="7"]
+entity_mask_indexes = [7]
+
+[node name="ActionSound" parent="." index="9"]
+stream = ExtResource("16_2nf3e")
+
+[node name="Active" parent="StateMachine" index="1"]
+script = ExtResource("17_ygniw")
+
+[connection signal="ammo_changed" from="ammo_component" to="." method="_on_ammo_component_ammo_changed"]

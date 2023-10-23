@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://h6s6nsnu17u4"]
+
+[ext_resource type="PackedScene" uid="uid://b4kicmuajeb4x" path="res://structures/structure.tscn" id="1_tbiun"]
+[ext_resource type="Script" path="res://structures/house.gd" id="2_rvh3h"]
+[ext_resource type="Texture2D" uid="uid://comkwfnj72r3w" path="res://img/house.png" id="2_yn8dv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_07bbn"]
+size = Vector2(26, 26)
+
+[node name="House" groups=["houses", "structures"] instance=ExtResource("1_tbiun")]
+z_index = 8
+script = ExtResource("2_rvh3h")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(2, -1)
+shape = SubResource("RectangleShape2D_07bbn")
+
+[node name="ColorRect" parent="." index="1"]
+offset_left = -12.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 12.0
+color = Color(1, 1, 1, 0.568627)
+
+[node name="Sprite2D" parent="." index="2"]
+position = Vector2(0, 1)
+texture = ExtResource("2_yn8dv")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

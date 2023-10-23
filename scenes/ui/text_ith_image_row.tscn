@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy0vtlyks2vvt"]
+
+[ext_resource type="Texture2D" uid="uid://c62n4knufs23b" path="res://img/dollar_sign.png" id="1_80fb5"]
+[ext_resource type="Script" path="res://scenes/ui/TextureRect.gd" id="2_weu42"]
+
+[node name="text_ith_image_row" type="HBoxContainer"]
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "some text"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_80fb5")
+script = ExtResource("2_weu42")

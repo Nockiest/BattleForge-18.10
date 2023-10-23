@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=3 uid="uid://x55p4342hqhh"]
+
+[ext_resource type="Script" path="res://scenes/Battleground.gd" id="1_conv3"]
+[ext_resource type="PackedScene" uid="uid://cyl4gg4y6i7mv" path="res://scenes/ui/canvas.tscn" id="2_5oida"]
+[ext_resource type="PackedScene" uid="uid://chuyge75bmvyd" path="res://scenes/screens/levels/units/pikeman.tscn" id="3_1q15f"]
+[ext_resource type="PackedScene" uid="uid://dbup65q352sir" path="res://scenes/screens/levels/units/observer.tscn" id="4_swsq3"]
+[ext_resource type="PackedScene" uid="uid://dbbyxoulkwe8s" path="res://scenes/screens/levels/units/canon.tscn" id="5_b2iq5"]
+[ext_resource type="PackedScene" uid="uid://bs2ojp8fmt43t" path="res://scenes/screens/levels/buy_area.tscn" id="6_tkc11"]
+[ext_resource type="PackedScene" uid="uid://yue3gb4hh0at" path="res://scenes/screens/levels/units/commander.tscn" id="8_lg7md"]
+[ext_resource type="PackedScene" uid="uid://c2lwamexhnnl6" path="res://scenes/screens/levels/units/knight.tscn" id="8_o6nha"]
+[ext_resource type="PackedScene" uid="uid://cy5kuxt61njjo" path="res://scenes/screens/levels/units/supply_cart.tscn" id="9_m6kuy"]
+[ext_resource type="PackedScene" uid="uid://b5auqxghohgor" path="res://scenes/screens/levels/units/medic.tscn" id="10_cdfpg"]
+
+[node name="BattleGround" type="Node2D"]
+script = ExtResource("1_conv3")
+
+[node name="canvas" parent="." instance=ExtResource("2_5oida")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(575, 322)
+
+[node name="RedBuyArea" parent="." instance=ExtResource("6_tkc11")]
+position = Vector2(-1, 56)
+metadata/_edit_lock_ = true
+
+[node name="BlueBuyArea" parent="." instance=ExtResource("6_tkc11")]
+position = Vector2(962, 39)
+
+[node name="Structures" type="Node2D" parent="."]
+
+[node name="LivingUnits" type="Node2D" parent="."]
+
+[node name="Pikeman" parent="LivingUnits" instance=ExtResource("3_1q15f")]
+position = Vector2(462, 249)
+
+[node name="Observer" parent="LivingUnits" instance=ExtResource("4_swsq3")]
+position = Vector2(350, 224)
+
+[node name="RangedUnit2" parent="LivingUnits" instance=ExtResource("5_b2iq5")]
+position = Vector2(408, 126)
+max_ammo = 6
+
+[node name="Knight" parent="LivingUnits" instance=ExtResource("8_o6nha")]
+position = Vector2(208, 249)
+
+[node name="Pikeman2" parent="LivingUnits" instance=ExtResource("3_1q15f")]
+position = Vector2(251, 73)
+
+[node name="Commander" parent="LivingUnits" instance=ExtResource("8_lg7md")]
+position = Vector2(286, 182)
+
+[node name="SupplyCart" parent="LivingUnits" instance=ExtResource("9_m6kuy")]
+position = Vector2(368, 307)
+
+[node name="Medic" parent="LivingUnits" instance=ExtResource("10_cdfpg")]
+position = Vector2(294, 314)
+
+[node name="Projectiles" type="Node2D" parent="."]
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="DebugLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="next_turn_pressed" from="canvas" to="." method="_on_canvas_next_turn_pressed"]
+[connection signal="buy_unit" from="RedBuyArea" to="." method="_on_red_buy_area_buy_unit"]
+[connection signal="buy_unit" from="BlueBuyArea" to="." method="_on_blue_buy_area_buy_unit"]

@@ -1,0 +1,59 @@
+[gd_scene load_steps=13 format=3 uid="uid://c82skjj0rnb0j"]
+
+[ext_resource type="Texture2D" uid="uid://6pu883deo5j5" path="res://img/anime/error_with_bg/pixil-frame-0.png" id="1_dsjxx"]
+[ext_resource type="Texture2D" uid="uid://baorog3nh86ow" path="res://img/anime/error_with_bg/pixil-frame-1.png" id="2_5sci0"]
+[ext_resource type="Texture2D" uid="uid://ddg37gr7pc0kk" path="res://img/anime/error_with_bg/pixil-frame-2.png" id="3_t0x8l"]
+[ext_resource type="Texture2D" uid="uid://cvl1xplyjtj64" path="res://img/anime/error_with_bg/pixil-frame-3.png" id="4_pvpp5"]
+[ext_resource type="Texture2D" uid="uid://bq2xdphy5gicm" path="res://img/anime/error_with_bg/pixil-frame-4.png" id="5_ru5g3"]
+[ext_resource type="Texture2D" uid="uid://dr2hua3y8covw" path="res://img/anime/error_with_bg/pixil-frame-5.png" id="6_v7daa"]
+[ext_resource type="Texture2D" uid="uid://46oyrgvg518t" path="res://img/anime/error_with_bg/pixil-frame-6.png" id="7_yuqav"]
+[ext_resource type="Texture2D" uid="uid://dy8a4k02hl2ag" path="res://img/anime/error_with_bg/pixil-frame-7.png" id="8_fh5s1"]
+[ext_resource type="Texture2D" uid="uid://bps4jmqb3qh86" path="res://img/anime/error_with_bg/pixil-frame-8.png" id="9_hp47w"]
+[ext_resource type="Texture2D" uid="uid://b3qvly6gn2jw0" path="res://img/anime/error_with_bg/pixil-frame-9.png" id="10_sju1t"]
+[ext_resource type="Texture2D" uid="uid://c1yequyjkoevh" path="res://img/anime/error_with_bg/pixil-frame-10.png" id="11_sm5uq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yij04"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dsjxx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5sci0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_t0x8l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pvpp5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ru5g3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_v7daa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yuqav")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fh5s1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hp47w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_sju1t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_sm5uq")
+}],
+"loop": false,
+"name": &"error",
+"speed": 10.0
+}]
+
+[node name="ErrorAnimation" type="AnimatedSprite2D"]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_yij04")
+animation = &"error"

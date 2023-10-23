@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://yue3gb4hh0at"]
+
+[ext_resource type="PackedScene" uid="uid://jsotvstucd7a" path="res://scenes/screens/levels/units/melee_unit.tscn" id="1_n08ko"]
+[ext_resource type="Script" path="res://scenes/screens/levels/units/commander.gd" id="2_66sv0"]
+[ext_resource type="Texture2D" uid="uid://bh8wj4k54wi3x" path="res://img/commander.png" id="3_7x4aa"]
+
+[node name="Commander" instance=ExtResource("1_n08ko")]
+script = ExtResource("2_66sv0")
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(24.5, 25.5)
+scale = Vector2(0.796875, 0.765625)
+texture = ExtResource("3_7x4aa")
+
+[node name="HealthComponent" parent="." index="5"]
+max_hp = 2
+hp = 2
+
+[node name="CollisionShape2D" parent="CollisionArea" index="0"]
+debug_color = Color(0.835294, 0.301961, 0.623529, 0.419608)
+
+[connection signal="area_entered" from="CollisionArea" to="." method="_on_collision_area_entered" flags=18]

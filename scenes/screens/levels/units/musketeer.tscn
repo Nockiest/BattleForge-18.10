@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dc36ygib7wjc8"]
+
+[ext_resource type="PackedScene" uid="uid://bmn7m62gc1dc2" path="res://scenes/screens/levels/units/ranged_unit.tscn" id="1_dejdd"]
+
+[node name="Musketeer" instance=ExtResource("1_dejdd")]
+cost = 25

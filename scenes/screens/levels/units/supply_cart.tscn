@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=3 uid="uid://cy5kuxt61njjo"]
+
+[ext_resource type="PackedScene" uid="uid://c2ghaqb1b7cyb" path="res://scenes/screens/levels/units/support_unit.tscn" id="1_bcyd4"]
+[ext_resource type="Script" path="res://scenes/screens/levels/units/supply_cart.gd" id="2_6yepa"]
+[ext_resource type="Texture2D" uid="uid://b72braopnqrkw" path="res://img/supplycart.png" id="2_wtic5"]
+[ext_resource type="PackedScene" uid="uid://boq8qhpa8js36" path="res://components/support_action_comp/resupply_action.tscn" id="3_ovxmd"]
+
+[node name="SupplyCart" instance=ExtResource("1_bcyd4")]
+script = ExtResource("2_6yepa")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_wtic5")
+
+[node name="ResupplyAction" parent="ActionComponent" index="0" instance=ExtResource("3_ovxmd")]

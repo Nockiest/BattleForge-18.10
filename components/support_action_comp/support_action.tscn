@@ -1,0 +1,60 @@
+[gd_scene load_steps=11 format=3 uid="uid://bk004xnrbax3d"]
+
+[ext_resource type="Script" path="res://components/support_action_comp/support_action.gd" id="1_xi7nn"]
+[ext_resource type="Script" path="res://components/Polygon2D.gd" id="2_2h4j7"]
+[ext_resource type="Script" path="res://components/default_action/range_outline.gd" id="3_wi0yi"]
+[ext_resource type="Script" path="res://components/support_action_comp/support_action_state_machine.gd" id="4_rywjd"]
+[ext_resource type="Script" path="res://components/support_action_comp/support_state_idle.gd" id="5_dhlae"]
+[ext_resource type="Script" path="res://components/support_action_comp/support_state_choosing.gd" id="6_3tw2p"]
+[ext_resource type="Script" path="res://components/support_action_comp/support_state_providing.gd" id="7_26xt4"]
+[ext_resource type="PackedScene" uid="uid://c0get3h250vup" path="res://components/reachability_checker_component.tscn" id="8_pykqv"]
+[ext_resource type="AudioStream" uid="uid://bgrtcu02y0c12" path="res://music/unit/heal/562292__colorscrimsontears__heal-rpg.wav" id="9_565gl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4jijj"]
+radius = 100.005
+
+[node name="SupportAction" type="Area2D" node_paths=PackedStringArray("process_action_sound") groups=["support_actions"]]
+script = ExtResource("1_xi7nn")
+process_action_sound = NodePath("ActionSound")
+highlight_color = Color(0.890196, 0.631373, 0.627451, 1)
+unsupportable_unit_types = ["support_unit"]
+
+[node name="SupportConnnection" type="Line2D" parent="."]
+z_index = 1000
+default_color = Color(0.564706, 1, 0.6, 1)
+
+[node name="AttackRangeShape" type="CollisionShape2D" parent="."]
+light_mask = 2
+visibility_layer = 32
+shape = SubResource("CircleShape2D_4jijj")
+debug_color = Color(0.843137, 0.294118, 0.619608, 0.756863)
+
+[node name="AttackRangeCircle" type="Node2D" parent="."]
+visible = false
+rotation = 2.28427
+script = ExtResource("2_2h4j7")
+
+[node name="RangeOutline" type="Node2D" parent="."]
+visible = false
+script = ExtResource("3_wi0yi")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("4_rywjd")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("5_dhlae")
+
+[node name="ChoosingSupport" type="Node" parent="StateMachine"]
+script = ExtResource("6_3tw2p")
+
+[node name="ProvidingSupport" type="Node" parent="StateMachine"]
+script = ExtResource("7_26xt4")
+
+[node name="reachabilityCheckerComp" parent="." instance=ExtResource("8_pykqv")]
+
+[node name="ActionSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_565gl")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

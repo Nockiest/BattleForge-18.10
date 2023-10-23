@@ -1,0 +1,65 @@
+[gd_scene load_steps=13 format=3 uid="uid://5mi3kabinyrb"]
+
+[ext_resource type="Script" path="res://components/default_action_comp.gd" id="1_dckwc"]
+[ext_resource type="AudioStream" uid="uid://cgboxbwy657e1" path="res://music/ui_sounds/bleep.wav" id="2_ahpl3"]
+[ext_resource type="Script" path="res://components/Polygon2D.gd" id="2_np0wa"]
+[ext_resource type="PackedScene" uid="uid://c82skjj0rnb0j" path="res://animations/error_animation.tscn" id="3_mxybh"]
+[ext_resource type="PackedScene" uid="uid://c0get3h250vup" path="res://components/reachability_checker_component.tscn" id="3_s3vkt"]
+[ext_resource type="Script" path="res://components/default_action/range_outline.gd" id="4_6xsyh"]
+[ext_resource type="AudioStream" uid="uid://cbphjjiv7krne" path="res://music/error/error.wav" id="5_jk13v"]
+[ext_resource type="AudioStream" uid="uid://b4do24n0ejw2a" path="res://music/unit/melee/short_sword_clang.wav" id="6_jtj0b"]
+[ext_resource type="Script" path="res://components/action_state_machine.gd" id="9_lykng"]
+[ext_resource type="Script" path="res://components/Idle.gd" id="9_m3pm5"]
+[ext_resource type="Script" path="res://components/action_active.gd" id="11_7f8j5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dya2i"]
+
+[node name="DefaultAttackComp" type="Area2D"]
+light_mask = 2
+collision_layer = 32
+script = ExtResource("1_dckwc")
+process_action_sound = ExtResource("2_ahpl3")
+
+[node name="ErrorAnimation" parent="." instance=ExtResource("3_mxybh")]
+visible = false
+z_index = 100
+z_as_relative = false
+
+[node name="AttackRangeCircle" type="Node2D" parent="."]
+visible = false
+script = ExtResource("2_np0wa")
+
+[node name="RangeOutline" type="Node2D" parent="."]
+script = ExtResource("4_6xsyh")
+
+[node name="AttackAnimation" type="AnimatedSprite2D" parent="."]
+
+[node name="AttackRangeShape" type="CollisionShape2D" parent="."]
+light_mask = 2
+visibility_layer = 32
+shape = SubResource("CircleShape2D_dya2i")
+debug_color = Color(0.721569, 0.47451, 0.184314, 0.2)
+
+[node name="reachabilityCheckerComp" parent="." instance=ExtResource("3_s3vkt")]
+visible = false
+
+[node name="ErrorSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_jk13v")
+volume_db = 9.286
+max_polyphony = 3
+
+[node name="ActionSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_jtj0b")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("9_lykng")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("9_m3pm5")
+
+[node name="Active" type="Node" parent="StateMachine"]
+script = ExtResource("11_7f8j5")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

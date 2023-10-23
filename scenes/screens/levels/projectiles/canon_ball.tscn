@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmq7y4flcddv4"]
+
+[ext_resource type="PackedScene" uid="uid://i2m0nvduyp0c" path="res://scenes/screens/levels/projectiles/projectile.tscn" id="1_f8suh"]
+[ext_resource type="Script" path="res://scenes/screens/levels/projectiles/canon_ball.gd" id="2_gi7q3"]
+[ext_resource type="Texture2D" uid="uid://b7rvwdnghq66p" path="res://scenes/screens/levels/units/canonball.png" id="2_ol38u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wpjis"]
+radius = 16.1555
+
+[node name="CanonBall" instance=ExtResource("1_f8suh")]
+script = ExtResource("2_gi7q3")
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0.276367, 0.490242)
+scale = Vector2(0.230888, 0.235889)
+texture = ExtResource("2_ol38u")
+
+[node name="CollisionShape2D" parent="." index="3"]
+shape = SubResource("CircleShape2D_wpjis")
+
+[node name="Explosion" parent="." index="4"]
+volume_db = 24.0

@@ -1,0 +1,103 @@
+[gd_scene load_steps=8 format=3 uid="uid://dkrdjtyb1p88n"]
+
+[ext_resource type="Script" path="res://scenes/screens/levels/units/DefaultUnit.gd" id="1_vdjhd"]
+[ext_resource type="Texture2D" uid="uid://ixa58p2rs7m1" path="res://img/knight.png" id="2_bl1id"]
+[ext_resource type="Script" path="res://scenes/screens/levels/units/basic_unit_area.gd" id="3_85aec"]
+[ext_resource type="PackedScene" uid="uid://ckpuh02hucwvd" path="res://components/HealthComponent.tscn" id="4_oq3j3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvkvo"]
+size = Vector2(49, 48)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ue5o7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lag7r"]
+radius = 10.6301
+
+[node name="basic_unit" type="StaticBody2D" groups=["living_units"]]
+visibility_layer = 11
+z_index = 2
+collision_layer = 3
+collision_mask = 11
+input_pickable = true
+script = ExtResource("1_vdjhd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 10
+offset_right = 49.0
+offset_bottom = 48.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(25, 24)
+texture = ExtResource("2_bl1id")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CollisionArea" type="Area2D" parent="." groups=["unit_collision_areas"]]
+script = ExtResource("3_85aec")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea"]
+position = Vector2(24.5, 24)
+shape = SubResource("RectangleShape2D_hvkvo")
+
+[node name="UnitStatsBar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 49.0
+offset_right = 1.0
+offset_bottom = 49.0
+
+[node name="ColorRect" type="ColorRect" parent="UnitStatsBar"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 74.0
+color = Color(0.168627, 0.137255, 0.054902, 0.360784)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UnitStatsBar"]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 74.0
+
+[node name="Health" type="Label" parent="UnitStatsBar/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Health:"
+
+[node name="Actions" type="Label" parent="UnitStatsBar/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Actions:"
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_oq3j3")]
+position = Vector2(-8, -8)
+
+[node name="AttacKRangeArea" type="Area2D" parent="."]
+light_mask = 2
+
+[node name="AttackRangeShape" type="CollisionShape2D" parent="AttacKRangeArea"]
+z_index = 4096
+position = Vector2(25, 24)
+shape = SubResource("CircleShape2D_ue5o7")
+debug_color = Color(0.843137, 0.294118, 0.619608, 0.756863)
+
+[node name="MovementRangeArea" type="Area2D" parent="."]
+light_mask = 2
+
+[node name="MovementRangeArea" type="CollisionShape2D" parent="MovementRangeArea"]
+visibility_layer = 3
+z_index = 4096
+position = Vector2(25, 24)
+shape = SubResource("CircleShape2D_lag7r")
+debug_color = Color(0.537255, 0.568627, 0.0862745, 0.862745)
+
+[connection signal="area_entered" from="CollisionArea" to="." method="_on_area_2d_area_entered"]
+[connection signal="mouse_entered" from="CollisionArea" to="." method="_on_collision_area_mouse_entered"]
+[connection signal="mouse_exited" from="CollisionArea" to="." method="_on_collision_area_mouse_exited"]
+[connection signal="hp_changed" from="HealthComponent" to="." method="_on_health_component_hp_changed"]
+[connection signal="area_entered" from="AttacKRangeArea" to="." method="_on_attac_k_range_area_area_entered"]
+[connection signal="area_exited" from="AttacKRangeArea" to="." method="_on_attac_k_range_area_area_exited"]
+[connection signal="area_entered" from="MovementRangeArea" to="." method="_on_movement_range_area_area_entered"]
+[connection signal="area_exited" from="MovementRangeArea" to="." method="_on_movement_range_area_area_exited"]
