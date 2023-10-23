@@ -1,0 +1,359 @@
+[gd_scene load_steps=11 format=3 uid="uid://cimwhyema17n6"]
+
+[ext_resource type="Script" path="res://scenes/screens/StartGameScreen/start_screen.gd" id="1_wxax6"]
+[ext_resource type="PackedScene" uid="uid://bl2jno7h2an0k" path="res://scenes/screens/SettingsScreen/settings_slider.tscn" id="2_hthqh"]
+[ext_resource type="AudioStream" uid="uid://dsjemuwgncuil" path="res://music/start_game/ambience.wav" id="3_tihyt"]
+[ext_resource type="PackedScene" uid="uid://flxe67nfovka" path="res://components/random_music_player/random_music_player.tscn" id="4_swsi7"]
+[ext_resource type="AudioStream" uid="uid://bhktqx0omhrn8" path="res://music/bg_music/01 March of War.mp3" id="5_i3f02"]
+[ext_resource type="AudioStream" uid="uid://blvhtffi5qn33" path="res://music/bg_music/La_Victoire_est_Nous_3_version.mp3" id="6_x67xj"]
+[ext_resource type="AudioStream" uid="uid://dwy4f8bbokj15" path="res://music/bg_music/Pappenheimer Marsch Aus Dem 30 Jahrigen Krieg - 88 - Z .mp3" id="7_okisi"]
+[ext_resource type="AudioStream" uid="uid://bufgy7mbo814k" path="res://music/bg_music/Tchaikovsky - 1812 Overture - Excerpt.mp3" id="8_uvyoj"]
+[ext_resource type="AudioStream" uid="uid://b781hcf5b5ggh" path="res://music/bg_music/When Johnny Comes Marching Home.mp3" id="9_3oejk"]
+[ext_resource type="PackedScene" uid="uid://b82g35qlctu1l" path="res://scenes/screens/tutorial_screen_page_1.tscn" id="10_t3h5h"]
+
+[node name="Start screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wxax6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.501961, 0.239216, 0.0901961, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.0
+offset_top = 150.0
+offset_right = 45.0
+offset_bottom = 176.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "BattleForge"
+
+[node name="MainButtons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -57.5
+offset_right = 48.0
+offset_bottom = 57.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartGameBtn" type="Button" parent="MainButtons"]
+layout_mode = 2
+text = "Start Game"
+
+[node name="SettingsBtn" type="Button" parent="MainButtons"]
+layout_mode = 2
+text = "Settings"
+
+[node name="TutorialBtn" type="Button" parent="MainButtons"]
+layout_mode = 2
+text = "Tutorial"
+
+[node name="ExitBtn" type="Button" parent="MainButtons"]
+layout_mode = 2
+text = "Exit Game"
+
+[node name="SettingsScreen" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="SettingsScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.5
+offset_top = -33.0
+offset_right = 83.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackToStartScreenBtn" type="Button" parent="SettingsScreen/VBoxContainer"]
+layout_mode = 2
+text = "Back To Start Screen"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="SettingsScreen"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 220.0
+offset_bottom = 229.0
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Label" type="Label" parent="SettingsScreen/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Money"
+
+[node name="BlueMoneySlider" parent="SettingsScreen/VBoxContainer2" instance=ExtResource("2_hthqh")]
+layout_mode = 2
+label_text = "Blue Money"
+slider_range = [0, 500]
+start_value = 100
+
+[node name="RedMoneySlider" parent="SettingsScreen/VBoxContainer2" instance=ExtResource("2_hthqh")]
+layout_mode = 2
+attached_settings_variable = "red_player_money"
+label_text = "Red Money"
+slider_range = [0, 500]
+start_value = 100
+
+[node name="MoneyPerTurnSlider" parent="SettingsScreen/VBoxContainer2" instance=ExtResource("2_hthqh")]
+layout_mode = 2
+attached_settings_variable = "money_per_turn"
+label_text = "Base Income"
+slider_range = [0, 500]
+
+[node name="CityIncomeSlider" parent="SettingsScreen/VBoxContainer2" instance=ExtResource("2_hthqh")]
+layout_mode = 2
+attached_settings_variable = "city_turn_income"
+label_text = "City Income Per Turn"
+
+[node name="Blue Units" type="VBoxContainer" parent="SettingsScreen"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 50.0
+grow_horizontal = 0
+scale = Vector2(0.8, 0.8)
+
+[node name="Label" type="Label" parent="SettingsScreen/Blue Units"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Blue Player Units
+"
+
+[node name="Medics" parent="SettingsScreen/Blue Units" instance=ExtResource("2_hthqh")]
+layout_mode = 2
+attached_settings_variable = "blue_player_units"
+augmented_dictionary_variable = "medic"
+label_text = "Medics"
+slider_range = [0, 10]
+start_value = 1
+
+[node name="Observers" parent="SettingsScreen/Blue Units" instance=ExtResource("2_hthqh")]
+layout_mode = 2
+attached_settings_variable = "blue_player_units"
+augmented_dictionary_variable = "observer"
+label_text = "Observers"
+slider_range = [0, 10]
+start_value = 1
+
+[node name="SupplyCart" parent="SettingsScreen/Blue Units" instance=ExtResource("2_hthqh")]
+layout_mode = 2
+attached_settings_variable = "blue_player_units"
+augmented_dictionary_variable = "supply_cart"
+label_text = "Supply Carts"
+slider_range = [0, 10]
+start_value = 1
+
+[node name="Cannons" parent="SettingsScreen/Blue Units" instance=ExtResource("2_hthqh")]
+layout_mode = 2
+attached_settings_variable = "blue_player_units"
+augmented_dictionary_variable = "cannon"
+label_text = "Cannon"
+slider_range = [0, 10]
+start_value = 1
+
+[node name="Musketeer" parent="SettingsScreen/Blue Units" instance=ExtResource("2_hthqh")]
+layout_mode = 2
+attached_settings_variable = "blue_player_units"
+augmented_dictionary_variable = "musketeer"
+label_text = "Musketeers"
+slider_range = [0, 10]
+start_value = 1
+
+[node name="Pikeman" parent="SettingsScreen/Blue Units" instance=ExtResource("2_hthqh")]
+layout_mode = 2
+attached_settings_variable = "blue_player_units"
+augmented_dictionary_variable = "pikeman"
+label_text = "Pikemans"
+slider_range = [0, 10]
+start_value = 1
+
+[node name="Shield" parent="SettingsScreen/Blue Units" instance=ExtResource("2_hthqh")]
+layout_mode = 2
+attached_settings_variable = "blue_player_units"
+augmented_dictionary_variable = "shield"
+label_text = "Shields"
+slider_range = [0, 10]
+start_value = 1
+
+[node name="Knight" parent="SettingsScreen/Blue Units" instance=ExtResource("2_hthqh")]
+layout_mode = 2
+attached_settings_variable = "blue_player_units"
+augmented_dictionary_variable = "knight"
+label_text = "Knights"
+slider_range = [0, 10]
+start_value = 1
+
+[node name="Structures" type="VBoxContainer" parent="SettingsScreen"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 20.0
+offset_right = 100.0
+offset_bottom = 253.0
+grow_horizontal = 2
+
+[node name="TownSlider" parent="SettingsScreen/Structures" instance=ExtResource("2_hthqh")]
+layout_mode = 2
+attached_settings_variable = "num_towns"
+label_text = "Number of Towns"
+slider_range = [0, 8]
+start_value = 3
+
+[node name="RiverSlider" parent="SettingsScreen/Structures" instance=ExtResource("2_hthqh")]
+layout_mode = 2
+attached_settings_variable = "num_rivers"
+label_text = "Number of Rivers"
+slider_range = [0, 5]
+start_value = 3
+
+[node name="ForrestSlider" parent="SettingsScreen/Structures" instance=ExtResource("2_hthqh")]
+layout_mode = 2
+attached_settings_variable = "num_forests"
+label_text = "Number of Forests"
+slider_range = [0, 10]
+start_value = 2
+
+[node name="Red Units" type="VBoxContainer" parent="SettingsScreen"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -410.0
+offset_top = 10.0
+offset_right = -210.0
+offset_bottom = 747.0
+grow_horizontal = 0
+scale = Vector2(0.8, 0.8)
+
+[node name="Label" type="Label" parent="SettingsScreen/Red Units"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Red Player Units
+"
+
+[node name="Medics" parent="SettingsScreen/Red Units" instance=ExtResource("2_hthqh")]
+layout_mode = 2
+attached_settings_variable = "red_player_units"
+augmented_dictionary_variable = "medic"
+label_text = "Medics"
+slider_range = [0, 10]
+start_value = 1
+
+[node name="Observers" parent="SettingsScreen/Red Units" instance=ExtResource("2_hthqh")]
+layout_mode = 2
+attached_settings_variable = "red_player_units"
+augmented_dictionary_variable = "observer"
+label_text = "Observers"
+slider_range = [0, 10]
+start_value = 1
+
+[node name="SupplyCart" parent="SettingsScreen/Red Units" instance=ExtResource("2_hthqh")]
+layout_mode = 2
+attached_settings_variable = "red_player_units"
+augmented_dictionary_variable = "supply_cart"
+label_text = "Supply Carts"
+slider_range = [0, 10]
+start_value = 1
+
+[node name="Cannons" parent="SettingsScreen/Red Units" instance=ExtResource("2_hthqh")]
+layout_mode = 2
+attached_settings_variable = "red_player_units"
+augmented_dictionary_variable = "cannon"
+label_text = "Cannon"
+slider_range = [0, 10]
+start_value = 1
+
+[node name="Musketeer" parent="SettingsScreen/Red Units" instance=ExtResource("2_hthqh")]
+layout_mode = 2
+attached_settings_variable = "red_player_units"
+augmented_dictionary_variable = "musketeer"
+label_text = "Musketeers"
+slider_range = [0, 10]
+start_value = 1
+
+[node name="Pikeman" parent="SettingsScreen/Red Units" instance=ExtResource("2_hthqh")]
+layout_mode = 2
+attached_settings_variable = "red_player_units"
+augmented_dictionary_variable = "pikeman"
+label_text = "Pikemen"
+slider_range = [0, 10]
+start_value = 1
+
+[node name="Shield" parent="SettingsScreen/Red Units" instance=ExtResource("2_hthqh")]
+layout_mode = 2
+attached_settings_variable = "red_player_units"
+augmented_dictionary_variable = "shield"
+label_text = "Shields"
+slider_range = [0, 10]
+start_value = 1
+
+[node name="Knight" parent="SettingsScreen/Red Units" instance=ExtResource("2_hthqh")]
+layout_mode = 2
+attached_settings_variable = "red_player_units"
+augmented_dictionary_variable = "knight"
+label_text = "Knights"
+slider_range = [0, 10]
+start_value = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tihyt")
+
+[node name="random_music_player" parent="." instance=ExtResource("4_swsi7")]
+sound_list = Array[AudioStream]([ExtResource("5_i3f02"), ExtResource("6_x67xj"), ExtResource("7_okisi"), ExtResource("8_uvyoj"), ExtResource("9_3oejk")])
+
+[node name="tutorial_screen_page_1" parent="." instance=ExtResource("10_t3h5h")]
+layout_mode = 1
+
+[connection signal="pressed" from="MainButtons/StartGameBtn" to="." method="_on_start_game_btn_pressed"]
+[connection signal="pressed" from="MainButtons/SettingsBtn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="MainButtons/TutorialBtn" to="." method="_on_tutorial_btn_pressed"]
+[connection signal="button_up" from="MainButtons/ExitBtn" to="." method="_on_exit_btn_button_up"]
+[connection signal="button_up" from="SettingsScreen/VBoxContainer/BackToStartScreenBtn" to="." method="_on_back_to_start_screen_btn_button_up"]

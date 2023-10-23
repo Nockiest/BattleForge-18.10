@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bufgy7mbo814k"
+path="res://.godot/imported/Tchaikovsky - 1812 Overture - Excerpt.mp3-ef85ae743b546101ccad0296c056fc99.mp3str"
+
+[deps]
+
+source_file="res://music/bg_music/Tchaikovsky - 1812 Overture - Excerpt.mp3"
+dest_files=["res://.godot/imported/Tchaikovsky - 1812 Overture - Excerpt.mp3-ef85ae743b546101ccad0296c056fc99.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

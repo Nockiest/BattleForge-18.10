@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbup65q352sir"]
+
+[ext_resource type="PackedScene" uid="uid://b8esb3nkgltuq" path="res://scenes/screens/levels/support_unit.tscn" id="1_1lj22"]
+[ext_resource type="Script" path="res://scenes/screens/levels/units/observer.gd" id="2_eo33w"]
+[ext_resource type="Texture2D" uid="uid://ceeetyqcgouuh" path="res://img/observer.png" id="3_twnx0"]
+[ext_resource type="PackedScene" uid="uid://da6m8xjnk2ovm" path="res://components/support_action_comp/observe_action/observe_action.tscn" id="4_8jhf7"]
+
+[node name="Observer" instance=ExtResource("1_1lj22")]
+script = ExtResource("2_eo33w")
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(25, 25)
+scale = Vector2(0.78125, 0.78125)
+texture = ExtResource("3_twnx0")
+
+[node name="HealthComponent" parent="." index="4"]
+max_hp = 1
+hp = 1
+
+[node name="ObserveAction" parent="ActionComponent" index="0" instance=ExtResource("4_8jhf7")]
+
+[node name="CollisionShape2D" parent="CollisionArea" index="0"]
+debug_color = Color(0.835294, 0.301961, 0.623529, 0.419608)
+
+[connection signal="area_entered" from="CollisionArea" to="." method="_on_collision_area_entered" flags=18]

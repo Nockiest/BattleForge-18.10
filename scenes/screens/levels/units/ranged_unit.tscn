@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmn7m62gc1dc2"]
+
+[ext_resource type="PackedScene" uid="uid://dkrdjtyb1p88n" path="res://scenes/screens/levels/units/basic_unit.tscn" id="1_gwte3"]
+[ext_resource type="Script" path="res://scenes/screens/levels/units/ranged_unit.gd" id="2_3n43o"]
+[ext_resource type="Texture2D" uid="uid://5u2w0d8l6w5h" path="res://img/musketeer.png" id="3_kdekp"]
+[ext_resource type="PackedScene" uid="uid://b1r72bjjygjou" path="res://ranged_attack_comp.tscn" id="4_5x482"]
+[ext_resource type="Texture2D" uid="uid://burvkjnwsf14b" path="res://img/anime/bullet_flying_animation/pixil-frame-0.png" id="4_iesuh"]
+
+[node name="RangedUnit" instance=ExtResource("1_gwte3")]
+script = ExtResource("2_3n43o")
+base_movement_range = 150
+cost = 35
+action_range = 250
+
+[node name="Sprite2D" parent="." index="1"]
+scale = Vector2(1.04167, 0.979167)
+texture = ExtResource("3_kdekp")
+
+[node name="UnitStatsBar" parent="." index="3"]
+z_index = 1000
+offset_top = 48.0
+offset_bottom = 48.0
+
+[node name="ColorRect" parent="UnitStatsBar" index="0"]
+offset_bottom = 112.0
+
+[node name="Health" parent="UnitStatsBar/ColorRect/VBoxContainer/HBoxContainer" index="1"]
+text = " "
+
+[node name="Movement" parent="UnitStatsBar/ColorRect/VBoxContainer/HBoxContainer2" index="1"]
+text = " "
+
+[node name="Actions" parent="UnitStatsBar/ColorRect/VBoxContainer/HBoxContainer3" index="1"]
+text = ""
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="UnitStatsBar/ColorRect/VBoxContainer" index="3"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UnitStatsBar/ColorRect/VBoxContainer/HBoxContainer5" index="0"]
+custom_minimum_size = Vector2(18, 24)
+layout_mode = 2
+texture = ExtResource("4_iesuh")
+expand_mode = 1
+stretch_mode = 3
+flip_h = true
+
+[node name="Ammo2" type="Label" parent="UnitStatsBar/ColorRect/VBoxContainer/HBoxContainer5" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = " "
+
+[node name="Movement Modifier" parent="UnitStatsBar/ColorRect/VBoxContainer/HBoxContainer4" index="1"]
+text = " "
+
+[node name="HealthComponent" parent="." index="4"]
+max_hp = 2
+hp = 2
+
+[node name="RangedAttackComp" parent="ActionComponent" index="0" instance=ExtResource("4_5x482")]
+position = Vector2(-1, 1)
+
+[connection signal="ammo_changed" from="ActionComponent/RangedAttackComp" to="." method="_on_ranged_attack_comp_ammo_changed"]

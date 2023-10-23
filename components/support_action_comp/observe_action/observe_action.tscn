@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://da6m8xjnk2ovm"]
+
+[ext_resource type="PackedScene" uid="uid://bk004xnrbax3d" path="res://components/support_action_comp/support_action.tscn" id="1_ff7rr"]
+[ext_resource type="Script" path="res://ObserveAction.gd" id="2_2chrp"]
+[ext_resource type="Script" path="res://components/support_action_comp/observe_action/observe_state_choosing.gd" id="3_inuu3"]
+[ext_resource type="Script" path="res://components/support_action_comp/observe_action/observer_state_providing.gd" id="4_q66ev"]
+
+[node name="ObserveAction" instance=ExtResource("1_ff7rr")]
+script = ExtResource("2_2chrp")
+unsupportable_unit_types = ["support_unit", "melee_unit"]
+
+[node name="ChoosingSupport" parent="StateMachine" index="1"]
+script = ExtResource("3_inuu3")
+
+[node name="ProvidingSupport" parent="StateMachine" index="2"]
+script = ExtResource("4_q66ev")

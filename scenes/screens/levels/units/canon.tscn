@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbbyxoulkwe8s"]
+
+[ext_resource type="PackedScene" uid="uid://bmn7m62gc1dc2" path="res://scenes/screens/levels/units/ranged_unit.tscn" id="1_ai24m"]
+[ext_resource type="Script" path="res://scenes/screens/levels/units/canon.gd" id="2_er8hf"]
+[ext_resource type="Texture2D" uid="uid://s10n8gns5q1w" path="res://img/cannon.png" id="2_kkjrl"]
+[ext_resource type="Texture2D" uid="uid://blji7c3clubrn" path="res://img/HealthIcon.png" id="4_6ykqb"]
+
+[node name="Canon" instance=ExtResource("1_ai24m")]
+script = ExtResource("2_er8hf")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_kkjrl")
+
+[node name="TextureRect" parent="UnitStatsBar/ColorRect/VBoxContainer/HBoxContainer4" index="0"]
+texture = ExtResource("4_6ykqb")
+
+[node name="CollisionShape2D" parent="CollisionArea" index="0"]
+position = Vector2(25.5, 25)
+
+[connection signal="area_entered" from="CollisionArea" to="." method="_on_collision_area_entered" flags=18]

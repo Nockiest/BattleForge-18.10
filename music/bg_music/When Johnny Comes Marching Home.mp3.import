@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b781hcf5b5ggh"
+path="res://.godot/imported/When Johnny Comes Marching Home.mp3-01dcdb6114a74c9a1e5408e81122299a.mp3str"
+
+[deps]
+
+source_file="res://music/bg_music/When Johnny Comes Marching Home.mp3"
+dest_files=["res://.godot/imported/When Johnny Comes Marching Home.mp3-01dcdb6114a74c9a1e5408e81122299a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

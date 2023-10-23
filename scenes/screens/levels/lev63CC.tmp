@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckd0oprsc5w0y"]
+
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_xqyxq"]
+[ext_resource type="PackedScene" uid="uid://ciy275v50ffpc" path="res://scenes/levels/player.tscn" id="2_3vdnt"]
+[ext_resource type="PackedScene" uid="uid://dchc7nuvrwrv1" path="res://scenes/levels/canvas_layer.tscn" id="3_phvt3"]
+
+[node name="level" type="Node2D"]
+script = ExtResource("1_xqyxq")
+
+[node name="Node2D" parent="." instance=ExtResource("2_3vdnt")]
+
+[node name="Camera2D2" type="Camera2D" parent="Node2D"]
+
+[node name="CanvasLayer" parent="." instance=ExtResource("3_phvt3")]

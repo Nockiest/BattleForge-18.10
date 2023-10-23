@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://bmn7m62gc1dc2"]
+
+[ext_resource type="PackedScene" uid="uid://dkrdjtyb1p88n" path="res://scenes/screens/levels/units/basic_unit.tscn" id="1_gwte3"]
+[ext_resource type="Script" path="res://scenes/screens/levels/units/ranged_unit.gd" id="2_3n43o"]
+[ext_resource type="Texture2D" uid="uid://5u2w0d8l6w5h" path="res://img/musketeer.png" id="3_kdekp"]
+[ext_resource type="PackedScene" uid="uid://dlin3h71y20cx" path="res://ranged_attack_comp.tscn" id="4_5x482"]
+
+[sub_resource type="Animation" id="Animation_1aryq"]
+resource_name = "shoot"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5eok2"]
+_data = {
+"shoot": SubResource("Animation_1aryq")
+}
+
+[node name="RangedUnit" instance=ExtResource("1_gwte3")]
+script = ExtResource("2_3n43o")
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(21.75, 28.5)
+scale = Vector2(0.332031, 0.304688)
+texture = ExtResource("3_kdekp")
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_5eok2")
+}
+
+[node name="UnitStatsBar" parent="." index="3"]
+offset_top = 48.0
+offset_bottom = 48.0
+
+[node name="Ammo" type="Label" parent="UnitStatsBar/VBoxContainer" index="2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Ammo:"
+
+[node name="RangedAttackComp" parent="." index="8" instance=ExtResource("4_5x482")]
+
+[connection signal="ammo_changed" from="RangedAttackComp" to="." method="_on_ranged_attack_comp_ammo_changed"]

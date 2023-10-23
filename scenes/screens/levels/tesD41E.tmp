@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://calj64ok52pwl"]
+
+[ext_resource type="Script" path="res://scenes/levels/players.gd" id="1_xx7hk"]
+[ext_resource type="Texture2D" uid="uid://bu7erw8ki7qkq" path="res://img/shield.png" id="2_xya7e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hxu8"]
+size = Vector2(63, 71)
+
+[node name="Node2D" type="CharacterBody2D"]
+position = Vector2(315, 179)
+script = ExtResource("1_xx7hk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 4.5)
+shape = SubResource("RectangleShape2D_4hxu8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, 3)
+texture = ExtResource("2_xya7e")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

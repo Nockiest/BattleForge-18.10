@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://uec1gsjgb786"]
+
+[ext_resource type="Script" path="res://structures/road/road.gd" id="1_gt7rl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqhyp"]
+
+[node name="Road" type="Node2D" groups=["roads"]]
+z_index = 5
+script = ExtResource("1_gt7rl")
+
+[node name="Line2D" type="Line2D" parent="."]
+z_index = 5
+width = 20.0
+
+[node name="Area2D" type="Area2D" parent="." groups=["road_areas"]]
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_mqhyp")

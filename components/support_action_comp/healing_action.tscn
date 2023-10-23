@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdk3f7y1olsdj"]
+
+[ext_resource type="PackedScene" uid="uid://bk004xnrbax3d" path="res://components/support_action_comp/support_action.tscn" id="1_21meq"]
+[ext_resource type="Script" path="res://HealingAction.gd" id="2_hkoup"]
+
+[node name="HealingAction" instance=ExtResource("1_21meq")]
+script = ExtResource("2_hkoup")
+
+[node name="SupportConnnection" parent="." index="0"]
+default_color = Color(0.988235, 0.839216, 0.858824, 1)

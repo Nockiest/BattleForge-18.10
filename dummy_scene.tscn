@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg4n74m28db1h"]
+
+[ext_resource type="Script" path="res://dummy_scene.gd" id="1_wkeby"]
+[ext_resource type="PackedScene" uid="uid://c3614m3v7idnh" path="res://components/information_viewer/information_viewer.tscn" id="2_p8qsk"]
+
+[node name="dummy_scene" type="Node2D"]
+script = ExtResource("1_wkeby")
+
+[node name="StatsBar" parent="." instance=ExtResource("2_p8qsk")]
+tracked_variables = Array[StringName]([&"increasing_number"])

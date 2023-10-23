@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmbuh80rse6d1"]
+
+[ext_resource type="Script" path="res://structures/River.gd" id="1_vpeyr"]
+
+[node name="River" type="Node2D" groups=["enviroment", "rivers"]]
+z_index = 3
+script = ExtResource("1_vpeyr")

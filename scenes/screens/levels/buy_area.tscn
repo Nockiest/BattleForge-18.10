@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs2ojp8fmt43t"]
+
+[ext_resource type="Script" path="res://scenes/screens/levels/buy_area.gd" id="1_d0rd1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g033y"]
+size = Vector2(346, 421.5)
+
+[node name="BuyArea" type="Area2D" groups=["buy_areas"]]
+light_mask = 64
+script = ExtResource("1_d0rd1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(172, 209.25)
+shape = SubResource("RectangleShape2D_g033y")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.415686)
+offset_right = 347.0
+offset_bottom = 419.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
