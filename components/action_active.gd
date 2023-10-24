@@ -1,7 +1,7 @@
 class_name BaseActiveActionState
 extends ActionState
 
-
+signal attack_comp_attacked()
 # Called when the node enters the scene tree for the first time.
 func enter(_msg = {}):
 	if ! check_can_enter_state():
@@ -32,18 +32,19 @@ func check_can_enter_state() -> bool:
 
 func find_attackable_units():
 	for unit in AttackComponent.units_in_action_range:
-		# Create a new RayCast2D
 		if AttackComponent.get_node("reachabilityCheckerComp").check_position_reachable(unit.center, AttackComponent.projectile_size):
+			print("APPENDING ", unit)
 			AttackComponent.reachable_units.append(unit)
  
 		
 func exit():
+	unhighlight_units_in_range()
 	if Globals.action_taking_unit == AttackComponent.owner:
 		Globals.action_taking_unit = null
 		Globals.attacking_component = null
 		AttackComponent.reachable_units = []
 		AttackComponent.get_node("AttackRangeCircle").hide()
-	unhighlight_units_in_range()
+
 func try_attack( ):
 	if !check_can_attack():
 		AttackComponent.get_node("ErrorSound").play()
@@ -55,8 +56,10 @@ func try_attack( ):
 	return "SUCESS"
   
 func attack():
+	print("CALLED")
 	Globals.last_attacker = AttackComponent.owner
 	AttackComponent.get_node("ActionSound").play()
+	attack_comp_attacked.emit()
 	state_machine.transition_to("Idle")
 	AttackComponent.remain_actions -=1
 
@@ -89,6 +92,7 @@ func update(_delta:float):
  
 
 func highlight_units_in_range() -> void: 
+	print("UNITS IN RANGE ", self, " ",AttackComponent.units_in_action_range, AttackComponent.reachable_units)
 #	print("HIGHLIGHTING UNITS", AttackComponent.units_in_action_range, )
 #	print("REACHABLE UNITS ",  AttackComponent.reachable_units)
 	for unit in AttackComponent.units_in_action_range:
@@ -99,5 +103,6 @@ func highlight_units_in_range() -> void:
 
 
 func unhighlight_units_in_range() -> void:
-	for enemy in AttackComponent.units_in_action_range:
+	print("UNHIGLIGHTING UNITS " ,self)
+	for enemy in AttackComponent.units_in_action_range:#get_tree().get_nodes_in_group("living_units"):#AttackComponent.units_in_action_range:
 		enemy.get_node("ColorRect").modulate = enemy.color

@@ -11,7 +11,7 @@ func _ready():
 	super._ready()
 	unit_class = "support_unit"
 	action_component.owner = self
-	var enum_names = states.values()
+#	var enum_names = states.values()
 
 	# Print names and values
 

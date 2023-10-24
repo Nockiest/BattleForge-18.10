@@ -9,6 +9,8 @@ const base_movement:= 1
 @export var base_movement_range:= 250 
 @export var cost:= 20  
 @export var action_range = 100 
+@export var can_move_after_attack = false
+@export var can_attack_after_move = true
 ## tohle budu mwnit nodem
 var action_component
 #@export var movement_comp:Node 
@@ -20,14 +22,6 @@ var attack_resistances =  {"base_resistance":  0.1  }
 var color: Color  
 var unit_name := "default"
 var unit_class := "default"
-
-enum states {
-	Idle,
-	Moving,
-	Action,
-	Supporting
-}
- 
  
 var outline_node
 var is_newly_bought:= true:
@@ -41,11 +35,23 @@ var is_newly_bought:= true:
 			tween.tween_property($ColorRect, "modulate",   color, 0.2)
  
 
- 
+func action_aftermath_handler():
+	print("CAN MOVE AFTER ATTACK? ", can_move_after_attack)
+	if !can_move_after_attack:
+		$movement_comp.remain_distance = 0
+	else:
+		print("CAN MOVE AFTER ATTACK")	
+
+func check_can_move_after_attack():
+	if !can_attack_after_move:
+		if $movement_comp.global_start_turn_position != center:
+			action_component.remain_actions = 0
+
 func _ready(): 
 	# The code here has to come after the code in th echildren compoennts
 	$movement_comp.base_movement_range = base_movement_range
 	$Center.position = to_local(Utils.get_collision_shape_center($CollisionArea))
+	$movement_comp/State/Moving.connect("aborted_movement", handle_abort_movement)
 	$ErrorAnimation.position = $Center.position  
 	center = $Center.global_position 
 	$ActionComponent.global_position =  center 
@@ -59,6 +65,9 @@ func _ready():
 		action_component.owner = self
 		print(action_component.base_action_range, action_range)
 		action_component.base_action_range = action_range
+		if not(self is SupportUnit):
+			print("CONNECTED")
+			action_component.connect("attack_comp_attacked", action_aftermath_handler)
 	if  is_newly_bought:
 		Globals.placed_unit = self
 		Globals.hovered_unit = null
@@ -67,7 +76,11 @@ func _ready():
 	for tender in Globals.tenders:
 		tender.update_tender()
  
-
+## dirty code
+func handle_abort_movement():
+	pass
+#	action_component.get_node("State").transition_to("Idle")
+#	action_component.get_node("State/Active").unhighlight_units_in_range()
 func get_boost():
 	print("THIS UNIT DOESNT HAVE A BOOST FOR KILLING A UNIT")
 
@@ -150,6 +163,11 @@ func _on_tree_exiting():
 		Globals.action_taking_unit = null
 	if $HealthComponent.hp == 0:
 		StatsTracker.increase_stat_by("lost_units", Globals.color_names[color], 1)
+	if Globals.placed_unit == self:
+		if Globals.cur_player == "red":
+			Globals.red_player_money += cost
+		else:
+			Globals.blue_player_money += cost
 	for unit in other_units:
 		if unit == Globals.last_attacker:
 			print(unit, " will get a boost")
@@ -167,9 +185,12 @@ func _on_tree_exiting():
 
 ## ranged unit has its own version of this function
 func _on_collision_area_entered(area):
+	if area is UnitsMainCollisionArea:
+		print(area.get_parent(), area.get_parent().color != color)
 	if $movement_comp/State.state !=   $movement_comp/State/Moving :
 		return
 	if area is UnitsMainCollisionArea and area.get_parent().color != color:
+		print("ABORTING MOVEMENT ", self)
 		$movement_comp/State/Moving.abort_movement()
 		
 func _on_error_animation_finished():

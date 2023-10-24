@@ -25,6 +25,12 @@ func _ready():
 #	var a = Globals.get(attached_settings_variable)
 #	if attached_settings_variable in Globals and not(a  is Dictionary):
 #		print("ABLE TO SET VALUE ", Globals.get(attached_settings_variable)," ",attached_settings_variable)
+#	if attached_settings_variable in Globals:
+#		var a = Globals.get(attached_settings_variable)
+#		if a is Dictionary:
+#			$VBoxContainer/HSlider.value =   Globals.get(attached_settings_variable)[augmented_dictionary_variable]
+#		else:
+#			a =  Globals.get(attached_settings_variable) 
 	$VBoxContainer/HSlider.value = start_value# Globals.get(attached_settings_variable)
 	$VBoxContainer/SliderValueLabel.text = str($VBoxContainer/HSlider.value)
  

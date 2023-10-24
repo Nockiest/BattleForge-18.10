@@ -121,6 +121,7 @@ alignment = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Money"
+horizontal_alignment = 1
 
 [node name="BlueMoneySlider" parent="SettingsScreen/VBoxContainer2" instance=ExtResource("2_hthqh")]
 layout_mode = 2
@@ -163,6 +164,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Blue Player Units
 "
+horizontal_alignment = 1
 
 [node name="Medics" parent="SettingsScreen/Blue Units" instance=ExtResource("2_hthqh")]
 layout_mode = 2
@@ -278,6 +280,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Red Player Units
 "
+horizontal_alignment = 1
 
 [node name="Medics" parent="SettingsScreen/Red Units" instance=ExtResource("2_hthqh")]
 layout_mode = 2
@@ -342,6 +345,18 @@ augmented_dictionary_variable = "knight"
 label_text = "Knights"
 slider_range = [0, 10]
 start_value = 1
+
+[node name="Label" type="RichTextLabel" parent="SettingsScreen"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -78.0
+offset_right = 270.0
+grow_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[b]Note:[/b] Due to the way the generation algorithm works not all of the structures may end up on the battleground every time, when adding a lot of structures of the same type."
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_tihyt")

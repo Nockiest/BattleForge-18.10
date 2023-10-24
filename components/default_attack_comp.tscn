@@ -51,14 +51,14 @@ max_polyphony = 3
 [node name="ActionSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_jtj0b")
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="State" type="Node" parent="."]
 script = ExtResource("9_lykng")
 initial_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="StateMachine"]
+[node name="Idle" type="Node" parent="State"]
 script = ExtResource("9_m3pm5")
 
-[node name="Active" type="Node" parent="StateMachine"]
+[node name="Active" type="Node" parent="State"]
 script = ExtResource("11_7f8j5")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -3,7 +3,7 @@ class_name MovementMovingState
  
 var mouse_pos_offset:Vector2
 var exiting_moving_state = false
-
+signal aborted_movement()
 func enter(_msg=[]):
 	if not check_can_turn_movement_on():
 		state_machine.transition_to("Idle") 
@@ -19,6 +19,7 @@ func enter(_msg=[]):
 	toggle_moving_appearance("on")
 	MoveComp.get_node("SelectSound").play()
 	MoveComp.get_node("MovementSound").play()
+#	MoveC
  
 func update(_delta: float):
 	MoveComp.current_movement_modifier = MoveComp.translate_terrain_to_move_modifier()
@@ -95,6 +96,7 @@ func abort_movement():
 	state_machine.transition_to("Idle")
 	MoveComp.remain_distance =  MoveComp.base_movement_range
 	print("OWNER POSITION AFTER ABORT",MoveComp.owner.global_position)
+	aborted_movement.emit()
 ## A very ugly way to deceslect movement
  
 

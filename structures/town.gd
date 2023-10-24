@@ -12,8 +12,8 @@ var outline_node
 
 
 func _process(_delta):
-	if Globals.placed_unit and team_alligiance and Globals.placed_unit.is_inside_tree():
-		print(Globals.placed_unit.color ,Color(team_alligiance))
+#	if Globals.placed_unit and team_alligiance and Globals.placed_unit.is_inside_tree():
+#		print(Globals.placed_unit.color ,Color(team_alligiance))
 	if  Globals.placed_unit == null or  team_alligiance == null:
 		$ColorRect.modulate = Color("#826700") 
 	elif Globals.placed_unit.color == Color(team_alligiance):
@@ -55,7 +55,6 @@ func instantiate_a_house(house):
 		valid_position = true
 		var river_segments_shapes = get_tree().get_nodes_in_group("river_segment_collision_shapes")
 		for segment in river_segments_shapes:
-			print("X", to_global( Vector2(random_x, random_y)), " ", Utils.get_collision_shape_center(segment) , " " , Vector2(random_x,random_y).distance_to(Utils.get_collision_shape_center(segment))  )
 			if not Utils.are_points_far_enough( to_global( Vector2(random_x, random_y)), Utils.get_collision_shape_center(segment), 25):
 				valid_position = false
 				break

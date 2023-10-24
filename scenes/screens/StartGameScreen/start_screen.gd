@@ -2,7 +2,6 @@ extends Control
 
 func _ready() -> void:
 	$tutorial_screen_page_1.connect("go_back_clicked", _go_back_from_tutorial)
-
 func _on_start_game_btn_pressed():
 		get_tree().change_scene_to_file("res://scenes/Battleground.tscn") 
 

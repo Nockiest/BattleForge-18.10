@@ -83,5 +83,19 @@ attached_settings_variable = "Money Per Turn"
 [node name="settings_slider4" parent="VBoxContainer2" instance=ExtResource("2_nglbc")]
 layout_mode = 2
 
+[node name="Label" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -78.0
+offset_right = 270.0
+grow_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[b]Note:[/b] Due ti the way enviroment is
+generated not all of the structures 
+may end up on the battleground"
+
 [connection signal="button_up" from="VBoxContainer/BackToStartScreenBtn" to="." method="_on_back_to_start_up"]
 [connection signal="pressed" from="VBoxContainer/ApplySettingsBtn" to="." method="_on_apply_settings_btn_pressed"]

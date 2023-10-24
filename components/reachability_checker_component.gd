@@ -11,7 +11,7 @@ func check_position_reachable(point, projectile_size):
 
 	# Create a RectangleShape2D to represent the width of the "ray"
 	var rectangle_shape = RectangleShape2D.new()
-	rectangle_shape.extents = Vector2(projectile_size, 1)  # Adjust the width here
+	rectangle_shape.extents = Vector2(projectile_size, projectile_size)  # Adjust the width here
 
 	# Set the shape of the CollisionShape2D
 	collision_shape.shape = rectangle_shape
@@ -21,7 +21,6 @@ func check_position_reachable(point, projectile_size):
 		else:
 			raycast.set_collision_mask_value(index, false)
 #		rasycast.set_collision_mask_value(1, true)
-	print(raycast.get_collision_mask_value(7))
 	add_child(raycast)
 	raycast.collide_with_areas = true
 	# Set the starting position of the ray (assuming your units have a position property)
@@ -39,17 +38,15 @@ func check_position_reachable(point, projectile_size):
 #	timer.start()
 
 #	timer.connect("timeout", _on_timer_timeout   )
+	print("is colliding? ",raycast.is_colliding())
 	if raycast.is_colliding():
 	# There is an obstruction between the units
-		print(raycast.get_collider(),"  ", raycast.get_collision_point())
+		print(raycast.get_collider(),"  ", raycast.get_collision_point(), "COLLIDING")
 #		print("Obstruction detected between ", unit.unit_name, " and ", owner.unit_name)
 #		raycast.queue_free()
 		return false
 	else:
-	# The line is clear
-#		print( owner.unit_name , " can attack ", unit.unit_name  )
-#		reachable_units.append(unit)
-#		raycast.queue_free()
+		print("ISNT COLLIDING")
 		return true
 		
  

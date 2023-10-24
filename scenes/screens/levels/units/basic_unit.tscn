@@ -162,6 +162,5 @@ texture = ExtResource("13_0hkya")
 [connection signal="animation_finished" from="ErrorAnimation" to="." method="_on_error_animation_finished"]
 [connection signal="hp_changed" from="HealthComponent" to="." method="_on_health_component_hp_changed"]
 [connection signal="area_entered" from="CollisionArea" to="." method="_on_collision_area_area_entered"]
-[connection signal="area_exited" from="CollisionArea" to="." method="_on_collision_area_area_exited"]
 [connection signal="mouse_entered" from="CollisionArea" to="." method="_on_collision_area_mouse_entered"]
 [connection signal="mouse_exited" from="CollisionArea" to="." method="_on_collision_area_mouse_exited"]

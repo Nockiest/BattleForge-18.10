@@ -19,10 +19,7 @@ func check_can_attack():
 	if AttackComponent.owner.current_terrain == "forrest":
 		print("IN FORREST")
 		return false
-#	for area in overlapping_areas:
-#		if area.get_parent().get_parent() is Forrest:
-#			print("RANGED UNIT IS IN FORREST",area.get_parent().get_parent() )
-#			return false
+ 
 	print("AMMO ", AttackComponent.ammo_component.ammo )
 	if AttackComponent.ammo_component.ammo < 0:
 		return false

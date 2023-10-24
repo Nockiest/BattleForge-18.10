@@ -11,6 +11,9 @@ func _ready() -> void:
 		child.AttackComponent = get_parent()
 	state.enter()
 func _process(delta: float) -> void:
+	if get_parent().owner  == Globals.moving_unit:
+		return
+	
 	if "color" in owner:
 			if Color(Globals.cur_player) != owner.color:
 				return

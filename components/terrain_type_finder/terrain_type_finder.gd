@@ -21,21 +21,23 @@ func find_current_overlapping_terrain() -> String:
 	for area in $Area2D.get_overlapping_areas():
 #		for shape in area.get_overlapping_areas():
 		if area.get_parent() is RiverSegment   and new_overlap != "road" :
-			print("AREA IS OVERLAPPING", area.get_parent())
+#			print("AREA IS OVERLAPPING", area.get_parent())
 			new_overlap = "river"
 			break
 		elif area is Town   and new_overlap != "road" and   new_overlap != "river" :
-			print("AREA IS OVERLAPPING", area.get_parent())
+#			print("AREA IS OVERLAPPING", area.get_parent())
 			new_overlap = "town"
 		elif area.get_parent() is Road or  area.get_parent() is Bridge:
 			new_overlap = "road"
 	for area in get_tree().get_nodes_in_group("forrest_shape")  :  # Replace with your group name
 #		if area.get_parent().is_point_in_polygon ( point_in_space, area.get_parent() ):
 		if Utils.calculate_is_inside(area.get_parent(), global_position)and (new_overlap != "road"and new_overlap != "river"):
-			print("Point is inside Area2D:", area,  ) 
+#			print("Point is inside Area2D:", area,  ) 
 			new_overlap = "forest"	
 	overlapping_terrain_type = new_overlap
 	return overlapping_terrain_type
+	
+	
 	# Get an array of Area2D nodes overlapping the specified point
 #	for area in get_tree().get_nodes_in_group("river_segment_collision_shapes"):  # Replace with your group name
 #		for shape in area.get_overlapping_areas():

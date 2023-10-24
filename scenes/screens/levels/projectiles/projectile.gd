@@ -8,7 +8,7 @@ var start_position
 var shooting_unit
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("PROJECTILE SHOT")
+#	print("PROJECTILE SHOT")
 	start_position = global_position
 	$ExplosionAnimation.hide()
 	$ErrorAnimation.hide()
@@ -19,13 +19,13 @@ func _process(delta):
 		_play_explosion() 
 		
 func _on_area_entered(area):
-	print( global_position.distance_to(start_position) , shooting_unit.size)
+#	print( global_position.distance_to(start_position) , shooting_unit.size)
 	if global_position.distance_to(start_position) <  max(shooting_unit.size.x, shooting_unit.size.y)/2:
 		return false
 	if area.get_parent() == shooting_unit:
 		return false
-	if area.get_parent().get_parent() is Forrest:
-		_play_error()#_play_explosion()
+#	if area.get_parent().get_parent() is Forrest:
+#		_play_error() 
 	return true
 func _play_explosion():
 	# Only play the animation if it's not already playing

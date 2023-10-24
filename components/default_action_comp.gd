@@ -44,8 +44,7 @@ func  update_for_next_turn():
 func _process(_delta: float) -> void:
 	if get_node("RangeOutline") == null:
 		return
-#	if owner is Musketeer:
-#		print($StateMachine.state," ", Globals.hovered_unit, Globals.hovered_unit == owner)
+ 
 	if Globals.hovered_unit == owner:
 		$RangeOutline.show()
 	else:
@@ -53,18 +52,18 @@ func _process(_delta: float) -> void:
  
 func _on_area_entered(area):
 	if area.get_parent() == owner:
-		print_debug(1,area.get_parent() == owner)
+#		print_debug(1,area.get_parent() == owner)
 		return 2
 	if area.name != "CollisionArea": 
-		print_debug("isnt unit", area.name)
+#		print_debug("isnt unit", area.name)
 		return 3
 	if  area.get_parent().color == null:
-		print_debug("FAIL")
+#		print_debug("FAIL")
 		return 5
 #	if not "color" in owner:
 #		return 6
 	if area.get_parent().color == owner.color:
-		print_debug("ISNT SAME COLOR",area.get_parent().color , owner.color )
+#		print_debug("ISNT SAME COLOR",area.get_parent().color , owner.color )
 		return "SAME COLOR"
 	units_in_action_range.append(area.get_parent())
 	return 7

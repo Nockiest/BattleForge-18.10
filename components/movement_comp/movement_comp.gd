@@ -4,7 +4,7 @@ extends Node2D
 signal hit_river()
 var base_movement_range:int:
 	set(new_range):
-		base_movement_range = new_range *3
+		base_movement_range = new_range *1.5
 		remain_distance = base_movement_range  
 @onready var global_start_turn_position 
  
@@ -43,14 +43,14 @@ func process_for_next_turn():
 	set_new_start_turn_point()  
 
 func set_owner_position(new_position):
-	if  remain_distance == base_movement_range:
-		print("CANT CHANGE THE POSITION")
-		return
+#	if  remain_distance == base_movement_range:
+##		print("CANT CHANGE THE POSITION")
+#		return
 	owner.global_position = new_position
 	owner.center = owner.get_node("Center").global_position
 
 func  set_new_start_turn_point():
-	print("SETTING NEW START TURN POS", global_position)
+#	print("SETTING NEW START TURN POS", global_position)
 	global_start_turn_position = global_position
  
 

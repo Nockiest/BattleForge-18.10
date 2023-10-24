@@ -100,7 +100,7 @@ func process_place_units():
 func place_starting_units(placment_area: Area2D, color, units_list  ):
 	var total_unit_number = Utils.sum_dict_values(units_list)
 	var placement_positions = []
-	var minimal_gap = 65
+	var minimal_gap = 40
 	var tries = 0
 	var max_tries = 1000
 	var enlarged_areas = get_tree().get_nodes_in_group("enlarged_river_collision_areas")  
