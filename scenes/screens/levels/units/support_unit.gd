@@ -1,11 +1,20 @@
 extends BattleUnit
 class_name SupportUnit
  
- 
+#enum states {
+#	Idle,
+#	Supporting,
+#	Moving,
+#	Action
+#}
 func _ready():
 	super._ready()
 	unit_class = "support_unit"
 	action_component.owner = self
+	var enum_names = states.values()
+
+	# Print names and values
+
 ## This Should Be in the support action
 #func process_action():
 ##	action_component.toggle_action_screen()

@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bsghedd31qfoa" path="res://components/movement_comp/movement_comp.tscn" id="6_0pp86"]
 [ext_resource type="Texture2D" uid="uid://dcqbl8svpthp5" path="res://img/swirl-string.png" id="7_s2la6"]
 [ext_resource type="AudioStream" uid="uid://12xa7dj1stmj" path="res://music/ui_sounds/movement_selcted_beep.wav" id="10_ejrp4"]
-[ext_resource type="PackedScene" uid="uid://bxihhqvokjqy" path="res://components/terrain_type_finder/terrain_type_finder.tscn" id="12_b28lg"]
+[ext_resource type="Texture2D" uid="uid://5ffhp0hgdi8t" path="res://img/tree.png" id="13_0hkya"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n3ojo"]
 size = Vector2(49, 50)
@@ -152,7 +152,11 @@ debug_color = Color(0.956863, 0.203922, 0, 0.941176)
 [node name="SelectSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_ejrp4")
 
-[node name="terrain_type_finder" parent="." instance=ExtResource("12_b28lg")]
+[node name="InForrestSprite" type="Sprite2D" parent="."]
+z_index = 1000
+position = Vector2(-8, 10)
+scale = Vector2(0.102649, 0.0925926)
+texture = ExtResource("13_0hkya")
 
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="animation_finished" from="ErrorAnimation" to="." method="_on_error_animation_finished"]

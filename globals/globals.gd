@@ -21,9 +21,7 @@ var moving_unit:
 		moving_unit = value
 		print("MOVING UNIT CHANGED ", moving_unit)
 var last_attacker
-var can_start_new_attack = true
-
-
+ 
 var medic_scene:PackedScene =preload("res://scenes/screens/levels/units/medic.tscn")
 var observer_scene:PackedScene =preload("res://scenes/screens/levels/units/observer.tscn")
 var supply_cart_scene:PackedScene =preload("res://scenes/screens/levels/units/supply_cart.tscn")

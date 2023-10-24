@@ -34,7 +34,6 @@ func find_current_overlapping_terrain() -> String:
 		if Utils.calculate_is_inside(area.get_parent(), global_position)and (new_overlap != "road"and new_overlap != "river"):
 			print("Point is inside Area2D:", area,  ) 
 			new_overlap = "forest"	
-	print(new_overlap, " NEW OVERLAP")
 	overlapping_terrain_type = new_overlap
 	return overlapping_terrain_type
 	# Get an array of Area2D nodes overlapping the specified point

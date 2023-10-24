@@ -4,15 +4,13 @@ extends Node2D
 signal hit_river()
 var base_movement_range:int:
 	set(new_range):
-		base_movement_range = new_range #*3
+		base_movement_range = new_range *3
 		remain_distance = base_movement_range  
 @onready var global_start_turn_position 
  
 var remain_distance  = base_movement_range:
 	set(new_distance):
-		remain_distance =new_distance 
-		if new_distance < 0 :
-			owner.update_stats_bar()
+		remain_distance = max(new_distance, 0) 
 	get:
 		return remain_distance
  

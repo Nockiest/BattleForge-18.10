@@ -20,8 +20,15 @@ var attack_resistances =  {"base_resistance":  0.1  }
 var color: Color  
 var unit_name := "default"
 var unit_class := "default"
+
+enum states {
+	Idle,
+	Moving,
+	Action,
+	Supporting
+}
  
-#var start_hp: int = 2
+ 
 var outline_node
 var is_newly_bought:= true:
 	get:
@@ -33,6 +40,8 @@ var is_newly_bought:= true:
 			tween.tween_property($ColorRect, "modulate", Color(1,1,1), 0.2)
 			tween.tween_property($ColorRect, "modulate",   color, 0.2)
  
+
+ 
 func _ready(): 
 	# The code here has to come after the code in th echildren compoennts
 	$movement_comp.base_movement_range = base_movement_range
@@ -40,7 +49,7 @@ func _ready():
 	$ErrorAnimation.position = $Center.position  
 	center = $Center.global_position 
 	$ActionComponent.global_position =  center 
-	$terrain_type_finder.global_position = center
+#	$terrain_type_finder.global_position = center
 	$movement_comp.global_position = center
 	var outline = Utils.polygon_to_line2d($OutlinePolygon , 4) 
 	outline_node = outline
@@ -75,6 +84,11 @@ func _process(_delta):
 	update_stats_bar()
 	center = $Center.global_position 
 	handle_show_unit_information()
+	if $movement_comp/terrain_type_finder.overlapping_terrain_type == "forest":
+		$InForrestSprite.show()
+	else:
+		$InForrestSprite.hide()
+#	if 
 #	if $movement_comp.current_state !=  $movement_comp.state.Moving:
 #		action_component.process(_delta)
 func handle_show_unit_information():

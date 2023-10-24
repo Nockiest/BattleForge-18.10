@@ -9,6 +9,8 @@ var team_alligiance
 var connected_roads:int = 0
 var connected_towns: Array = []
 var outline_node
+
+
 func _process(_delta):
 	if Globals.placed_unit and team_alligiance and Globals.placed_unit.is_inside_tree():
 		print(Globals.placed_unit.color ,Color(team_alligiance))
@@ -23,22 +25,46 @@ func _process(_delta):
 			$ColorRect.modulate = Globals.placed_unit.color
  
 	## make sure that collision shape in house scene is stil on index 0 otherwise it wont work
+
+
 func place_house():
 	for house in range(num_houses):
 		var house_instance = house_scene.instantiate() as Area2D
-		get_random_house_position(house_instance)
+		instantiate_a_house(house_instance)
 		add_child(house_instance)
-		house_instance.connect("house_interferes", get_random_house_position ) 
+		house_instance.connect("house_interferes", instantiate_a_house ) 
 
-func get_random_house_position(house):
+
+func instantiate_a_house(house):
+	var placement_positions = []
+	var tries = 0
+	var max_tries = 1000
+	var valid_position =false
+	var random_x
+	var random_y
 	var house_collision_shape = house.get_child(0).shape as RectangleShape2D  # Access the house's RectangleShape2D
 	var min_x = house_collision_shape.extents.x  
 	var max_x = (rect_shape.extents.x - min_x)*2
 	var min_y = house_collision_shape.extents.y  
 	var max_y = (rect_shape.extents.y - min_y)*2
   
-	var random_x = randi_range(min_x, max_x)
-	var random_y = randi_range(min_y, max_y)
+	while !valid_position and tries < max_tries:
+#		var new_point = Utils.get_random_point_in_square(placment_area.get_node("CollisionShape2D").shape.extents*2)
+		random_x = randi_range(min_x, max_x)
+		random_y = randi_range(min_y, max_y)
+		valid_position = true
+		var river_segments_shapes = get_tree().get_nodes_in_group("river_segment_collision_shapes")
+		for segment in river_segments_shapes:
+			print("X", to_global( Vector2(random_x, random_y)), " ", Utils.get_collision_shape_center(segment) , " " , Vector2(random_x,random_y).distance_to(Utils.get_collision_shape_center(segment))  )
+			if not Utils.are_points_far_enough( to_global( Vector2(random_x, random_y)), Utils.get_collision_shape_center(segment), 25):
+				valid_position = false
+				break
+		tries += 1
+ 
+	if tries >max_tries:
+		return
+ 
+ 
  
 	house.position = Vector2(random_x, random_y)
 	

@@ -4,12 +4,14 @@ extends MovementState
 func enter(_msg= []):
 	MoveComp.owner.is_newly_bought = true
 	Globals.placed_unit = MoveComp.owner
+	MoveComp.owner.change_state_to("Moving")
 func exit():
 	MoveComp.owner.is_newly_bought = false
 	MoveComp.global_start_turn_position =MoveComp.owner.center#center
 	MoveComp.owner.is_newly_bought = false
 	if Globals.placed_unit == MoveComp.owner:
 		Globals.placed_unit = null
+	MoveComp.owner.change_state_to("Idle")
 func update(_delta):
 	MoveComp.owner.position = MoveComp.get_global_mouse_position() - MoveComp.owner.size / 2
 	if Input.is_action_just_pressed("left_click"):
