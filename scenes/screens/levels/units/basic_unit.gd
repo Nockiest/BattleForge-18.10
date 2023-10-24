@@ -15,10 +15,12 @@ var action_component
 @onready var center = $Center.global_position
 @onready var size = $CollisionArea/CollisionShape2D.shape.extents * 2 
 @onready var buy_areas = get_tree().get_nodes_in_group("buy_areas")
+@onready var current_terrain = $movement_comp/terrain_type_finder.find_current_overlapping_terrain()
 var attack_resistances =  {"base_resistance":  0.1  } 
 var color: Color  
 var unit_name := "default"
 var unit_class := "default"
+ 
 #var start_hp: int = 2
 var outline_node
 var is_newly_bought:= true:

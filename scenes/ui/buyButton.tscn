@@ -38,7 +38,7 @@ theme_override_constants/margin_top = 3
 
 [node name="Container" type="VBoxContainer" parent="MarginContainer" index="0"]
 layout_mode = 2
-theme_override_constants/separation = 2
+theme_override_constants/separation = 15
 
 [node name="Cost" type="Label" parent="MarginContainer/Container" index="0"]
 unique_name_in_owner = true
@@ -46,15 +46,7 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 text = "Cost"
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/Container" index="1"]
-unique_name_in_owner = true
-clip_contents = true
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-stretch_mode = 3
-
-[node name="UnitTypeLabel" type="Label" parent="MarginContainer/Container" index="2"]
+[node name="UnitTypeLabel" type="Label" parent="MarginContainer/Container" index="1"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)

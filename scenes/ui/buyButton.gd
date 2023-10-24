@@ -17,9 +17,9 @@ func change_buy_button_label():
 	%UnitTypeLabel.text = label_text#str(instance.unit_name)
 
 func _ready():
-	%TextureRect.set_size(Vector2(32,32))
-	%TextureRect.size.x = 32
-	%TextureRect.size.y = 32
+#	%TextureRect.set_size(Vector2(32,32))
+#	%TextureRect.size.x = 32
+#	%TextureRect.size.y = 32
 	var style = StyleBoxFlat.new()
 	style.bg_color = Color(1, 0, 0, 1)  # Change to your desired color
 	set("custom_styles/normal", style)

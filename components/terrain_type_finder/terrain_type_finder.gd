@@ -13,7 +13,7 @@ func _process(_delta: float) -> void:
 	queue_redraw()
 func _draw():
 	draw_circle(Vector2.ZERO, 2, Color("white"))
-func find_current_overlapping_terrain():
+func find_current_overlapping_terrain() -> String:
 	# Set the point in 2D space where you want to check for overlapping areas
 	var new_overlap = "pasture"
 #	global_position = get_global_mouse_position()
@@ -36,6 +36,7 @@ func find_current_overlapping_terrain():
 			new_overlap = "forest"	
 	print(new_overlap, " NEW OVERLAP")
 	overlapping_terrain_type = new_overlap
+	return overlapping_terrain_type
 	# Get an array of Area2D nodes overlapping the specified point
 #	for area in get_tree().get_nodes_in_group("river_segment_collision_shapes"):  # Replace with your group name
 #		for shape in area.get_overlapping_areas():

@@ -21,7 +21,8 @@ func enter(_msg=[]):
 	MoveComp.get_node("MovementSound").play()
  
 func update(_delta: float):
-	MoveComp.current_movement_modifier = MoveComp.translate_terrain_to_move_modifier() 
+	MoveComp.current_movement_modifier = MoveComp.translate_terrain_to_move_modifier()
+	MoveComp.owner.current_terrain = $"../../terrain_type_finder".overlapping_terrain_type
 	if Input.is_action_just_pressed("right_click"):
 		abort_movement()
 	elif Input.is_action_just_pressed("left_click"):

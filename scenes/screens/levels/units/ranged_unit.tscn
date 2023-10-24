@@ -8,6 +8,7 @@
 
 [node name="RangedUnit" instance=ExtResource("1_gwte3")]
 script = ExtResource("2_3n43o")
+start_ammo = 3
 base_movement_range = 150
 cost = 35
 action_range = 250

@@ -1,8 +1,6 @@
 extends BattlegroundState
 
-
 var town_scene: PackedScene = preload("res://structures/town.tscn")
-var player_scene: PackedScene = preload("res://player.tscn")
 var supply_depo_scene: PackedScene = preload("res://structures/supply_depo.tscn")
 var river_scene: PackedScene = preload("res://structures/river.tscn")
 var forrest_scene:PackedScene = preload("res://structures/forrest/forrest.tscn")
