@@ -8,6 +8,7 @@ var start_position
 var shooting_unit
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print("PROJECTILE SHOT")
 	start_position = position
 	$ExplosionAnimation.hide()
 	$ErrorAnimation.hide()

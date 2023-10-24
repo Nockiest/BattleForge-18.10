@@ -112,11 +112,9 @@ func _on_collision_area_mouse_entered():
 	if Globals.placed_unit == self:
 		return
 	Globals.hovered_unit = self
-#	toggle_show_information()
  
 func _on_collision_area_mouse_exited():
 	Globals.hovered_unit = null
-	#toggle_show_information()
  
 func toggle_show_information():
 	$UnitStatsBar.visible = !$UnitStatsBar.visible
@@ -125,8 +123,7 @@ func toggle_show_information():
 func update_stats_bar():
 	%Health.text = str($HealthComponent.hp)
 	%Movement.text =  str($movement_comp.remain_distance)
-	%"Movement Modifier".text = str($movement_comp.current_movement_modifier)
-	#$RemainMovementLabel.text =  str($movement_comp.current_movement_modifier) + " " + str($movement_comp.on_bridge)    
+	%"Movement Modifier".text = str($movement_comp.current_movement_modifier)  
 	if action_component:
 		%Actions.text = str(action_component.remain_actions)
  
@@ -156,7 +153,6 @@ func _on_tree_exiting():
 func _on_collision_area_entered(area):
 	if $movement_comp/State.state !=   $movement_comp/State/Moving :
 		return
-## 
 	if area is UnitsMainCollisionArea and area.get_parent().color != color:
 		$movement_comp/State/Moving.abort_movement()
 		
