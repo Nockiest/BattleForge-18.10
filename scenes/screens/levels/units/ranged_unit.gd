@@ -6,18 +6,18 @@ class_name RangedUnit
 func _ready():
 	action_component = $ActionComponent/RangedAttackComp 
 	action_component.ammo_component.max_ammo = start_ammo 
- 
 	super._ready()
 	unit_class = "ranged_unit"
+
+
 func update_stats_bar():
 	super.update_stats_bar()
 	if action_component:
 		%Ammo2.text =  str(action_component.ammo_component.ammo)
  
-func _on_ranged_attack_comp_ammo_changed(_ammo):
-	update_stats_bar()
 
-#func _on_collision_area_entered(area):
+func _on_collision_area_area_entered(area):
+	super._on_collision_area_entered(area)
 #
 ### 
 ##	if area is UnitsMainCollisionArea:

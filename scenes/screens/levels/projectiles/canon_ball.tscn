@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b7rvwdnghq66p" path="res://scenes/screens/levels/units/canonball.png" id="2_ol38u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wpjis"]
-radius = 16.1555
+radius = 3.0
 
 [node name="CanonBall" instance=ExtResource("1_f8suh")]
 script = ExtResource("2_gi7q3")

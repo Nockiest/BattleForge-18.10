@@ -187,8 +187,9 @@ func _on_tree_exiting():
 ## ranged unit has its own version of this function
 func _on_collision_area_entered(area):
 	if area is UnitsMainCollisionArea:
-		print(area.get_parent(), area.get_parent().color != color)
+		print("AREA IS UNIT AREA ",area.get_parent(), area.get_parent().color != color)
 	if $movement_comp/State.state !=   $movement_comp/State/Moving :
+		print("isnt m oving " , $movement_comp/State.state , " ", self)
 		return
 	if area is UnitsMainCollisionArea and area.get_parent().color != color:
 		print("ABORTING MOVEMENT ", self)

@@ -59,7 +59,10 @@ var color_names = {
 	# Add more color mappings as needed
 }
 # settings config
-var num_towns = 6
+var num_towns = 3:
+	set(value):
+		num_towns = value
+		print("SET TOWNS ", value)
 var num_rivers = 2
 var num_forests = 3
 var blue_player_units = {

@@ -24,5 +24,6 @@ func _ready():
 #	get_node("Polygon2D").modulate = Color("green")
 	get_node("forrest_shape").color = Color("#228b22")
 	var outline = Utils.polygon_to_line2d(forrest_shape_instance, 2, Color("black"))
+	outline.z_index = 1000
 	add_child(outline)
  

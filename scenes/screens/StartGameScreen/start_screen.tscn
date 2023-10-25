@@ -74,7 +74,6 @@ layout_mode = 2
 text = "Exit Game"
 
 [node name="SettingsScreen" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -127,14 +126,12 @@ horizontal_alignment = 1
 layout_mode = 2
 label_text = "Blue Money"
 slider_range = [0, 500]
-start_value = 100
 
 [node name="RedMoneySlider" parent="SettingsScreen/VBoxContainer2" instance=ExtResource("2_hthqh")]
 layout_mode = 2
 attached_settings_variable = "red_player_money"
 label_text = "Red Money"
 slider_range = [0, 500]
-start_value = 100
 
 [node name="MoneyPerTurnSlider" parent="SettingsScreen/VBoxContainer2" instance=ExtResource("2_hthqh")]
 layout_mode = 2
@@ -172,7 +169,6 @@ attached_settings_variable = "blue_player_units"
 augmented_dictionary_variable = "medic"
 label_text = "Medics"
 slider_range = [0, 10]
-start_value = 1
 
 [node name="Observers" parent="SettingsScreen/Blue Units" instance=ExtResource("2_hthqh")]
 layout_mode = 2
@@ -180,7 +176,6 @@ attached_settings_variable = "blue_player_units"
 augmented_dictionary_variable = "observer"
 label_text = "Observers"
 slider_range = [0, 10]
-start_value = 1
 
 [node name="SupplyCart" parent="SettingsScreen/Blue Units" instance=ExtResource("2_hthqh")]
 layout_mode = 2
@@ -188,7 +183,6 @@ attached_settings_variable = "blue_player_units"
 augmented_dictionary_variable = "supply_cart"
 label_text = "Supply Carts"
 slider_range = [0, 10]
-start_value = 1
 
 [node name="Cannons" parent="SettingsScreen/Blue Units" instance=ExtResource("2_hthqh")]
 layout_mode = 2
@@ -196,7 +190,6 @@ attached_settings_variable = "blue_player_units"
 augmented_dictionary_variable = "cannon"
 label_text = "Cannon"
 slider_range = [0, 10]
-start_value = 1
 
 [node name="Musketeer" parent="SettingsScreen/Blue Units" instance=ExtResource("2_hthqh")]
 layout_mode = 2
@@ -204,7 +197,6 @@ attached_settings_variable = "blue_player_units"
 augmented_dictionary_variable = "musketeer"
 label_text = "Musketeers"
 slider_range = [0, 10]
-start_value = 1
 
 [node name="Pikeman" parent="SettingsScreen/Blue Units" instance=ExtResource("2_hthqh")]
 layout_mode = 2
@@ -212,7 +204,6 @@ attached_settings_variable = "blue_player_units"
 augmented_dictionary_variable = "pikeman"
 label_text = "Pikemans"
 slider_range = [0, 10]
-start_value = 1
 
 [node name="Shield" parent="SettingsScreen/Blue Units" instance=ExtResource("2_hthqh")]
 layout_mode = 2
@@ -220,7 +211,6 @@ attached_settings_variable = "blue_player_units"
 augmented_dictionary_variable = "shield"
 label_text = "Shields"
 slider_range = [0, 10]
-start_value = 1
 
 [node name="Knight" parent="SettingsScreen/Blue Units" instance=ExtResource("2_hthqh")]
 layout_mode = 2
@@ -228,7 +218,6 @@ attached_settings_variable = "blue_player_units"
 augmented_dictionary_variable = "knight"
 label_text = "Knights"
 slider_range = [0, 10]
-start_value = 1
 
 [node name="Structures" type="VBoxContainer" parent="SettingsScreen"]
 custom_minimum_size = Vector2(0, 20)
@@ -247,21 +236,18 @@ layout_mode = 2
 attached_settings_variable = "num_towns"
 label_text = "Number of Towns"
 slider_range = [0, 8]
-start_value = 3
 
 [node name="RiverSlider" parent="SettingsScreen/Structures" instance=ExtResource("2_hthqh")]
 layout_mode = 2
 attached_settings_variable = "num_rivers"
 label_text = "Number of Rivers"
 slider_range = [0, 5]
-start_value = 3
 
 [node name="ForrestSlider" parent="SettingsScreen/Structures" instance=ExtResource("2_hthqh")]
 layout_mode = 2
 attached_settings_variable = "num_forests"
 label_text = "Number of Forests"
 slider_range = [0, 10]
-start_value = 2
 
 [node name="Red Units" type="VBoxContainer" parent="SettingsScreen"]
 layout_mode = 1
@@ -288,7 +274,6 @@ attached_settings_variable = "red_player_units"
 augmented_dictionary_variable = "medic"
 label_text = "Medics"
 slider_range = [0, 10]
-start_value = 1
 
 [node name="Observers" parent="SettingsScreen/Red Units" instance=ExtResource("2_hthqh")]
 layout_mode = 2
@@ -296,7 +281,6 @@ attached_settings_variable = "red_player_units"
 augmented_dictionary_variable = "observer"
 label_text = "Observers"
 slider_range = [0, 10]
-start_value = 1
 
 [node name="SupplyCart" parent="SettingsScreen/Red Units" instance=ExtResource("2_hthqh")]
 layout_mode = 2
@@ -304,7 +288,6 @@ attached_settings_variable = "red_player_units"
 augmented_dictionary_variable = "supply_cart"
 label_text = "Supply Carts"
 slider_range = [0, 10]
-start_value = 1
 
 [node name="Cannons" parent="SettingsScreen/Red Units" instance=ExtResource("2_hthqh")]
 layout_mode = 2
@@ -312,7 +295,6 @@ attached_settings_variable = "red_player_units"
 augmented_dictionary_variable = "cannon"
 label_text = "Cannon"
 slider_range = [0, 10]
-start_value = 1
 
 [node name="Musketeer" parent="SettingsScreen/Red Units" instance=ExtResource("2_hthqh")]
 layout_mode = 2
@@ -320,7 +302,6 @@ attached_settings_variable = "red_player_units"
 augmented_dictionary_variable = "musketeer"
 label_text = "Musketeers"
 slider_range = [0, 10]
-start_value = 1
 
 [node name="Pikeman" parent="SettingsScreen/Red Units" instance=ExtResource("2_hthqh")]
 layout_mode = 2
@@ -328,7 +309,6 @@ attached_settings_variable = "red_player_units"
 augmented_dictionary_variable = "pikeman"
 label_text = "Pikemen"
 slider_range = [0, 10]
-start_value = 1
 
 [node name="Shield" parent="SettingsScreen/Red Units" instance=ExtResource("2_hthqh")]
 layout_mode = 2
@@ -336,7 +316,6 @@ attached_settings_variable = "red_player_units"
 augmented_dictionary_variable = "shield"
 label_text = "Shields"
 slider_range = [0, 10]
-start_value = 1
 
 [node name="Knight" parent="SettingsScreen/Red Units" instance=ExtResource("2_hthqh")]
 layout_mode = 2
@@ -344,7 +323,6 @@ attached_settings_variable = "red_player_units"
 augmented_dictionary_variable = "knight"
 label_text = "Knights"
 slider_range = [0, 10]
-start_value = 1
 
 [node name="Label" type="RichTextLabel" parent="SettingsScreen"]
 layout_mode = 1
@@ -358,8 +336,61 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
 text = "[b]Note:[/b] Due to the way the generation algorithm works not all of the structures may end up on the battleground every time, when adding a lot of structures of the same type."
 
+[node name="AudioSettings" type="Control" parent="SettingsScreen"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -51.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(0, -40)
+
+[node name="GridContainer" type="GridContainer" parent="SettingsScreen/AudioSettings"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsScreen/AudioSettings/GridContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsScreen/AudioSettings/GridContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Background Music Volume"
+
+[node name="BgSoundSlider" type="HSlider" parent="SettingsScreen/AudioSettings/GridContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+value = 50.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="SettingsScreen/AudioSettings/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsScreen/AudioSettings/GridContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Volume"
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="SettingsScreen/AudioSettings/GridContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+max_value = 70.0
+value = 50.0
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_tihyt")
+bus = &"BgMusic"
 
 [node name="random_music_player" parent="." instance=ExtResource("4_swsi7")]
 sound_list = Array[AudioStream]([ExtResource("5_i3f02"), ExtResource("6_x67xj"), ExtResource("7_okisi"), ExtResource("8_uvyoj"), ExtResource("9_3oejk")])
@@ -373,3 +404,5 @@ layout_mode = 1
 [connection signal="pressed" from="MainButtons/TutorialBtn" to="." method="_on_tutorial_btn_pressed"]
 [connection signal="button_up" from="MainButtons/ExitBtn" to="." method="_on_exit_btn_button_up"]
 [connection signal="button_up" from="SettingsScreen/VBoxContainer/BackToStartScreenBtn" to="." method="_on_back_to_start_screen_btn_button_up"]
+[connection signal="value_changed" from="SettingsScreen/AudioSettings/GridContainer/VBoxContainer/BgSoundSlider" to="." method="_on_bg_sound_slider_value_changed"]
+[connection signal="value_changed" from="SettingsScreen/AudioSettings/GridContainer/VBoxContainer2/HSlider" to="." method="_on_sfx_sound_value_changed"]

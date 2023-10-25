@@ -14,6 +14,7 @@ func _ready():
 	$ErrorAnimation.hide()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	$terrain_type_finder.find_current_overlapping_terrain() 
 	global_position += speed * delta * direction
 	if global_position.distance_to(start_position) >= action_range:
 		_play_explosion() 
@@ -24,8 +25,8 @@ func _on_area_entered(area):
 		return false
 	if area.get_parent() == shooting_unit:
 		return false
-#	if area.get_parent().get_parent() is Forrest:
-#		_play_error() 
+	if area.get_parent().get_parent() is Forrest and $terrain_type_finder.overlapping_terrain_type != "road":
+		_play_error() 
 	return true
 func _play_explosion():
 	# Only play the animation if it's not already playing

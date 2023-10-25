@@ -49,8 +49,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l6eco"]
-radius = 7.0
-height = 16.0
+radius = 1.0
+height = 8.0
 
 [node name="Bullet" instance=ExtResource("1_fditi")]
 light_mask = 32

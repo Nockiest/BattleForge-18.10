@@ -37,4 +37,23 @@ func _go_back_from_tutorial() -> void:
 
 
  
- 
+
+func _on_sfx_sound_value_changed(value: float) -> void:
+	var bus_idx = AudioServer.get_bus_index("Master")
+	print("SETTING VALUE ", value)
+	if value > %HSlider.min_value:
+		AudioServer.set_bus_mute(bus_idx,false)
+		AudioServer.set_bus_volume_db(bus_idx,value)
+	else:
+		AudioServer.set_bus_mute(bus_idx,true)
+
+
+func _on_bg_sound_slider_value_changed(value: float) -> void:
+	var bus_idx = AudioServer.get_bus_index("BgMusic")
+	print("SETTING VALUE ", value)
+	if value > %BgSoundSlider.min_value:
+		AudioServer.set_bus_mute(bus_idx,false)
+		AudioServer.set_bus_volume_db(bus_idx,value)
+	else:
+		AudioServer.set_bus_mute(bus_idx,true)
+

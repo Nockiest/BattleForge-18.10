@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://i2m0nvduyp0c"]
+[gd_scene load_steps=34 format=3 uid="uid://i2m0nvduyp0c"]
 
 [ext_resource type="Script" path="res://scenes/screens/levels/projectiles/projectile.gd" id="1_jmxrc"]
 [ext_resource type="Texture2D" uid="uid://dk6fv1mbsu3t8" path="res://img/anime/explosion/pixil-frame-0.png" id="2_qshlr"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://be7nuf1hojlb5" path="res://img/anime/explosion/pixil-frame-15.png" id="17_1oiaa"]
 [ext_resource type="Texture2D" uid="uid://h563xc0735gy" path="res://img/anime/explosion/pixil-frame-16.png" id="18_c3jr2"]
 [ext_resource type="AudioStream" uid="uid://bucultkjbfm0i" path="res://music/projectile/explosion.ogg" id="30_chy4d"]
+[ext_resource type="PackedScene" uid="uid://bxihhqvokjqy" path="res://components/terrain_type_finder/terrain_type_finder.tscn" id="31_s1y3x"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bxjgt"]
 animations = [{
@@ -155,6 +156,8 @@ visibility_layer = 25
 
 [node name="Explosion" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("30_chy4d")
+
+[node name="terrain_type_finder" parent="." instance=ExtResource("31_s1y3x")]
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
