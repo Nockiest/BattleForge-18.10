@@ -36,6 +36,7 @@ var is_newly_bought:= true:
  
 
 func action_aftermath_handler():
+	pass
 	print("CAN MOVE AFTER ATTACK? ", can_move_after_attack)
 	if !can_move_after_attack:
 		$movement_comp.remain_distance = 0

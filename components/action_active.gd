@@ -38,12 +38,12 @@ func find_attackable_units():
  
 		
 func exit():
-	unhighlight_units_in_range()
 	if Globals.action_taking_unit == AttackComponent.owner:
 		Globals.action_taking_unit = null
 		Globals.attacking_component = null
 		AttackComponent.reachable_units = []
 		AttackComponent.get_node("AttackRangeCircle").hide()
+	unhighlight_units_in_range()
 
 func try_attack( ):
 	if !check_can_attack():
@@ -92,9 +92,9 @@ func update(_delta:float):
  
 
 func highlight_units_in_range() -> void: 
-	print("UNITS IN RANGE ", self, " ",AttackComponent.units_in_action_range, AttackComponent.reachable_units)
-#	print("HIGHLIGHTING UNITS", AttackComponent.units_in_action_range, )
-#	print("REACHABLE UNITS ",  AttackComponent.reachable_units)
+	
+	print("HIGHLIGHTING UNITS", AttackComponent.units_in_action_range, )
+	print("REACHABLE UNITS ",  AttackComponent.reachable_units)
 	for unit in AttackComponent.units_in_action_range:
 		if unit in AttackComponent.reachable_units:
 			unit.get_node("ColorRect").modulate = Color(AttackComponent.highlight_color)

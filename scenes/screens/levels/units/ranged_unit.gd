@@ -17,15 +17,15 @@ func update_stats_bar():
 func _on_ranged_attack_comp_ammo_changed(_ammo):
 	update_stats_bar()
 
-func _on_collision_area_entered(area):
- 
-## 
-#	if area is UnitsMainCollisionArea:
-#		$movement_comp/State/Moving.abort_movement()
-	super._on_collision_area_entered(area)
-	if area .get_parent().get_parent() is Forrest:
-		if is_in_forrest():
-				$movement_comp/State/Moving.abort_movement()
+#func _on_collision_area_entered(area):
+#
+### 
+##	if area is UnitsMainCollisionArea:
+##		$movement_comp/State/Moving.abort_movement()
+#	super._on_collision_area_entered(area)
+#	if area .get_parent().get_parent() is Forrest:
+#		if is_in_forrest():
+#				$movement_comp/State/Moving.abort_movement()
 #	for overlapping in $CollisionArea.get_overlapping_areas():
 #		if overlapping.get_parent().get_parent() is Forrest:
 #			$movement_comp.movement_modifiers["in_forrest"] = 0.5
@@ -78,16 +78,16 @@ func _on_collision_area_entered(area):
 #	$movement_comp.on_river = still_on_river
 #	$movement_comp.calculate_total_movement_modifier()
 #
-func is_in_forrest() -> bool:
-	var on_road = false
-	var in_forrest = false
-	
-	for overlapping in $CollisionArea.get_overlapping_areas():
-		if overlapping.get_parent().get_parent() is Forrest:
-			in_forrest = true #$movement_comp.movement_modifiers["in_forrest"] = 0.5
-		elif overlapping.get_parent() is Road:
-			on_road = true #$movement_comp.movement_modifiers["on_road"] = -0.5
-	if not on_road and in_forrest:
-		return true
-	else:
-		return false
+#func is_in_forrest() -> bool:
+#	var on_road = false
+#	var in_forrest = false
+#
+#	for overlapping in $CollisionArea.get_overlapping_areas():
+#		if overlapping.get_parent().get_parent() is Forrest:
+#			in_forrest = true #$movement_comp.movement_modifiers["in_forrest"] = 0.5
+#		elif overlapping.get_parent() is Road:
+#			on_road = true #$movement_comp.movement_modifiers["on_road"] = -0.5
+#	if not on_road and in_forrest:
+#		return true
+#	else:
+#		return false

@@ -37,6 +37,7 @@ func update_action_range_modifier(modifier,value):
 	aciton_range_modifiers[modifier] = value
 	print("NEW MODIFIERS ", aciton_range_modifiers)
 	action_range = floor( base_action_range * Utils.sum_dict_values(aciton_range_modifiers))
+
 func  update_for_next_turn():
 	remain_actions = base_actions
  

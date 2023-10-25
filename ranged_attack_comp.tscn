@@ -76,7 +76,7 @@ entity_mask_indexes = [7]
 [node name="ActionSound" parent="." index="9"]
 stream = ExtResource("16_2nf3e")
 
-[node name="Active" parent="StateMachine" index="1"]
+[node name="Active" parent="State" index="1"]
 script = ExtResource("17_ygniw")
 
 [connection signal="ammo_changed" from="ammo_component" to="." method="_on_ammo_component_ammo_changed"]

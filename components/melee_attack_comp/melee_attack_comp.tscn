@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://j1m3phvcc4ib"]
+[gd_scene load_steps=5 format=3 uid="uid://j1m3phvcc4ib"]
 
 [ext_resource type="PackedScene" uid="uid://5mi3kabinyrb" path="res://components/default_attack_comp.tscn" id="1_00yst"]
 [ext_resource type="Script" path="res://components/melee_attack_comp/melee_attack_comp.gd" id="1_wafpm"]
 [ext_resource type="PackedScene" uid="uid://clbhbsvrbf11l" path="res://animations/slash_animation.tscn" id="2_wbj7e"]
+[ext_resource type="Script" path="res://components/default_action/melee_active_state.gd" id="4_1h7w4"]
 
 [node name="MeleeAttackComp" instance=ExtResource("1_00yst")]
 script = ExtResource("1_wafpm")
@@ -11,3 +12,6 @@ script = ExtResource("1_wafpm")
 
 [node name="reachabilityCheckerComp" parent="." index="6"]
 entity_mask_indexes = [8]
+
+[node name="Active" parent="State" index="1"]
+script = ExtResource("4_1h7w4")
