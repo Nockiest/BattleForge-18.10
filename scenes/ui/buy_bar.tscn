@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b14wos6th44f3"]
+[gd_scene load_steps=10 format=3 uid="uid://b14wos6th44f3"]
 
 [ext_resource type="PackedScene" uid="uid://cgo81acasqhl6" path="res://scenes/ui/buyButton.tscn" id="1_bf3kq"]
 [ext_resource type="Texture2D" uid="uid://s10n8gns5q1w" path="res://img/cannon.png" id="3_gawrp"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://bu7erw8ki7qkq" path="res://img/shield.png" id="5_1ysss"]
 [ext_resource type="Texture2D" uid="uid://dr7dy4hm31foh" path="res://img/medic.png" id="6_sfad8"]
 [ext_resource type="Texture2D" uid="uid://ixa58p2rs7m1" path="res://img/knight.png" id="7_jcxcv"]
+[ext_resource type="Texture2D" uid="uid://5jlbkvidvtat" path="res://spyglass (1).png" id="8_b46f2"]
 [ext_resource type="Texture2D" uid="uid://5u2w0d8l6w5h" path="res://img/musketeer.png" id="8_ivext"]
+[ext_resource type="Texture2D" uid="uid://b72braopnqrkw" path="res://img/supplycart.png" id="9_j0a84"]
 
 [node name="BuyBar" type="Control"]
 layout_mode = 3
@@ -27,11 +29,13 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -27.0
-offset_bottom = 27.0
+offset_left = -301.0
+offset_top = -51.0
+offset_right = 318.0
+offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 54
+theme_override_constants/separation = 32
 alignment = 1
 
 [node name="Cannon" parent="HBoxContainer" instance=ExtResource("1_bf3kq")]
@@ -74,3 +78,13 @@ text = " Musket "
 icon = ExtResource("8_ivext")
 instanced_units_index = 4
 label_text = "Musketeer"
+
+[node name="Observer" parent="HBoxContainer" instance=ExtResource("1_bf3kq")]
+layout_mode = 2
+icon = ExtResource("8_b46f2")
+instanced_units_index = 1
+
+[node name="SuppplyCart" parent="HBoxContainer" instance=ExtResource("1_bf3kq")]
+layout_mode = 2
+icon = ExtResource("9_j0a84")
+instanced_units_index = 2

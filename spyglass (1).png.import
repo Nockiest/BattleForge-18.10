@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfcql11iavqws"
-path="res://.godot/imported/cannon.png-f77e13959ce355916ec84b043cdbbce5.ctex"
+uid="uid://5jlbkvidvtat"
+path="res://.godot/imported/spyglass (1).png-acd0b420038d631eee6bfa7f4065828b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cannon.png"
-dest_files=["res://.godot/imported/cannon.png-f77e13959ce355916ec84b043cdbbce5.ctex"]
+source_file="res://spyglass (1).png"
+dest_files=["res://.godot/imported/spyglass (1).png-acd0b420038d631eee6bfa7f4065828b.ctex"]
 
 [params]
 

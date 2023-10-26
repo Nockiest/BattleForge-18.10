@@ -9,8 +9,8 @@
 script = ExtResource("2_6yepa")
 
 [node name="Sprite2D" parent="." index="1"]
+position = Vector2(25.5, 25.5)
+scale = Vector2(1.02083, 1.02083)
 texture = ExtResource("2_wtic5")
 
 [node name="ResupplyAction" parent="ActionComponent" index="0" instance=ExtResource("3_ovxmd")]
-
-[connection signal="crossed_river" from="river_crossed_checker_comp" to="." method="_on_river_crossed " flags=18]
