@@ -23,7 +23,7 @@ func enter(_msg=[]):
  
 func update(_delta: float):
 	MoveComp.current_movement_modifier = MoveComp.translate_terrain_to_move_modifier()
-	MoveComp.owner.current_terrain = $"../../terrain_type_finder".overlapping_terrain_type
+	MoveComp.owner.current_terrain = $"../../terrain_type_finder".top_most_terrain_type
 	if Input.is_action_just_pressed("right_click"):
 		abort_movement()
 	elif Input.is_action_just_pressed("left_click"):
@@ -36,7 +36,7 @@ func exit():
 	toggle_moving_appearance("off")
 	MoveComp.get_node("SelectSound").stop()
 	MoveComp.get_node("MovementSound").stop()
-	MoveComp.owner.current_terrain = $"../../terrain_type_finder".overlapping_terrain_type
+	MoveComp.owner.current_terrain = $"../../terrain_type_finder".top_most_terrain_type
 	if Globals.moving_unit == MoveComp.owner:
 		Globals.moving_unit = null
 	

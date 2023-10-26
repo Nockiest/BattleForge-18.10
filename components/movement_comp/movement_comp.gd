@@ -22,7 +22,7 @@ func _ready():
  
 func translate_terrain_to_move_modifier() -> float:
 	$"terrain_type_finder".find_current_overlapping_terrain()
-	match $"terrain_type_finder".overlapping_terrain_type:
+	match $"terrain_type_finder".top_most_terrain_type:
 		"river":
 			hit_river.emit()
 			return 10000
@@ -34,7 +34,7 @@ func translate_terrain_to_move_modifier() -> float:
 			return 0.75 
 		"forest":
 			return 1.5
-	print("THERE IS A PROBLEM IN THE TRANSLATE TO MOVE MODIFIER FC ", $"terrain_type_finder".overlapping_terrain_type)
+	print("THERE IS A PROBLEM IN THE TRANSLATE TO MOVE MODIFIER FC ", $"terrain_type_finder".top_most_terrain_type)
 	return 10000
  
  

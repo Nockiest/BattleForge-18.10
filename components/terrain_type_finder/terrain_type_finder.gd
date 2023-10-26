@@ -1,9 +1,9 @@
 class_name TerrainTypeFinder
 extends Node2D
 
-var overlapping_terrain_type:String = "pasture"
+var top_most_terrain_type:String = "pasture"
 @export var bodies_masks_for_detection:Array[int] = [2,4,5,8,9]
-
+var in_forrest = false
 
 func _ready() -> void:
 	for index in bodies_masks_for_detection:
@@ -17,7 +17,7 @@ func find_current_overlapping_terrain() -> String:
 	# Set the point in 2D space where you want to check for overlapping areas
 	var new_overlap = "pasture"
 #	global_position = get_global_mouse_position()
- 
+	var still_in_forrest = false
 	for area in $Area2D.get_overlapping_areas():
 #		for shape in area.get_overlapping_areas():
 		if area.get_parent() is RiverSegment   and new_overlap != "road" :
@@ -30,12 +30,14 @@ func find_current_overlapping_terrain() -> String:
 		elif area.get_parent() is Road or  area.get_parent() is Bridge:
 			new_overlap = "road"
 	for area in get_tree().get_nodes_in_group("forrest_shape")  :  # Replace with your group name
-#		if area.get_parent().is_point_in_polygon ( point_in_space, area.get_parent() ):
-		if Utils.calculate_is_inside(area.get_parent(), global_position)and (new_overlap != "road"and new_overlap != "river"):
-#			print("Point is inside Area2D:", area,  ) 
-			new_overlap = "forest"	
-	overlapping_terrain_type = new_overlap
-	return overlapping_terrain_type
+#		if area.get_parent().is_point_in_polygon ( point_in_space, area.get_parent() )
+		if Utils.calculate_is_inside(area.get_parent(), global_position):
+			still_in_forrest = true
+			if (new_overlap != "road"and new_overlap != "river"):
+				new_overlap = "forest"	
+	in_forrest= still_in_forrest
+	top_most_terrain_type = new_overlap
+	return top_most_terrain_type
 	
 	
 	# Get an array of Area2D nodes overlapping the specified point
@@ -48,7 +50,7 @@ func find_current_overlapping_terrain() -> String:
 #		#if  Utils.is_point_inside_rect(area,  area.get_shape().extents, global_position) :
 #		if Utils.calculate_is_inside(area.get_node("Polygon2D"), global_position):
 #			print("Point is inside Area2D:", area, )  # Adjust the properties you want to print
-#			overlapping_terrain_type = "town"
+#			top_most_terrain_type = "town"
 #func _on_area_2d_area_exited(area: Area2D) -> void:
 #	print("ENTERED AREA ", area)
 		## get the position of all the edges
@@ -63,5 +65,5 @@ func find_current_overlapping_terrain() -> String:
 #		if Utils.calculate_is_inside(polygon , global_position) :#Utils.is_point_inside_rect(area,  area.get_node("CollisionShape2D").shape.extents*2, global_position):
 ##		if area is Area2D and area.is_point_inside(point_in_space):
 #			print("Point is inside Area2D:", area,  )  # Adjust the properties you want to print
-#			overlapping_terrain_type = "river" 
+#			top_most_terrain_type = "river" 
 #	 

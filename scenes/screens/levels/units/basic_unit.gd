@@ -98,7 +98,7 @@ func _process(_delta):
 	update_stats_bar()
 	center = $Center.global_position 
 	handle_show_unit_information()
-	if $movement_comp/terrain_type_finder.overlapping_terrain_type == "forest":
+	if $movement_comp/terrain_type_finder.in_forrest :
 		$InForrestSprite.show()
 	else:
 		$InForrestSprite.hide()
@@ -196,6 +196,7 @@ func _on_error_animation_finished():
  
 func _on_river_crossed () -> void:
 	print("RIVER CROSSED ", self)
-	if $movement_comp/terrain_type_finder.overlapping_terrain_type != "road":
+	call_deferred_thread_group("handle_riveer_crossed")
+func handle_riveer_crossed():
+	if $movement_comp/terrain_type_finder.top_most_terrain_type != "road":
 		$movement_comp/State/Moving.abort_movement()
-

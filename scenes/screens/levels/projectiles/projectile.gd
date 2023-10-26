@@ -25,7 +25,7 @@ func _on_area_entered(area):
 		return false
 	if area.get_parent() == shooting_unit:
 		return false
-	if area.get_parent().get_parent() is Forrest and $terrain_type_finder.overlapping_terrain_type != "road":
+	if area.get_parent().get_parent() is Forrest and $terrain_type_finder.top_most_terrain_type != "road":
 		_play_error() 
 	return true
 func _play_explosion():
