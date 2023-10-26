@@ -26,7 +26,8 @@ func check_can_enter_state() -> bool:
 		return false
 	print("COLORS ",AttackComponent.owner.color, Color(Globals.cur_player))
 	if AttackComponent.owner.color != Color(Globals.cur_player):
-		$"../../ErrorSound".play()
+#		print("CANT ENTERE STATE")
+#		$"../../ErrorSound".play()
 		return false
 	return true
  
@@ -66,8 +67,12 @@ func attack():
 
 func check_can_attack() -> bool:
 #	print("check_can_attack ",  Globals.action_taking_unit, AttackComponent.owner, Globals.action_taking_unit == AttackComponent.owner )
+	if Globals.hovered_unit == AttackComponent.owner:
+		return false
 	if  Globals.action_taking_unit != AttackComponent.owner:
 		print_debug(1, Globals.action_taking_unit)
+		return false
+	if Color(Globals.cur_player) != AttackComponent.owner.color:
 		return false
 	if not Globals.hovered_unit:
 		print_debug(2,   Globals.hovered_unit)

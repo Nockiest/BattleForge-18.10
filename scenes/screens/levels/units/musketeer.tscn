@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dc36ygib7wjc8"]
+[gd_scene load_steps=3 format=3 uid="uid://dc36ygib7wjc8"]
 
 [ext_resource type="PackedScene" uid="uid://bmn7m62gc1dc2" path="res://scenes/screens/levels/units/ranged_unit.tscn" id="1_dejdd"]
+[ext_resource type="Script" path="res://scenes/screens/levels/units/musketeer.gd" id="2_qxuxy"]
 
 [node name="Musketeer" instance=ExtResource("1_dejdd")]
+script = ExtResource("2_qxuxy")
 cost = 25
 
 [connection signal="crossed_river" from="river_crossed_checker_comp" to="." method="_on_river_crossed " flags=18]

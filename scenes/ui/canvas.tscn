@@ -91,62 +91,42 @@ offset_bottom = 26.0
 grow_horizontal = 2
 text = "Current Player ="
 
-[node name="ToggleButtons" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="CheckButton" type="CheckButton" parent="ToggleButtons"]
-layout_mode = 1
+[node name="ToggleButtons" type="VBoxContainer" parent="."]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 128.0
-offset_top = 499.0
-offset_right = 263.0
-offset_bottom = 530.0
+offset_left = 135.0
+offset_top = -66.0
+offset_right = 270.0
 grow_vertical = 0
+
+[node name="CheckButton" type="CheckButton" parent="ToggleButtons"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 button_pressed = true
 text = "Show Units"
 
-[node name="CheckButton2" type="CheckButton" parent="ToggleButtons"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 129.0
-offset_top = 532.0
-offset_right = 271.0
-offset_bottom = 563.0
-grow_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-button_pressed = true
-text = "Show Range
-"
-
 [node name="CheckButton3" type="CheckButton" parent="ToggleButtons"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 128.0
-offset_top = 565.0
-offset_right = 270.0
-offset_bottom = 596.0
-grow_vertical = 0
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 button_pressed = true
 text = "Show UI
 "
 
+[node name="CheckButton2" type="CheckButton" parent="ToggleButtons"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+button_pressed = true
+text = "Show Range
+"
+
 [connection signal="button_up" from="Ui/NextTurnBtn" to="." method="_on_next_turn_btn_button_up"]
 [connection signal="button_up" from="Ui/GiveUpBtn" to="." method="_on_give_up_btn_up"]
 [connection signal="button_up" from="ToggleButtons/CheckButton" to="." method="_on_check_button_button_up"]
 [connection signal="pressed" from="ToggleButtons/CheckButton" to="." method="_on_check_button_pressed"]
-[connection signal="pressed" from="ToggleButtons/CheckButton2" to="." method="_on_check_button_2_pressed"]
 [connection signal="toggled" from="ToggleButtons/CheckButton3" to="." method="_on_check_button_3_toggled"]
+[connection signal="pressed" from="ToggleButtons/CheckButton2" to="." method="_on_check_button_2_pressed"]

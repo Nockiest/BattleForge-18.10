@@ -3,16 +3,17 @@ extends BaseActiveActionState
 
 func check_can_enter_state():
 #	print("UNIT AMMO ", AttackComponent.ammo_component.ammo )
-	if AttackComponent.ammo_component.ammo <= 0:
+	var res = super.check_can_enter_state()
+	if !res:
+		return false
+	if AttackComponent.ammo_component.ammo <= 0  :
 		$"../../ErrorSound".play()
 		return false
 	$"../../terrain_type_finder".find_current_overlapping_terrain() 
 	if $"../../terrain_type_finder".in_forrest :
-		if Globals.hovered_unit == AttackComponent.owner:
-			print("PLAYING ERROR")
-			$"../../ErrorSound".play()
+		$"../../ErrorSound".play()
 		return false
-	return super.check_can_enter_state()
+	return true
 
 func attack():
 	super.attack()
