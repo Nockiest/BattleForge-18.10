@@ -15,10 +15,10 @@ func _process(delta: float) -> void:
 #	if Input.is_action_just_pressed("right_click"):
 	
 #	if "color" in owner:
-	if Color(Globals.cur_player) != get_parent().owner.color:
-		return
-	else:
-		state.update(delta)
+#	if Color(Globals.cur_player) != get_parent().owner.color:
+#		return
+#	else:
+	state.update(delta)
 		
 func provide_buffs():
 	if state == $ProvidingSupport and  $ProvidingSupport .supported_entity != null:

@@ -16,6 +16,8 @@ func exit():
  
 
 func update(_delta):
+	if Color(Globals.cur_player) != SupportActionNode.owner.color:
+		return
 	if Input.is_action_just_pressed("right_click"):
 		choose_supported()
 

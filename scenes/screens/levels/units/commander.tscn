@@ -6,6 +6,7 @@
 
 [node name="Commander" instance=ExtResource("1_n08ko")]
 script = ExtResource("2_66sv0")
+self_regeeration = true
 
 [node name="Sprite2D" parent="." index="1"]
 position = Vector2(24.5, 25.5)
@@ -13,6 +14,7 @@ scale = Vector2(0.796875, 0.765625)
 texture = ExtResource("3_7x4aa")
 
 [node name="HealthComponent" parent="." index="5"]
+self_regenrating = true
 max_hp = 2
 hp = 2
 

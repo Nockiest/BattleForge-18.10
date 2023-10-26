@@ -46,7 +46,6 @@ func _on_pressed():
 		Globals.red_player_money -= mock_unit.cost
 	mock_unit.color = Color(Globals.cur_player)
 	mock_unit.add_to_team(Color(Globals.cur_player))
-##		buy_area._place_new_unit(mock_unit ,  Globals.red_player_money )
 	battleground.get_node("LivingUnits").add_child(mock_unit)
 
 

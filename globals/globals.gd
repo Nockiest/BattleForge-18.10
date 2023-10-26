@@ -8,7 +8,14 @@ var blue_player_color: Color = Color("0000ff")
 var players = ["blue", "red"]
 var teams = ["red", "blue"]
 var cur_player = "blue"
-var hovered_unit
+var hovered_unit:BattleUnit:
+	set(value):
+		if hovered_unit != null:
+			hovered_unit.z_index -= 500
+		hovered_unit = value
+		if hovered_unit != null:
+			hovered_unit.z_index += 500
+		
 var placed_unit
 var hovered_structure
 var action_taking_unit:
@@ -83,16 +90,14 @@ var blue_player_money = 100:
 		print("BLUE UNITS ", value)
 		blue_player_money =  max(0, value )
 		player_money_changed.emit( ) #emit_signal("blue_player_money_changed", value)
-		for tender in tenders:
-			tender.update_tender()
+ 
 var red_player_money = 100:
 	get:
 		return red_player_money
 	set(value):
 		red_player_money = max(0, value )
 		player_money_changed.emit( ) #emit_signal("red_player_money_changed", value)
-		for tender in tenders:
-			tender.update_tender()
+ 
 var red_player_units = {
 	'medic': 0,
 	'observer': 1,

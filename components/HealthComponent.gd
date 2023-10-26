@@ -2,6 +2,7 @@ extends Node2D
 
 signal hp_changed(hp, prev_hp)  # New signal
 #signal health_reached_zero(dead_component)
+@export var self_regenrating = false
 @export var max_hp:int = 6
 @export var hp:int = 2 :
 	get:
@@ -25,3 +26,7 @@ func heal(amount):
  
 func _ready():
 	$HealthBar.value = hp
+
+func process_next_turn(): ## is called through the parent
+	if self_regenrating:
+		heal(1)

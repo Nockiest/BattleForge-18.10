@@ -57,4 +57,6 @@ func process_unit_placement():
  
 		state_machine.transition_to("Idle")
 		return
+	else:
+		$"../../ErrorSound".play()
 	print(Globals.hovered_unit, in_valid_buy_area, "POSITION CANNOT BE SET")

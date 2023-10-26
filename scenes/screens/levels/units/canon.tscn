@@ -7,6 +7,7 @@
 [node name="Canon" instance=ExtResource("1_txqrt")]
 script = ExtResource("2_tbmgh")
 start_ammo = 2
+cost = 50
 
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("3_gr68h")

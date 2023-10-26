@@ -1,3 +1,4 @@
+class_name SettingsSlider
 extends Control
 
 @export var attached_settings_variable = "blue_player_money" 
@@ -27,7 +28,7 @@ func _ready():
 #	$VBoxContainer/HSlider.disconnect("value_changed",  _on_h_slider_value_changed )
 
 	var a = Globals.get(attached_settings_variable)
-	print("GLOBALS SAVED VALUE ", a)
+#	print("GLOBALS SAVED VALUE ", a)
 
 	if attached_settings_variable in Globals and not (a is Dictionary):
 		print("ABLE TO SET VALUE ", Globals.get(attached_settings_variable), " ", attached_settings_variable)

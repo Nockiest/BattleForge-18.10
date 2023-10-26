@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b1r72bjjygjou"]
+[gd_scene load_steps=20 format=3 uid="uid://b1r72bjjygjou"]
 
 [ext_resource type="Script" path="res://ranged_attack_comp.gd" id="1_56ypw"]
 [ext_resource type="PackedScene" uid="uid://5mi3kabinyrb" path="res://components/default_attack_comp.tscn" id="1_mrdke"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b8l26kil3dvlm" path="res://components/ammo_component.tscn" id="14_7l630"]
 [ext_resource type="AudioStream" uid="uid://5m3hqksm6s6i" path="res://music/unit/canon_shots/artillery-blast.ogg" id="16_2nf3e"]
 [ext_resource type="Script" path="res://components/default_action/ranged_active_state.gd" id="17_ygniw"]
+[ext_resource type="PackedScene" uid="uid://bxihhqvokjqy" path="res://components/terrain_type_finder/terrain_type_finder.tscn" id="18_g65a5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7qb1l"]
 animations = [{
@@ -78,5 +79,7 @@ stream = ExtResource("16_2nf3e")
 
 [node name="Active" parent="State" index="1"]
 script = ExtResource("17_ygniw")
+
+[node name="terrain_type_finder" parent="." index="11" instance=ExtResource("18_g65a5")]
 
 [connection signal="ammo_changed" from="ammo_component" to="." method="_on_ammo_component_ammo_changed"]

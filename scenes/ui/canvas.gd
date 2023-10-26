@@ -27,7 +27,8 @@ func sort_by_instance(a, b):
 func _on_give_up_btn_up(): 	 
 	player_gave_up.emit()
 	Globals.end_game(Globals.cur_player)
- 
+	Globals.blue_player_money = 100
+	Globals.red_player_money = 100
 
 
 func _on_next_turn_btn_button_up():

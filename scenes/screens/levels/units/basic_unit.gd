@@ -11,6 +11,7 @@ const base_movement:= 1
 @export var action_range = 100 
 @export var can_move_after_attack = false
 @export var can_attack_after_move = true
+@export var self_regeeration:bool = false
 ## tohle budu mwnit nodem
 var action_component
 #@export var movement_comp:Node 
@@ -33,6 +34,7 @@ var is_newly_bought:= true:
 			var tween = get_tree().create_tween()
 			tween.tween_property($ColorRect, "modulate", Color(1,1,1), 0.2)
 			tween.tween_property($ColorRect, "modulate",   color, 0.2)
+#			StatsTracker.increase_stat_by("spent_money", Globals.color_names[color], cost)
  
 
 func action_aftermath_handler():
@@ -116,11 +118,17 @@ func handle_show_unit_information():
 	
  
 func update_for_next_turn():
+	if Color(Globals.cur_player) != color:
+		return
+	
 	$movement_comp.process_for_next_turn()
 	if action_component != null:
 		action_component.update_for_next_turn()
 	else:
 		print("DOESNT HAVE AN ACTION COMPONENT TO TOGGLE")
+	$HealthComponent.process_next_turn()
+#	if self_regeeration:
+#		$HealthComponent.heal(1)
 
 func _on_health_component_hp_changed(hp, prev_hp):
 	if color and $ColorRect.is_inside_tree():
@@ -139,7 +147,8 @@ func _on_collision_area_mouse_entered():
 	Globals.hovered_unit = self
  
 func _on_collision_area_mouse_exited():
-	Globals.hovered_unit = null
+	if Globals.hovered_unit == self:
+		Globals.hovered_unit = null
  
 func toggle_show_information():
 	$UnitStatsBar.visible = !$UnitStatsBar.visible
@@ -194,9 +203,11 @@ func _on_error_animation_finished():
 	$ErrorAnimation.hide()
 
  
-func _on_river_crossed () -> void:
+func _on_river_crossed() -> void:
 	print("RIVER CROSSED ", self)
 	call_deferred_thread_group("handle_riveer_crossed")
 func handle_riveer_crossed():
-	if $movement_comp/terrain_type_finder.top_most_terrain_type != "road":
+	if $movement_comp/terrain_type_finder.top_most_terrain_type != "road" and  $movement_comp/State.state == $movement_comp/State/Moving :
 		$movement_comp/State/Moving.abort_movement()
+
+

@@ -5,15 +5,21 @@
 [ext_resource type="Texture2D" uid="uid://b7rvwdnghq66p" path="res://scenes/screens/levels/units/canonball.png" id="2_ol38u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wpjis"]
-radius = 3.0
+radius = 9.21954
 
 [node name="CanonBall" instance=ExtResource("1_f8suh")]
 script = ExtResource("2_gi7q3")
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(0.276367, 0.490242)
-scale = Vector2(0.230888, 0.235889)
+position = Vector2(-0.474033, 0.478656)
+scale = Vector2(0.134332, 0.134988)
 texture = ExtResource("2_ol38u")
+
+[node name="ErrorAnimation" parent="." index="1"]
+metadata/_edit_lock_ = true
+
+[node name="ExplosionAnimation" parent="." index="2"]
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" parent="." index="3"]
 shape = SubResource("CircleShape2D_wpjis")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cimwhyema17n6"]
+[gd_scene load_steps=12 format=3 uid="uid://cimwhyema17n6"]
 
 [ext_resource type="Script" path="res://scenes/screens/StartGameScreen/start_screen.gd" id="1_wxax6"]
 [ext_resource type="PackedScene" uid="uid://bl2jno7h2an0k" path="res://scenes/screens/SettingsScreen/settings_slider.tscn" id="2_hthqh"]
+[ext_resource type="Script" path="res://scenes/screens/SettingsScreen/money_setting_slider.gd" id="3_2kj1h"]
 [ext_resource type="AudioStream" uid="uid://dsjemuwgncuil" path="res://music/start_game/ambience.wav" id="3_tihyt"]
 [ext_resource type="PackedScene" uid="uid://flxe67nfovka" path="res://components/random_music_player/random_music_player.tscn" id="4_swsi7"]
 [ext_resource type="AudioStream" uid="uid://bhktqx0omhrn8" path="res://music/bg_music/01 March of War.mp3" id="5_i3f02"]
@@ -124,11 +125,13 @@ horizontal_alignment = 1
 
 [node name="BlueMoneySlider" parent="SettingsScreen/VBoxContainer2" instance=ExtResource("2_hthqh")]
 layout_mode = 2
+script = ExtResource("3_2kj1h")
 label_text = "Blue Money"
 slider_range = [0, 500]
 
 [node name="RedMoneySlider" parent="SettingsScreen/VBoxContainer2" instance=ExtResource("2_hthqh")]
 layout_mode = 2
+script = ExtResource("3_2kj1h")
 attached_settings_variable = "red_player_money"
 label_text = "Red Money"
 slider_range = [0, 500]
@@ -137,12 +140,12 @@ slider_range = [0, 500]
 layout_mode = 2
 attached_settings_variable = "money_per_turn"
 label_text = "Base Income"
-slider_range = [0, 500]
 
 [node name="CityIncomeSlider" parent="SettingsScreen/VBoxContainer2" instance=ExtResource("2_hthqh")]
 layout_mode = 2
 attached_settings_variable = "city_turn_income"
 label_text = "City Income Per Turn"
+slider_range = [0, 50]
 
 [node name="Blue Units" type="VBoxContainer" parent="SettingsScreen"]
 layout_mode = 1
@@ -350,6 +353,17 @@ grow_horizontal = 2
 grow_vertical = 0
 pivot_offset = Vector2(0, -40)
 
+[node name="DanderZone" type="Label" parent="SettingsScreen/AudioSettings"]
+layout_mode = 2
+offset_left = 150.0
+offset_top = 20.0
+offset_right = 350.0
+offset_bottom = 46.0
+pivot_offset = Vector2(0, -10)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "Danger Zone"
+
 [node name="GridContainer" type="GridContainer" parent="SettingsScreen/AudioSettings"]
 layout_mode = 0
 offset_right = 40.0
@@ -385,8 +399,7 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-max_value = 70.0
-value = 50.0
+value = 20.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_tihyt")

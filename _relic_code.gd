@@ -206,3 +206,22 @@
 #					$Structures.add_child(bridge_instance)
 ##				print("CROSSING A RIVER SEGMENT ", area.get_parent(), "Angle: ", angle)
 #
+
+#!!!!!USEFUL CODE print(is_inside_tree())
+
+## logarithm
+#	var linear_slider_value : float = value
+#	# Assuming your slider value ranges from 0 to 1
+#	var min_slider_value : float = 0.0
+#	var max_slider_value : float = 1.0
+#
+#	# Assuming your desired volume range in decibels
+#	var min_volume_db : float = -80.0
+#	var max_volume_db : float = 0.0
+#
+#	# Convert linear slider value to logarithmic scale
+#	var log_slider_value : float = min_slider_value + (max_slider_value - min_slider_value) * linear_slider_value
+#	var log_volume_db : float = min_volume_db + (max_volume_db - min_volume_db) * exp(log_slider_value)
+#
+#	# Set the volume
+#	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), log_volume_db)

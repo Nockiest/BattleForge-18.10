@@ -19,6 +19,9 @@ func update_stats_bar():
 func _on_collision_area_area_entered(area):
 	super._on_collision_area_entered(area)
 #
+#func _on_river_crossed():
+#	super._on_river_crossed()
+#
 ### 
 ##	if area is UnitsMainCollisionArea:
 ##		$movement_comp/State/Moving.abort_movement()

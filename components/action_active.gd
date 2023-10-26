@@ -26,6 +26,7 @@ func check_can_enter_state() -> bool:
 		return false
 	print("COLORS ",AttackComponent.owner.color, Color(Globals.cur_player))
 	if AttackComponent.owner.color != Color(Globals.cur_player):
+		$"../../ErrorSound".play()
 		return false
 	return true
  
@@ -47,7 +48,7 @@ func exit():
 
 func try_attack( ):
 	if !check_can_attack():
-		AttackComponent.get_node("ErrorSound").play()
+#		AttackComponent.get_node("ErrorSound").play()
 		print("FAILED ",self, self.get_parent(),  check_can_attack() )
 		state_machine.transition_to("Idle")
 		AttackComponent.get_node("ErrorAnimation")
@@ -70,8 +71,10 @@ func check_can_attack() -> bool:
 		return false
 	if not Globals.hovered_unit:
 		print_debug(2,   Globals.hovered_unit)
+		AttackComponent.get_node("ErrorSound").play()
 		return false
 	if Globals.hovered_unit.color == AttackComponent.owner.color:
+		AttackComponent.get_node("ErrorSound").play()
 		print_debug(3,  Globals.hovered_unit.color , AttackComponent.owner.color)
 		return false
 	if AttackComponent.remain_actions <= 0:
@@ -79,6 +82,7 @@ func check_can_attack() -> bool:
 		return false
 	if not Globals.hovered_unit in AttackComponent.reachable_units:
 		print_debug(5)
+		AttackComponent.get_node("ErrorSound").play()
 		return false
 	print_debug(6)
 	return true
