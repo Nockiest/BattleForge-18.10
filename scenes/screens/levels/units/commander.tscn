@@ -20,3 +20,4 @@ hp = 2
 debug_color = Color(0.835294, 0.301961, 0.623529, 0.419608)
 
 [connection signal="area_entered" from="CollisionArea" to="." method="_on_collision_area_entered" flags=18]
+[connection signal="crossed_river" from="river_crossed_checker_comp" to="." method="_on_river_crossed " flags=18]

@@ -52,23 +52,23 @@ func _ready():
 	# The code here has to come after the code in th echildren compoennts
 	$movement_comp.base_movement_range = base_movement_range
 	$Center.position = to_local(Utils.get_collision_shape_center($CollisionArea))
-	$movement_comp/State/Moving.connect("aborted_movement", handle_abort_movement)
+#	$movement_comp/State/Moving.connect("aborted_movement", handle_abort_movement)
 	$ErrorAnimation.position = $Center.position  
 	center = $Center.global_position 
 	$ActionComponent.global_position =  center 
-#	$terrain_type_finder.global_position = center
+	$river_crossed_checker_comp.global_position = center
 	$movement_comp.global_position = center
 	var outline = Utils.polygon_to_line2d($OutlinePolygon , 4) 
 	outline_node = outline
-	add_child(outline)
+	add_child.call_deferred(outline)
 	emit_signal("bought", cost)
 	if action_component != null:
 		action_component.owner = self
 		print(action_component.base_action_range, action_range)
 		action_component.base_action_range = action_range
-		if not(self is SupportUnit):
-			print("CONNECTED")
-			action_component.connect("attack_comp_attacked", action_aftermath_handler)
+#		if not(self is SupportUnit):
+#			print("CONNECTED")
+#			action_component.connect("attack_comp_attacked", action_aftermath_handler)
 	if  is_newly_bought:
 		Globals.placed_unit = self
 		Globals.hovered_unit = null
@@ -102,9 +102,7 @@ func _process(_delta):
 		$InForrestSprite.show()
 	else:
 		$InForrestSprite.hide()
-#	if 
-#	if $movement_comp.current_state !=  $movement_comp.state.Moving:
-#		action_component.process(_delta)
+ 
 func handle_show_unit_information():
 	if Globals.hovered_unit == self:
 		$UnitStatsBar.visible = true
@@ -116,10 +114,7 @@ func handle_show_unit_information():
 		$UnitStatsBar.visible = true
 		$HealthComponent.visible = false
 	
-#
-#func _on_movement_comp_ran_out_of_movement():
-#	call_deferred_thread_group("use_$movement_comp_abort")
-
+ 
 func update_for_next_turn():
 	$movement_comp.process_for_next_turn()
 	if action_component != null:
@@ -189,7 +184,7 @@ func _on_collision_area_entered(area):
 	if area is UnitsMainCollisionArea:
 		print("AREA IS UNIT AREA ",area.get_parent(), area.get_parent().color != color)
 	if $movement_comp/State.state !=   $movement_comp/State/Moving :
-		print("isnt m oving " , $movement_comp/State.state , " ", self)
+#		print("isnt m oving " , $movement_comp/State.state , " ", self)
 		return
 	if area is UnitsMainCollisionArea and area.get_parent().color != color:
 		print("ABORTING MOVEMENT ", self)
@@ -199,3 +194,8 @@ func _on_error_animation_finished():
 	$ErrorAnimation.hide()
 
  
+func _on_river_crossed () -> void:
+	print("RIVER CROSSED ", self)
+	if $movement_comp/terrain_type_finder.overlapping_terrain_type != "road":
+		$movement_comp/State/Moving.abort_movement()
+

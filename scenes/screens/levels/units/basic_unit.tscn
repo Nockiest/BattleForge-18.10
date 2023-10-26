@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dkrdjtyb1p88n"]
+[gd_scene load_steps=15 format=3 uid="uid://dkrdjtyb1p88n"]
 
 [ext_resource type="Script" path="res://scenes/screens/levels/units/basic_unit.gd" id="1_av0y2"]
 [ext_resource type="Texture2D" uid="uid://ixa58p2rs7m1" path="res://img/knight.png" id="2_bl1id"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dcqbl8svpthp5" path="res://img/swirl-string.png" id="7_s2la6"]
 [ext_resource type="AudioStream" uid="uid://12xa7dj1stmj" path="res://music/ui_sounds/movement_selcted_beep.wav" id="10_ejrp4"]
 [ext_resource type="Texture2D" uid="uid://5ffhp0hgdi8t" path="res://img/tree.png" id="13_0hkya"]
+[ext_resource type="PackedScene" uid="uid://b5g6byd4okgal" path="res://components/river_crossed_checker_comp/river_crossed_checker_comp.tscn" id="13_6y5jc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n3ojo"]
 size = Vector2(49, 50)
@@ -158,9 +159,12 @@ position = Vector2(-8, 10)
 scale = Vector2(0.102649, 0.0925926)
 texture = ExtResource("13_0hkya")
 
+[node name="river_crossed_checker_comp" parent="." instance=ExtResource("13_6y5jc")]
+
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="animation_finished" from="ErrorAnimation" to="." method="_on_error_animation_finished"]
 [connection signal="hp_changed" from="HealthComponent" to="." method="_on_health_component_hp_changed"]
 [connection signal="area_entered" from="CollisionArea" to="." method="_on_collision_area_area_entered"]
 [connection signal="mouse_entered" from="CollisionArea" to="." method="_on_collision_area_mouse_entered"]
 [connection signal="mouse_exited" from="CollisionArea" to="." method="_on_collision_area_mouse_exited"]
+[connection signal="crossed_river" from="river_crossed_checker_comp" to="." method="_on_river_crossed"]

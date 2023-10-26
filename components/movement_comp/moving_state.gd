@@ -36,9 +36,10 @@ func exit():
 	toggle_moving_appearance("off")
 	MoveComp.get_node("SelectSound").stop()
 	MoveComp.get_node("MovementSound").stop()
+	MoveComp.owner.current_terrain = $"../../terrain_type_finder".overlapping_terrain_type
 	if Globals.moving_unit == MoveComp.owner:
 		Globals.moving_unit = null
-
+	
 
 
 func toggle_moving_appearance(toggle):
@@ -91,8 +92,8 @@ func move( ):
 func abort_movement():
 	exiting_moving_state = true
 	print("CALLED ABORT MOVEMENT ",  MoveComp.global_start_turn_position)
-	Globals.moving_unit = null
 	MoveComp.set_owner_position( MoveComp.global_start_turn_position-MoveComp.owner.size/2)  
+	Globals.moving_unit = null
 	state_machine.transition_to("Idle")
 	MoveComp.remain_distance =  MoveComp.base_movement_range
 	print("OWNER POSITION AFTER ABORT",MoveComp.owner.global_position)

@@ -8,3 +8,6 @@ func _ready():
 	action_component.projectile_scene = preload("res://scenes/screens/levels/projectiles/canon_ball.tscn")
 
  
+func _on_river_crossed () -> void:
+	print("RIVER CROSSED ", self)
+	$movement_comp/State/Moving.abort_movement()

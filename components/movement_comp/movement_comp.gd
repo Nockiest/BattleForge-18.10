@@ -43,9 +43,10 @@ func process_for_next_turn():
 	set_new_start_turn_point()  
 
 func set_owner_position(new_position):
-#	if  remain_distance == base_movement_range:
-##		print("CANT CHANGE THE POSITION")
-#		return
+	if Globals.moving_unit != get_parent():
+		print("CANT SET TO ", new_position)
+		return
+#	print("SETTING POSITION ", new_position)
 	owner.global_position = new_position
 	owner.center = owner.get_node("Center").global_position
 

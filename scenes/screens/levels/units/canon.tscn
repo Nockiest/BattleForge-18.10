@@ -10,3 +10,5 @@ start_ammo = 2
 
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("3_gr68h")
+
+[connection signal="crossed_river" from="river_crossed_checker_comp" to="." method="_on_river_crossed " flags=18]
