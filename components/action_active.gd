@@ -35,7 +35,7 @@ func check_can_enter_state() -> bool:
 func find_attackable_units():
 	for unit in AttackComponent.units_in_action_range:
 		if AttackComponent.get_node("reachabilityCheckerComp").check_position_reachable(unit.center, AttackComponent.projectile_size):
-			print("APPENDING ", unit)
+#			print("APPENDING ", unit)
 			AttackComponent.reachable_units.append(unit)
  
 		
@@ -95,8 +95,11 @@ func check_can_attack() -> bool:
 
 func update(_delta:float):
 	if Input.is_action_just_pressed("right_click") :
+		print("TRYING TO ATTACK")
 		try_attack()#AttackComponent.owner.process_action()
-	elif Input.is_action_just_pressed("left_click") :
+	elif Input.is_action_just_pressed("left_click") and check_can_attack():
+		try_attack()
+	elif  Input.is_action_just_pressed("left_click"):
 		state_machine.transition_to("Idle")#AttackComponent.owner.process_action()
  
 

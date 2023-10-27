@@ -3,7 +3,7 @@ extends Node2D
 
 @export var entity_mask_indexes:Array = []
 func check_position_reachable(point, projectile_size):
-	print("CHECKING POSITION REACHABLE")
+#	print("CHECKING POSITION REACHABLE")
 	var raycast = RayCast2D.new()
 	raycast.hide()
 	var collision_shape = CollisionShape2D.new()

@@ -15,7 +15,8 @@ func _process(delta: float) -> void:
 		return
 	
 	if "color" in owner:
-			if Color(Globals.cur_player) != owner.color:
+			if Color(Globals.cur_player) != get_parent().owner.color:
 				return
 	else:
+#		print("UPDATING")
 		state.update(delta)
