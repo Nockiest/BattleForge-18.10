@@ -5,11 +5,12 @@ func enter(_msg = {}):
 #	print(AttackComponent.get_node("BlastAnimation") , AttackComponent.position)
 	if AttackComponent.get_node("BlastAnimation"):
 		AttackComponent.get_node("BlastAnimation").position = AttackComponent.position
-
+var isRightClickPressedLastFrame : bool = false
  
 func update(_delta: float) -> void: 
 	if  Input.is_action_just_pressed("right_click"):
 		print(Globals.action_taking_unit , AttackComponent.owner)
-	if Input.is_action_just_pressed("right_click") and Globals.moving_unit== null and Globals.action_taking_unit == null:
+	if Input.is_action_just_pressed("right_click") and Globals.moving_unit== null and Globals.action_taking_unit == null and !isRightClickPressedLastFrame:
 		state_machine.transition_to("Active")
 		
+	isRightClickPressedLastFrame = Input.is_action_pressed("right_click")

@@ -100,6 +100,12 @@ func _process(_delta):
 	update_stats_bar()
 	center = $Center.global_position 
 	handle_show_unit_information()
+#	if action_component == null:
+#		return
+#	if $movement_comp/State.state ==   $movement_comp/State/Moving :
+#		action_component.get_node("RangeOutline").show()
+#	elif  $movement_comp/State.state !=   $movement_comp/State/Moving and action_component.get_node("State").state != action_component.get_node("State").get_node("Active"):
+#		action_component.get_node("RangeOutline").hide()
 	if $movement_comp/terrain_type_finder.in_forrest :
 		$InForrestSprite.show()
 	else:

@@ -68,8 +68,9 @@ vertical_alignment = 1
 [node name="RichTextLabel" type="RichTextLabel" parent="Introduction"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 15
-text = "WELCOME TO BATTLEFORGE!.
-Take lead of 9 unique unit types in this randomly generated enviroment and outmaenouver you opponent with your  strategy and cunning! But first lets go over the rules."
+bbcode_enabled = true
+text = "[b]WELCOME TO BATTLEFORGE!.[/b] 
+Take lead of 9 unique unit types in this randomly generated enviroment and outmaenouver you opponent with your  strategy and cunning! "
 fit_content = true
 
 [node name="UnitTypesUrlBtn" type="Button" parent="."]
@@ -200,20 +201,19 @@ text = "[b]Win Condition:[/b]
 You earn 10 dolars per turn
 Every captured city provides 10 extra money per turn
 To capture a city, you must have more units in it than your opponent
-You can buy units from the bottom-
-bar with earned money and place them into your territory.
+You can buy units from the bottom-bar with earned money and place them into your territory.
 [b]Movement:[/b]
 Left Click The unit
 Move It where you need it
 If you move the unit on a river of run out of movement, the position resets 
-[b]Supporting units:[/b]
+[b]How to support:[/b]
 Right  click On Your Support Unit
 Select a unit to support
 A Line Is created between them
 The supporte unit gets bonuses as long as it is in the range of the unit at the end of each turn
 [b]Attacking:[/b]
 Right click on your Battle Unit
-Select a unit in its range to attack
+Select a unit highlighted in white to attack
 Ranged units cant shoot into forrests
 Melee Units cant attack over rivers"
 fit_content = true
@@ -336,18 +336,18 @@ theme_override_font_sizes/font_size = 10
 text = "Commander"
 
 [node name="Sprite2D" type="Sprite2D" parent="Unit Types/VBoxContainer"]
-position = Vector2(34.5, 159)
-scale = Vector2(0.833333, 0.801587)
+position = Vector2(36.5, 155.875)
+scale = Vector2(0.766667, 0.70238)
 texture = ExtResource("8_s3lmd")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Unit Types/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 10
-text = "Hp:
-Attack Range:
-Movement Range
-Do not lose this unit!!"
+text = "Hp: 2
+Range: 100
+Movement: 150
+You lose this unit and you lost!!"
 metadata/_edit_lock_ = true
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Unit Types"]
@@ -360,18 +360,18 @@ theme_override_font_sizes/font_size = 10
 text = "Pikeman"
 
 [node name="Sprite2D" type="Sprite2D" parent="Unit Types/VBoxContainer2"]
-position = Vector2(29.5, 158)
-scale = Vector2(0.866667, 0.838709)
+position = Vector2(32, 156)
+scale = Vector2(0.783334, 0.774193)
 texture = ExtResource("9_vop6t")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Unit Types/VBoxContainer2"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 10
-text = "Hp:
-Attack Range:
-Movement Range
-Do not lose this unit!!"
+text = "Hp: 4
+Range: 100
+Movement: 200
+Versitaile troop and backbone of any army"
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="Unit Types"]
 custom_minimum_size = Vector2(75, 0)
@@ -383,18 +383,18 @@ theme_override_font_sizes/font_size = 10
 text = "Knight"
 
 [node name="Sprite2D" type="Sprite2D" parent="Unit Types/VBoxContainer3"]
-position = Vector2(24.5, 159)
-scale = Vector2(0.942623, 0.931035)
+position = Vector2(29.5, 157)
+scale = Vector2(0.858606, 0.853448)
 texture = ExtResource("10_28xm0")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Unit Types/VBoxContainer3"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 10
-text = "Hp:
-Attack Range:
-Movement Range
-Do not lose this unit!!"
+text = "Hp: 3
+Range: 100
+Movement: 450
+Fast unit, that gets extra attacks for killing units"
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="Unit Types"]
 custom_minimum_size = Vector2(75, 0)
@@ -406,18 +406,18 @@ theme_override_font_sizes/font_size = 10
 text = "Shield"
 
 [node name="Sprite2D" type="Sprite2D" parent="Unit Types/VBoxContainer4"]
-position = Vector2(21.5, 158)
-scale = Vector2(0.843284, 0.877049)
+position = Vector2(33.5, 157)
+scale = Vector2(0.779851, 0.815574)
 texture = ExtResource("11_vqrxa")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Unit Types/VBoxContainer4"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 10
-text = "Hp:
-Attack Range:
-Movement Range
-Do not lose this unit!!"
+text = "Hp: 6
+Range: 100	
+Movement: 80
+Armored unit to protect key chokepoints"
 
 [node name="VBoxContainer5" type="VBoxContainer" parent="Unit Types"]
 custom_minimum_size = Vector2(75, 0)
@@ -437,10 +437,11 @@ texture = ExtResource("12_icym8")
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 10
-text = "Hp:
-Attack Range:
-Movement Range
-Do not lose this unit!!"
+text = "Hp: 2
+Ammo: 3
+Range: 275
+Movement: 100
+Good range, but cant attack units in forrest"
 
 [node name="VBoxContainer6" type="VBoxContainer" parent="Unit Types"]
 custom_minimum_size = Vector2(75, 0)
@@ -460,10 +461,11 @@ texture = ExtResource("13_sue1y")
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 10
-text = "Hp:
-Attack Range:
-Movement Range
-Do not lose this unit!!"
+text = "Hp: 2
+Ammo: 2
+Range: 300
+Movement: 100
+Long ranged unit with piercig bullets. "
 
 [node name="VBoxContainer7" type="VBoxContainer" parent="Unit Types"]
 custom_minimum_size = Vector2(75, 0)
@@ -475,7 +477,7 @@ theme_override_font_sizes/font_size = 10
 text = "Observer"
 
 [node name="Sprite2D" type="Sprite2D" parent="Unit Types/VBoxContainer7"]
-position = Vector2(28.5, 152)
+position = Vector2(29.5, 155)
 scale = Vector2(0.795082, 0.738095)
 texture = ExtResource("14_4060l")
 
@@ -483,10 +485,10 @@ texture = ExtResource("14_4060l")
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 10
-text = "Hp:
-Attack Range:
-Movement Range
-Do not lose this unit!!"
+text = "Hp: 1
+Range: 150
+Movement: 100
+Support unit that doubles the range of ranged units"
 
 [node name="VBoxContainer8" type="VBoxContainer" parent="Unit Types"]
 custom_minimum_size = Vector2(75, 0)
@@ -498,18 +500,18 @@ theme_override_font_sizes/font_size = 10
 text = "Medic"
 
 [node name="Sprite2D" type="Sprite2D" parent="Unit Types/VBoxContainer8"]
-position = Vector2(18.75, 150.75)
-scale = Vector2(0.713115, 0.669231)
+position = Vector2(23.125, 154.625)
+scale = Vector2(0.79918, 0.719231)
 texture = ExtResource("15_rnppr")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Unit Types/VBoxContainer8"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 10
-text = "Hp:
-Attack Range:
-Movement Range
-Do not lose this unit!!"
+text = "Hp: 2
+Range: 150
+Movement: 100
+Heals a friendly unit by 1 hp every turn"
 
 [node name="VBoxContainer9" type="VBoxContainer" parent="Unit Types"]
 custom_minimum_size = Vector2(75, 0)
@@ -521,18 +523,18 @@ theme_override_font_sizes/font_size = 10
 text = "Supply Cart"
 
 [node name="Sprite2D" type="Sprite2D" parent="Unit Types/VBoxContainer9"]
-position = Vector2(32.5, 162)
-scale = Vector2(0.742424, 0.69697)
+position = Vector2(30, 154)
+scale = Vector2(0.73106, 0.666667)
 texture = ExtResource("16_rpbck")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Unit Types/VBoxContainer9"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 10
-text = "Hp:
-Attack Range:
-Movement Range
-Do not lose this unit!!"
+text = "Hp: 2
+Range: 150
+Movement Range: 100
+Resupplies selected ranged unit every turn"
 
 [connection signal="button_up" from="BackToStartScreenBtn2" to="." method="_on_back_to_start_screen_btn_2_button_up"]
 [connection signal="pressed" from="UnitTypesUrlBtn" to="." method="_on_unit_types_url_btn_pressed"]

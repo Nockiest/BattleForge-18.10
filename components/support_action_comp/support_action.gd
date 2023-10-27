@@ -39,10 +39,10 @@ func _process(_delta: float) -> void:
 	if get_node("RangeOutline") == null:
 		return
 	
-	if Globals.hovered_unit == owner:
-		$RangeOutline.visible = true
+	if Globals.hovered_unit == owner or Globals.moving_unit == owner or Globals.action_taking_unit == owner :
+		$RangeOutline.show()
 	else:
-		$RangeOutline.visible = false
+		$RangeOutline.hide()
  
  
 func update_for_next_turn():
