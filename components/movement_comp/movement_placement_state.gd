@@ -9,6 +9,7 @@ func exit():
 	MoveComp.owner.is_newly_bought = false
 	MoveComp.global_start_turn_position =MoveComp.owner.center#center
 	MoveComp.owner.is_newly_bought = false
+	StatsTracker.increase_stat_by("spent_money",Globals.cur_player, MoveComp.owner.cost)
 	if Globals.placed_unit == MoveComp.owner:
 		Globals.placed_unit = null
 #	MoveComp.owner.change_state_to("Idle")

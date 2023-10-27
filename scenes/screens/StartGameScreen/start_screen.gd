@@ -2,7 +2,7 @@ extends Control
 
 func _ready() -> void:
 	$tutorial_screen_page_1.connect("go_back_clicked", _go_back_from_tutorial)
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), %HSlider.value-5 )
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), %HSlider.value-10 )
 #	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), log_volume_db)
 func _on_start_game_btn_pressed():
 		get_tree().change_scene_to_file("res://scenes/Battleground.tscn") 
@@ -42,13 +42,15 @@ func _go_back_from_tutorial() -> void:
 
 func _on_sfx_sound_value_changed(value: float) -> void:
 	var bus_idx = AudioServer.get_bus_index("Master")
-	print("SETTING VALUE ", value)
+#	print("SETTING VALUE ", value)
 	if value > %HSlider.min_value:
 		AudioServer.set_bus_mute(bus_idx,false)
 		if value > 70:
-			AudioServer.set_bus_volume_db(bus_idx,70+(value-5)/70)
+			AudioServer.set_bus_volume_db(bus_idx,70+(value-10)/70)
+		elif value < 10 and value > 0:
+			AudioServer.set_bus_volume_db(bus_idx, value-value/2)
 		else:
-			AudioServer.set_bus_volume_db(bus_idx,value-5)
+			AudioServer.set_bus_volume_db(bus_idx,value-10)
 	else:
 		AudioServer.set_bus_mute(bus_idx,true)
 

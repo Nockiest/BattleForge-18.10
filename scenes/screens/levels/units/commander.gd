@@ -10,7 +10,7 @@ func _on_health_component_hp_changed(hp, max_hp):
 	if hp <= 0:
 		print("PLAYER WILL LOSE THE GAME AFTER I CATCH THIS EMITTED SIGNAL")
 		commander_killed.emit(color)#	emit_signal("commander_killed", color)
-		Globals.end_game(str(color))
+		Globals.end_game(Globals.color_names[color])
 
 
 

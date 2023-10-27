@@ -14,3 +14,5 @@ func show_game_stats():
 	$"Stats Bar/VBoxContainer/BlueEarned".text ="Blue Earned "  +str(   StatsTracker.earned_money["blue"])
 	$"Stats Bar/VBoxContainer/RedEarned".text ="Red Earned "  +str(   StatsTracker.earned_money["red"])
 	$"Stats Bar/VBoxContainer/GameLasted".text ="Game Lasted "  + str( StatsTracker.turns_played) + " Turns"
+	$Label.text = str(StatsTracker.winner.to_upper()) + " WON THE GAME" 
+	$Label.modulate = Color(StatsTracker.winner)

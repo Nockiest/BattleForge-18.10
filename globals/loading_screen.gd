@@ -3,8 +3,11 @@ extends CanvasLayer
 var timer
 
 func render_loading_screen():
-	$AnimationPlayer.play_backwards("loading_animation")
 	visible = true
+	print("SHOWED")
+	self.show()
+	$AnimationPlayer.play_backwards("loading_animation")
+ 
 #	if not timer:
 #		timer = Timer.new()
 #		add_child(timer)

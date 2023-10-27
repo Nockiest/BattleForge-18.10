@@ -50,6 +50,12 @@ func update_cur_player():
  
 func end_game(loser):
 	print(loser, " lost the game")
+	if loser ==  "red" :
+		StatsTracker.winner = "blue"
+	elif  loser ==  "blue" :
+		StatsTracker.winner = "red"
+	else:
+		print("I DONT KNOW THIS LOSER ", loser)
 	get_tree().change_scene_to_file("res://scenes/screens/EndGameScreen/end_game_screen.tscn")# 
  
 var cur_player_index =  0 :

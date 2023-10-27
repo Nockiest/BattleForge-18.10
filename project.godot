@@ -12,6 +12,7 @@ config_version=5
 
 config/name="Battle Forge"
 config/description="A 2 player turn-based strategic game, where you try to cnock-out the enemy commander using your army"
+config/tags=PackedStringArray("strategy")
 run/main_scene="res://scenes/screens/StartGameScreen/start_screen.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 boot_splash/bg_color=Color(1, 1, 1, 1)

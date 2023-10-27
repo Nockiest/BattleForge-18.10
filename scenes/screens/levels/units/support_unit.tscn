@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bxihhqvokjqy" path="res://components/terrain_type_finder/terrain_type_finder.tscn" id="4_iqflf"]
 
 [node name="SupportUnit" instance=ExtResource("1_gdjly")]
+base_movement_range = 100
 
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("3_xk5k2")

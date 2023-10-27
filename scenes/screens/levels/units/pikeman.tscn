@@ -6,7 +6,7 @@
 
 [node name="Pikeman" instance=ExtResource("1_ousks")]
 script = ExtResource("2_ihxvu")
-base_movement_range = 250
+base_movement_range = 200
 
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("3_diysh")

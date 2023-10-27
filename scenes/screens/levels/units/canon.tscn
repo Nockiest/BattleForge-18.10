@@ -7,6 +7,7 @@
 [node name="Canon" instance=ExtResource("1_txqrt")]
 script = ExtResource("2_tbmgh")
 start_ammo = 2
+base_movement_range = 100
 cost = 50
 
 [node name="Sprite2D" parent="." index="1"]

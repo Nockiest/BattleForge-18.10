@@ -24,7 +24,6 @@ func update(_delta):
 	draw_line_to_supported_entity()
 	if Input.is_action_just_pressed("right_click") and Globals.hovered_unit == SupportActionNode.owner:
 		state_machine.transition_to("Idle")
-	print("XX ",supported_entity,  is_instance_valid(supported_entity) )
 #	elif Input.is_action_just_pressed("left_click"):
 #		state_machine.transition_to("Idle")
 ### currently when i want to provide a buff on the enemy turn, it wouldnt work

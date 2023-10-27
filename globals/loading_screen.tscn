@@ -35,11 +35,12 @@ _data = {
 }
 
 [node name="LoadingScreen" type="CanvasLayer"]
+layer = 2
 visible = false
 script = ExtResource("1_fd682")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-modulate = Color(0, 0, 0, 0)
+modulate = Color(0, 0, 0, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

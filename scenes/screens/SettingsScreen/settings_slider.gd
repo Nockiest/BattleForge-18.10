@@ -36,10 +36,10 @@ func _ready():
 	if attached_settings_variable in Globals:
 		a = Globals.get(attached_settings_variable)
 		if a is Dictionary:
-			print("SETTING TO ", Globals.get(attached_settings_variable)[augmented_dictionary_variable])
+#			print("SETTING TO ", Globals.get(attached_settings_variable)[augmented_dictionary_variable])
 			$VBoxContainer/HSlider.value = Globals.get(attached_settings_variable)[augmented_dictionary_variable]
 		else:
-			print("SETTING TO ", Globals.get(attached_settings_variable))
+#			print("SETTING TO ", Globals.get(attached_settings_variable))
 			$VBoxContainer/HSlider.value = Globals.get(attached_settings_variable)
 
 	# Reconnect the signal

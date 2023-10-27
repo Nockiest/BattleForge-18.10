@@ -13,7 +13,7 @@ var spent_money:Dictionary  = {
 	"red": 0
 }
 var turns_played:int =  0
-	
+var winner:= "none"
 func increase_stat_by(stat, cur_player, value):	
 	if stat is Array:
 		stat[cur_player] = value

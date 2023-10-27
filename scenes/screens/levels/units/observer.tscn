@@ -7,6 +7,7 @@
 
 [node name="Observer" instance=ExtResource("1_1lj22")]
 script = ExtResource("2_eo33w")
+cost = 25
 
 [node name="Sprite2D" parent="." index="1"]
 position = Vector2(25, 25)

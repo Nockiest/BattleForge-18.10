@@ -35,8 +35,9 @@ offset_right = 318.0
 offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 32
+theme_override_constants/separation = 24
 alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="Cannon" parent="HBoxContainer" instance=ExtResource("1_bf3kq")]
 layout_mode = 2
@@ -44,6 +45,13 @@ text = " Canon"
 icon = ExtResource("3_gawrp")
 instanced_units_index = 3
 label_text = "Canon"
+
+[node name="Musketeer" parent="HBoxContainer" instance=ExtResource("1_bf3kq")]
+layout_mode = 2
+text = " Musket "
+icon = ExtResource("8_ivext")
+instanced_units_index = 4
+label_text = "Musketeer"
 
 [node name="Pikeman" parent="HBoxContainer" instance=ExtResource("1_bf3kq")]
 layout_mode = 2
@@ -59,12 +67,6 @@ icon = ExtResource("5_1ysss")
 instanced_units_index = 6
 label_text = "Shield"
 
-[node name="Medic" parent="HBoxContainer" instance=ExtResource("1_bf3kq")]
-layout_mode = 2
-text = " Medic"
-icon = ExtResource("6_sfad8")
-label_text = "Medic"
-
 [node name="Knight" parent="HBoxContainer" instance=ExtResource("1_bf3kq")]
 layout_mode = 2
 text = " Knight"
@@ -72,19 +74,20 @@ icon = ExtResource("7_jcxcv")
 instanced_units_index = 7
 label_text = "Knight"
 
-[node name="Musketeer" parent="HBoxContainer" instance=ExtResource("1_bf3kq")]
+[node name="Medic" parent="HBoxContainer" instance=ExtResource("1_bf3kq")]
 layout_mode = 2
-text = " Musket "
-icon = ExtResource("8_ivext")
-instanced_units_index = 4
-label_text = "Musketeer"
+text = " Medic"
+icon = ExtResource("6_sfad8")
+label_text = "Medic"
 
 [node name="Observer" parent="HBoxContainer" instance=ExtResource("1_bf3kq")]
 layout_mode = 2
 icon = ExtResource("8_b46f2")
 instanced_units_index = 1
+label_text = "Observer"
 
 [node name="SuppplyCart" parent="HBoxContainer" instance=ExtResource("1_bf3kq")]
 layout_mode = 2
 icon = ExtResource("9_j0a84")
 instanced_units_index = 2
+label_text = "Supply Cart"

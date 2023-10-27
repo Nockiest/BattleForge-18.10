@@ -16,6 +16,33 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="ColorRect4" type="ColorRect" parent="Ui"]
+z_index = -1
+layout_mode = 0
+offset_left = 275.0
+offset_top = 573.0
+offset_right = 455.0
+offset_bottom = 704.0
+color = Color(0.901961, 0, 0.156863, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="Ui"]
+z_index = -1
+layout_mode = 0
+offset_left = 455.0
+offset_top = 573.0
+offset_right = 740.0
+offset_bottom = 708.0
+color = Color(0, 0.635294, 0.443137, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="Ui"]
+z_index = -1
+layout_mode = 0
+offset_left = 738.0
+offset_top = 573.0
+offset_right = 1016.0
+offset_bottom = 709.0
+color = Color(0, 0.364706, 1, 1)
+
 [node name="Tenders" type="Control" parent="Ui"]
 layout_mode = 1
 anchors_preset = 15
@@ -23,6 +50,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="RedPlayerTender" parent="Ui/Tenders" instance=ExtResource("3_tapla")]
 self_modulate = Color(0.898039, 0.545098, 0.486275, 1)
@@ -51,17 +79,45 @@ grow_horizontal = 0
 grow_vertical = 0
 
 [node name="BuyBar" parent="Ui" instance=ExtResource("2_wxnc2")]
+z_index = 1
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
-offset_left = 44.0
-offset_top = -18.0
-offset_right = 44.0
-offset_bottom = -18.0
+offset_left = 60.0
+offset_top = -15.0
+offset_right = 60.0
+offset_bottom = -15.0
 grow_vertical = 0
 size_flags_vertical = 8
+
+[node name="Label" type="Label" parent="Ui/BuyBar"]
+layout_mode = 0
+offset_left = -300.0
+offset_top = -85.0
+offset_right = -242.0
+offset_bottom = -59.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Ranged"
+
+[node name="Label2" type="Label" parent="Ui/BuyBar"]
+layout_mode = 0
+offset_left = -60.68
+offset_top = -85.0
+offset_right = -13.68
+offset_bottom = -59.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Melee"
+
+[node name="Label3" type="Label" parent="Ui/BuyBar"]
+layout_mode = 0
+offset_left = 212.11
+offset_top = -85.0
+offset_right = 274.11
+offset_bottom = -59.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Support"
 
 [node name="NextTurnBtn" parent="Ui" instance=ExtResource("4_hlilr")]
 layout_mode = 0

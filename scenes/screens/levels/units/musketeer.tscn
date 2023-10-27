@@ -6,5 +6,6 @@
 [node name="Musketeer" instance=ExtResource("1_dejdd")]
 script = ExtResource("2_qxuxy")
 cost = 25
+action_range = 275
 
 [connection signal="crossed_river" from="river_crossed_checker_comp" to="." method="_on_river_crossed " flags=18]

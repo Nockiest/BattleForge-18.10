@@ -41,11 +41,14 @@ func give_money_income_to_players():
 			red_towns += 1
 		elif structure.team_alligiance == "blue":
 			blue_towns += 1
- 
-	Globals.blue_player_money += Globals.money_per_turn + blue_towns* Globals.city_turn_income
- 
-	Globals.red_player_money  +=  Globals.money_per_turn + red_towns* Globals.city_turn_income
- 
-	StatsTracker.increase_stat_by("earned_money", "blue",   Globals.money_per_turn + blue_towns* Globals.city_turn_income )  # Set the first element of 'earned_money' to 50
-	StatsTracker.increase_stat_by("earned_money", "red",  Globals.money_per_turn + red_towns* Globals.city_turn_income)  # Set the first element of 'earned_money' to 50
+	if Globals.cur_player == "blue":
+		Globals.blue_player_money += Globals.money_per_turn + blue_towns* Globals.city_turn_income
+		StatsTracker.increase_stat_by("earned_money", Globals.cur_player,   Globals.money_per_turn + blue_towns* Globals.city_turn_income ) 
+	elif Globals.cur_player == "red":
+		Globals.red_player_money  +=  Globals.money_per_turn + red_towns* Globals.city_turn_income
+		StatsTracker.increase_stat_by("earned_money", Globals.cur_player,   Globals.money_per_turn + red_towns* Globals.city_turn_income ) 
+	else:
+		print("DO NOT KNOW TEAM ", Globals.cur_player)
+ # Set the first element of 'earned_money' to 50
+#	StatsTracker.increase_stat_by("earned_money", "red",  Globals.money_per_turn + red_towns* Globals.city_turn_income)  # Set the first element of 'earned_money' to 50
  
