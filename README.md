@@ -1,7 +1,7 @@
 # What it is?
 A strategy videogame for 2 people!! Players take turns moving their units with the grand objective o taking down the enemy commander.
 
-
+![Logo](https://i.postimg.cc/sxVLGw2G/Screenshot-2025-04-12-172918.png)
 
 # Features
 ## Terrain
@@ -30,7 +30,7 @@ commander - deffend him at all costs!!
 
 # How to play?
 1. Download the game here: https://andwebdev.itch.io/battleforge-wargame-sandbox
-2. 
+2. Ignore the virus alert :-)
 
 # What have I learned?
 1. How to work with the Godot game engine
